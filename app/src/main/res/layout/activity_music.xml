@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp">
+
+
+    <me.wcy.lrcview.LrcView
+        android:id="@+id/lrcView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/progressbar" />
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_above="@id/ll_bottom"
+        android:max="100"
+        android:progress="20" />
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上一首" />
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放/暂停" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一首" />
+
+        <Button
+            android:id="@+id/btn_lrc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="歌词" />
+    </LinearLayout>
+
+</RelativeLayout>

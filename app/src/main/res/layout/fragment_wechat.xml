@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp">
+
+        <TextView
+            android:gravity="center"
+            android:text="设备好友管理"
+            android:drawableLeft="@mipmap/ic_launcher_round"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text=">"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/h_divider"/>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/common_recyclerview"/>
+
+
+
+
+</LinearLayout>

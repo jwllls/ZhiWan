@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ZhiWan</string>
+    <string name="notifyTitle">提示</string>
+    <string name="notifyMsg">权限设置</string>
+    <string name="cancel">取消</string>
+    <string name="setting">设置</string>
+    <string name="ok">完成</string>
+</resources>

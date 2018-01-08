@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="49dp"
+    android:background="@color/colorAccent">
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_search_bar">
+
+        <EditText
+            android:layout_marginTop="2dp"
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/tv_search"
+            android:background= "@null"
+            android:hint="搜索" />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_btn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/ic_launcher_round" />
+
+
+</RelativeLayout>

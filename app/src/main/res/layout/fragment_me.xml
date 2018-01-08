@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_activity"
+    android:orientation="vertical">
+
+    <!--    <include layout="@layout/title_bar" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorAccent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/face"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_launcher_round" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@id/face"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:text="周杰伦"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_signIn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/unread_read_point"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="签到"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/mRecyclerView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:orientation="horizontal"></android.support.v7.widget.RecyclerView>-->
+
+            <com.zhiwan.hamitao.zhiwan.view.HorizontialListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"></com.zhiwan.hamitao.zhiwan.view.HorizontialListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/gainsboro" />
+
+            <RelativeLayout
+                android:id="@+id/rl_machine"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:gravity="center"
+                    android:text="智能设备"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text=">" />
+
+                <View
+                    style="@style/h_divider"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:gravity="center"
+                    android:text="我的课表"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text=">" />
+
+                <View
+                    style="@style/h_divider"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/gainsboro" />
+
+            <RelativeLayout
+                android:id="@+id/rl_order"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:gravity="center"
+                    android:text="我的订单"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text=">" />
+
+                <View
+                    style="@style/h_divider"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_setting"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:gravity="center"
+                    android:text="设置"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text=">" />
+
+                <View
+                    style="@style/h_divider"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
