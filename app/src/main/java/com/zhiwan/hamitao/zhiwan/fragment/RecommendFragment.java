@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zhiwan.hamitao.zhiwan.R;
+import com.zhiwan.hamitao.zhiwan.activity.ScanActivity;
 import com.zhiwan.hamitao.zhiwan.activity.SearchActivity;
 import com.zhiwan.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.zhiwan.hamitao.zhiwan.activity.SortActivity;
@@ -30,20 +31,22 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 public class RecommendFragment extends BaseFragment {
 
 
-    View view;
+
+    private View view;
+    Unbinder unbinder;
+
     @BindView(R.id.back)
     TextView back;
     @BindView(R.id.title)
     TextView title;
     @BindView(R.id.more)
     TextView more;
-    Unbinder unbinder;
     @BindView(R.id.et_search)
     EditText etSearch;
     @BindView(R.id.tv_search)
-    TextView vioceSearch;
+    TextView vioceSearch; //语音搜索
     @BindView(R.id.tv_btn)
-    TextView tvBtn;
+    TextView tvBtn;        //扫一扫
     @BindView(R.id.list_recyclerView)
     RecyclerView listRecyclerView;
     @BindView(R.id.list_refresh)
@@ -66,7 +69,6 @@ public class RecommendFragment extends BaseFragment {
         title.setVisibility(View.VISIBLE);
         title.setText("智玩");
         editTextable(etSearch,false);  //不可编辑
-
     }
 
     @Override
@@ -94,7 +96,7 @@ public class RecommendFragment extends BaseFragment {
                 break;
             case R.id.tv_btn:
                 //扫一扫
-                ToastUtil.showShort(getActivity(),"扫一扫");
+                startActivity(new Intent(getActivity(), ScanActivity.class));
                 break;
         }
     }

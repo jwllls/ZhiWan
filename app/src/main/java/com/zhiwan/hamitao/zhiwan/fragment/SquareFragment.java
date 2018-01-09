@@ -24,14 +24,14 @@ import cn.bingoogolapple.refreshlayout.BGARefreshViewHolder;
 public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGARefreshLayoutDelegate {
 
 
-
-
     View view;
-    @BindView(R.id.mRecyclerView)
-    RecyclerView mRecyclerView;
-    @BindView(R.id.mRefreshLayout)
-    BGARefreshLayout mRefreshLayout;
     Unbinder unbinder;
+
+    @BindView(R.id.list_recyclerView)
+    RecyclerView listRecyclerView;
+    @BindView(R.id.list_refresh)
+    BGARefreshLayout listRefresh;
+
 
     @Nullable
     @Override
@@ -44,11 +44,11 @@ public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGA
 
     private void initRefreshLayout() {
         // 为BGARefreshLayout 设置代理
-        mRefreshLayout.setDelegate(this);
+        listRefresh.setDelegate(this);
         // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
         BGARefreshViewHolder refreshViewHolder = new BGAMoocStyleRefreshViewHolder(getActivity(), true);
         // 设置下拉刷新和上拉加载更多的风格
-        mRefreshLayout.setRefreshViewHolder(refreshViewHolder);
+        listRefresh.setRefreshViewHolder(refreshViewHolder);
         // 为了增加下拉刷新头部和加载更多的通用性，提供了以下可选配置选项  -------------START
         // 设置正在加载更多时不显示加载更多控件
         // mRefreshLayout.setIsShowLoadingMoreView(false);
@@ -63,13 +63,14 @@ public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGA
         // 设置下拉刷新控件的背景 drawable 资源 id
         refreshViewHolder.setRefreshViewBackgroundDrawableRes(R.mipmap.bga_refresh_loading02);
         // 设置自定义头部视图（也可以不用设置）     参数1：自定义头部视图（例如广告位）， 参数2：上拉加载更多是否可用
-      //  mRefreshLayout.setCustomHeaderView(mBanner, false);
+        //  mRefreshLayout.setCustomHeaderView(mBanner, false);
         // 可选配置  -------------END
     }
 
 
     /**
      * 下拉刷新
+     *
      * @param refreshLayout
      */
     @Override
@@ -79,6 +80,7 @@ public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGA
 
     /**
      * 上拉加载更多
+     *
      * @param refreshLayout
      * @return
      */

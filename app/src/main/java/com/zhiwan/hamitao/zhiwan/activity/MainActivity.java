@@ -1,16 +1,18 @@
 package com.zhiwan.hamitao.zhiwan.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zhiwan.hamitao.zhiwan.R;
-import com.zhiwan.hamitao.zhiwan.base.BaseActivity;
 import com.zhiwan.hamitao.zhiwan.fragment.MeFragment;
 import com.zhiwan.hamitao.zhiwan.fragment.RecommendFragment;
 import com.zhiwan.hamitao.zhiwan.fragment.SquareFragment;
@@ -22,8 +24,12 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
+
+    private static final int REQUEST_CODE_QRCODE_PERMISSIONS = 1;
 
     @BindViews({R.id.iv_recommend, R.id.iv_wechat, R.id.iv_square, R.id.iv_me})
     List<ImageView> tab_ivs;
@@ -65,12 +71,17 @@ public class MainActivity extends BaseActivity {
         outState.putSerializable("isExceptionStart", true);
     }
 
+
+    //初始化
     private void initData() {
+        requestCodeQRCodePermissions();
         fragmentManager = getSupportFragmentManager();
         //默认选中第一个tab
         showFragment(1);
     }
 
+
+    //    ---------------------------------------------Fragment显藏-----------------------------------------------
     private void showFragment(int page) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         // 想要显示一个fragment,先隐藏所有fragment，防止重叠
@@ -87,7 +98,7 @@ public class MainActivity extends BaseActivity {
                 }
                 //选中第一个Tab时的状态
                 tab_ivs.get(0).setImageResource(tabResId_p[0]);
-                tab_tvs.get(0).setTextColor(ContextCompat.getColor(this,R.color.white));
+                tab_tvs.get(0).setTextColor(ContextCompat.getColor(this, R.color.white));
                 break;
             case 2:
                 if (wechatFragment != null)
@@ -129,6 +140,9 @@ public class MainActivity extends BaseActivity {
             ft.hide(meFragment);
     }
 
+
+
+    //    ---------------------------------------------点击事件----------------------------------------------------
     private int index;
     private int currentTabIndex;// 当前fragment的index
     private int tabResId[] = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
@@ -145,11 +159,11 @@ public class MainActivity extends BaseActivity {
         if (currentTabIndex != index) {
             showFragment(index + 1);
             tab_ivs.get(currentTabIndex).setImageResource(tabResId[currentTabIndex]);
-            tab_tvs.get(currentTabIndex).setTextColor(ContextCompat.getColor(this,R.color.black));
+            tab_tvs.get(currentTabIndex).setTextColor(ContextCompat.getColor(this, R.color.black));
 
         }
         tab_ivs.get(index).setImageResource(tabResId_p[index]);
-        tab_tvs.get(index).setTextColor(ContextCompat.getColor(this,R.color.white));
+        tab_tvs.get(index).setTextColor(ContextCompat.getColor(this, R.color.white));
         currentTabIndex = index;
     }
 
@@ -175,4 +189,33 @@ public class MainActivity extends BaseActivity {
     }
 
 
+
+    //    ---------------------------------------------权限请求----------------------------------------------------
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
+    private void requestCodeQRCodePermissions() {
+        String[] perms = {
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+        };
+        if (!EasyPermissions.hasPermissions(this, perms)) {
+            EasyPermissions.requestPermissions(this, "扫描二维码需要打开相机和散光灯的权限", REQUEST_CODE_QRCODE_PERMISSIONS, perms);
+        }
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        Log.e("permission", "请求成功");
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Log.e("permission", "请求失败");
+    }
+    //    ---------------------------------------------权限请求----------------------------------------------------
 }

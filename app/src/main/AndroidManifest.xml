@@ -47,7 +47,9 @@
         <activity android:name=".activity.OrderActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.CollectActivity" />
-        <activity android:name=".activity.MyRecordActivity"></activity>
+        <activity android:name=".activity.MyRecordActivity" />
+        <activity android:name=".activity.ScanActivity" />
+        <activity android:name=".activity.WebViewActivity"></activity>
     </application>
 
 </manifest>
