@@ -49,7 +49,8 @@
         <activity android:name=".activity.CollectActivity" />
         <activity android:name=".activity.MyRecordActivity" />
         <activity android:name=".activity.ScanActivity" />
-        <activity android:name=".activity.WebViewActivity"></activity>
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.RecordActivity"></activity>
     </application>
 
 </manifest>

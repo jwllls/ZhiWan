@@ -72,5 +72,8 @@ dependencies {
     //圆形图像
     compile 'de.hdodenhof:circleimageview:2.2.0'
 
+    //toolbar
+    //compile 'com.jaeger.statusbarutil:library:1.4.0'
+
 
 }

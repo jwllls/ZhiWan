@@ -38,4 +38,8 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:visibility="gone" />
+
+
+
+
 </RelativeLayout>
