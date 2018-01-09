@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.zhiwan.hamitao.zhiwan.R;
 import com.zhiwan.hamitao.zhiwan.mvp.music.RecordPresenter;
 import com.zhiwan.hamitao.zhiwan.mvp.music.RecordView;
+import com.zhiwan.hamitao.zhiwan.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,12 +62,16 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
                 break;
             case R.id.btn_startRecord:
                 //开始录音
+                startRecort();
+                ToastUtil.showShort(this,"开始录音");
                 break;
             case R.id.tv_reRecord:
                 //重新录音
                 break;
             case R.id.tv_saveRecord:
                 //保存录音
+                savaRecort();
+                ToastUtil.showShort(this,"保存录音");
                 break;
             case R.id.tv_tips:
                 //提示
@@ -91,12 +96,12 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
 
     @Override
     public void startRecort() {
-
+        presenter.startRecord();
     }
 
     @Override
     public void savaRecort() {
-
+        presenter.stopRecord();
     }
 
     @Override
