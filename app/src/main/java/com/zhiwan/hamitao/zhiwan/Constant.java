@@ -50,7 +50,7 @@ public class Constant {
 
     //录音保存路径
     public final static String USER_RECORD_LOCAL = Environment
-            .getExternalStorageDirectory() + "ZhiWan/Downloader/record/";
+            .getExternalStorageDirectory() + "/ZhiWan/Downloader/record/";
 
     public static final String CONNECT_FAIL = PACKAGE + ".CONNECT_FAIL";//重新连接失败
     public static final String CONNECT_SUCC = PACKAGE + ".CONNECT_SUCC";//重新连接成功
