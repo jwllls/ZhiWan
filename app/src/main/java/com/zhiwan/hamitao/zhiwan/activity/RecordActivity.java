@@ -1,14 +1,20 @@
 package com.zhiwan.hamitao.zhiwan.activity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.zhiwan.hamitao.zhiwan.R;
+import com.zhiwan.hamitao.zhiwan.model.RecordFileModel;
 import com.zhiwan.hamitao.zhiwan.mvp.music.RecordPresenter;
 import com.zhiwan.hamitao.zhiwan.mvp.music.RecordView;
+import com.zhiwan.hamitao.zhiwan.util.LogUtil;
 import com.zhiwan.hamitao.zhiwan.util.ToastUtil;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +36,7 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     @BindView(R.id.tv_tips)
     TextView tvTips;
     @BindView(R.id.tv_recordTime)
-    TextView tvRecordTime;
+    Chronometer tvRecordTime;
 
 
     private RecordPresenter presenter;
@@ -58,20 +64,22 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
-                finish();
+//                finish();
+                presenter.setRecordList();
                 break;
             case R.id.btn_startRecord:
                 //开始录音
                 startRecort();
-                ToastUtil.showShort(this,"开始录音");
+
                 break;
             case R.id.tv_reRecord:
                 //重新录音
+                reRecord();
+
                 break;
             case R.id.tv_saveRecord:
                 //保存录音
                 savaRecort();
-                ToastUtil.showShort(this,"保存录音");
                 break;
             case R.id.tv_tips:
                 //提示
@@ -96,16 +104,51 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
 
     @Override
     public void startRecort() {
+        //开始录音
         presenter.startRecord();
+        //计时开始
+        tvRecordTime.start();
+        ToastUtil.showShort(this,"开始录音");
     }
 
     @Override
     public void savaRecort() {
+        //停止录音
         presenter.stopRecord();
+        //显示音频保存弹窗
+        presenter.showReNameDialog();
+        //计时停止
+        tvRecordTime.stop();
+        ToastUtil.showShort(this,"保存录音");
     }
+
+
 
     @Override
     public void reRecord() {
+        presenter.reRecord();
+        reset();
+        tvRecordTime.start();
+        ToastUtil.showShort(this,"重新录音");
 
+    }
+
+
+    @Override
+    public void reset() {
+        tvRecordTime.setBase(SystemClock.elapsedRealtime());
+    }
+
+    @Override
+    public void getRecordList(List<RecordFileModel> list) {
+        if (list!=null){
+            ToastUtil.showShort(this,list.size()+"条数据====="+list.get(0).getRecordFile().getName());
+
+            for (int i = 0; i < list.size(); i++) {
+                LogUtil.e("file",list.get(i).getRecordFile().getName()+"===="+list.get(i).getRecordDate());
+            }
+
+
+        }
     }
 }

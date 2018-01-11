@@ -35,8 +35,13 @@ public class BaseApplication extends Application{
     }
 
     private void initApp() {
+
         instance = this;
+
+        //应用版本号
         Constant.versionCode = AppVersionUtil.getVersionCode(this);
+
+        //图灵机器人识别
     }
 
 }

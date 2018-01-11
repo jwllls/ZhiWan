@@ -16,7 +16,6 @@ import com.zhiwan.hamitao.zhiwan.activity.SearchActivity;
 import com.zhiwan.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.zhiwan.hamitao.zhiwan.activity.SortActivity;
 import com.zhiwan.hamitao.zhiwan.base.BaseFragment;
-import com.zhiwan.hamitao.zhiwan.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,8 +90,8 @@ public class RecommendFragment extends BaseFragment {
                 break;
             case R.id.rl_search:
             case R.id.tv_search:
-                //语音搜索
-                ToastUtil.showShort(getActivity(),"讯飞科大语音识别搜索");
+                //语音输入后直接跳转到搜索页面 SearchActivity
+
                 break;
             case R.id.tv_btn:
                 //扫一扫
@@ -113,5 +112,8 @@ public class RecommendFragment extends BaseFragment {
             editText.setClickable(true);
         }
     }
+
+
+
 
 }

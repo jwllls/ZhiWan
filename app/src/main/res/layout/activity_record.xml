@@ -62,14 +62,14 @@
     </RelativeLayout>
 
 
-    <TextView
+    <Chronometer
+        android:format="%s"
         android:id="@+id/tv_recordTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rl"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:text="00:00"
         android:textSize="30sp" />
 
 </RelativeLayout>
