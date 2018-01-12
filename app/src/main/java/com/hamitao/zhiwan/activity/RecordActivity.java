@@ -1,5 +1,6 @@
 package com.hamitao.zhiwan.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +8,14 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.model.RecordFileModel;
 import com.hamitao.zhiwan.mvp.music.RecordPresenter;
 import com.hamitao.zhiwan.mvp.music.RecordView;
-import com.hamitao.zhiwan.util.LogUtil;
 import com.hamitao.zhiwan.util.ToastUtil;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -64,18 +66,16 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
-//                finish();
                 presenter.setRecordList();
+                finish();
                 break;
             case R.id.btn_startRecord:
                 //开始录音
                 startRecort();
-
                 break;
             case R.id.tv_reRecord:
                 //重新录音
                 reRecord();
-
                 break;
             case R.id.tv_saveRecord:
                 //保存录音
@@ -126,9 +126,9 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
 
     @Override
     public void reRecord() {
-        presenter.reRecord();
-        reset();
-        tvRecordTime.start();
+//        presenter.reRecord();
+//        reset();
+//        tvRecordTime.start();
         ToastUtil.showShort(this,"重新录音");
 
     }
@@ -141,14 +141,15 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
 
     @Override
     public void getRecordList(List<RecordFileModel> list) {
-        if (list!=null){
-            ToastUtil.showShort(this,list.size()+"条数据====="+list.get(0).getRecordFile().getName());
 
-            for (int i = 0; i < list.size(); i++) {
-                LogUtil.e("file",list.get(i).getRecordFile().getName()+"===="+list.get(i).getRecordDate());
-            }
+        //这里将数据回传到我的录音
+        Intent it = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("recordList", (Serializable) list);
+        it.putExtra("recordList",bundle);
+        setResult(Constant.RECORD_CODE,it);
 
 
-        }
+
     }
 }

@@ -63,4 +63,10 @@ public class Constant {
     public static final String NOTIFICATION = PACKAGE + ".NOTIFICATION";//全站广播
     public static final String LOGIN_SUCCESS = PACKAGE + ".LOGIN_SUCCESS";//登录成功
     public static final String RELOGIN = PACKAGE + ".RELOGIN";//重新登录
+
+
+    /*请求码*/
+    public static final int RECORD_CODE = 100;  //跳转到录音界面
+
+
 }

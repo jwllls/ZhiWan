@@ -375,13 +375,24 @@ public class DateUtil {
      */
     public static Date getDate(String time) {
         Date date = new Date(System.currentTimeMillis());
-        sdf = new SimpleDateFormat("yyyyMMdd");
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             date = sdf.parse(time);
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
         return date;
+    }
+
+
+    /**
+     *  年月日  格式： yyyy-MM-dd
+     * @param time
+     * @return
+     */
+    public static String getyyyyMMdd(long time){
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(time);
     }
 
 
