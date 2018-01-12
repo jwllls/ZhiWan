@@ -61,10 +61,10 @@
             <!--android:layout_height="100dp"-->
             <!--android:orientation="horizontal"></android.support.v7.widget.RecyclerView>-->
 
-            <com.zhiwan.hamitao.zhiwan.view.HorizontialListView
+            <com.hamitao.zhiwan.view.HorizontialListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></com.zhiwan.hamitao.zhiwan.view.HorizontialListView>
+                android:layout_height="100dp"></com.hamitao.zhiwan.view.HorizontialListView>
 
             <View
                 android:layout_width="match_parent"
