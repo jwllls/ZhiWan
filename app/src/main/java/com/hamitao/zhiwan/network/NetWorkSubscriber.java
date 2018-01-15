@@ -1,31 +1,33 @@
 package com.hamitao.zhiwan.network;
 
 
-import rx.Subscriber;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by linjianwen on 2018/1/5.
  */
 
-public class NetWorkSubscriber extends Subscriber<NetWordResult> {
+public class NetWorkSubscriber implements Observer<NetWordResult> {
 
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onSubscribe(Disposable d) {
+
     }
 
     @Override
-    public void onCompleted() {
+    public void onNext(NetWordResult netWordResult) {
+
     }
 
     @Override
     public void onError(Throwable e) {
+
     }
 
     @Override
-    public void onNext(NetWordResult t) {
+    public void onComplete() {
 
     }
-
 }

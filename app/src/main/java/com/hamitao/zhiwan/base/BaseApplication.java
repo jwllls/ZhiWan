@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.util.AppVersionUtil;
+import com.hamitao.zhiwan.util.PropertiesUtil;
 import com.hamitao.zhiwan.util.RecordUtil;
 
 
@@ -43,6 +44,8 @@ public class BaseApplication extends Application{
         RecordUtil.getInstance().setSavePath(Constant.USER_RECORD_LOCAL);
         //应用版本号
         Constant.versionCode = AppVersionUtil.getVersionCode(this);
+        //初始化Sharepreference
+        PropertiesUtil.getInstance().init(this);
 
         //图灵机器人识别
     }

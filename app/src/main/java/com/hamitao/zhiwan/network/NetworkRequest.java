@@ -1,11 +1,10 @@
 package com.hamitao.zhiwan.network;
 
 
-
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.hamitao.zhiwan.network.CommonParams.commonParam;
 
@@ -16,8 +15,18 @@ import static com.hamitao.zhiwan.network.CommonParams.commonParam;
 
 public class NetworkRequest {
 
-    private static <T> void addObservable(Observable<T> observable, Subscriber<T> subscriber) {
-        RxUtils.getInstance().addSubscription(observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(subscriber));
+    //observable  被观察者
+    //observer    观察者
+
+    private static <T> void addObservable(Observable<T> observable, Observer<T> observer) {
+        //RxUtils.getInstance().addSubscription(observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer));
+
+        observable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+
     }
 
     /**
@@ -37,8 +46,6 @@ public class NetworkRequest {
     public static void udapteApk(NetWorkCallBack netWorkCallBack) {
         addObservable(NetWork.getApi().udapteApk(commonParam()), netWorkCallBack.getNetWorkSubscriber());
     }
-
-
 
 
 }

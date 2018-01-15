@@ -6,9 +6,13 @@
     <include layout="@layout/title_bar"/>
 
     <TextView
+        android:id="@+id/app_version"
+        android:textSize="20sp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
         android:layout_marginTop="100dp"
         android:layout_gravity="center_horizontal"
-        android:background="@mipmap/ic_launcher_round"
+        android:drawableTop="@drawable/app_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

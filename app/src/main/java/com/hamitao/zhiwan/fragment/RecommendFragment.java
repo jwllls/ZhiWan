@@ -3,7 +3,9 @@ package com.hamitao.zhiwan.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,21 @@ import com.hamitao.zhiwan.activity.SearchActivity;
 import com.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.hamitao.zhiwan.activity.SortActivity;
 import com.hamitao.zhiwan.base.BaseFragment;
+import com.hamitao.zhiwan.model.NewsModel;
+import com.hamitao.zhiwan.network.NetWork;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import cn.bingoogolapple.baseadapter.BGARecyclerViewAdapter;
+import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Response;
 
 /**
  * Created by linjianwen on 2018/1/4.
@@ -46,11 +57,12 @@ public class RecommendFragment extends BaseFragment {
     TextView vioceSearch; //语音搜索
     @BindView(R.id.tv_btn)
     TextView tvBtn;        //扫一扫
-    @BindView(R.id.list_recyclerView)
-    RecyclerView listRecyclerView;
-    @BindView(R.id.list_refresh)
-    BGARefreshLayout listRefresh;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerView;
+    @BindView(R.id.refresh_layout)
+    BGARefreshLayout refreshLayout;
 
+    NewAdapter adapter;
 
     @Nullable
     @Override
@@ -62,12 +74,44 @@ public class RecommendFragment extends BaseFragment {
     }
 
     private void initView() {
-        back.setText("智慧树");
         more.setVisibility(View.VISIBLE);
         more.setText("分类");
         title.setVisibility(View.VISIBLE);
         title.setText("智玩");
         editTextable(etSearch,false);  //不可编辑
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+
+
+        NetWork.getApi().getNewsList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<NewsModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<NewsModel> newsModelResponse) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("news","出错");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
+
+
+
+
+
     }
 
     @Override
@@ -91,7 +135,6 @@ public class RecommendFragment extends BaseFragment {
             case R.id.rl_search:
             case R.id.tv_search:
                 //语音输入后直接跳转到搜索页面 SearchActivity
-
                 break;
             case R.id.tv_btn:
                 //扫一扫
@@ -100,7 +143,11 @@ public class RecommendFragment extends BaseFragment {
         }
     }
 
-
+    /**
+     * EditText 是否可以编辑
+     * @param editText
+     * @param editable
+     */
     private void editTextable(EditText editText, boolean editable) {
         if (!editable) { // disable editing password
             editText.setFocusable(false);
@@ -114,6 +161,18 @@ public class RecommendFragment extends BaseFragment {
     }
 
 
+    private class NewAdapter  extends BGARecyclerViewAdapter<NewsModel> {
+
+
+        public NewAdapter(RecyclerView recyclerView) {
+            super(recyclerView, R.layout.item_news);
+        }
+
+        @Override
+        protected void fillData(BGAViewHolderHelper helper, int position, NewsModel model) {
+            helper.getTextView(R.id.news_title).setText(model.getResult().getData().get(position).getTitle());
+        }
+    }
 
 
 }

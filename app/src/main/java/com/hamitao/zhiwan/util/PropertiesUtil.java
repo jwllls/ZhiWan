@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 
 public class PropertiesUtil {
 
-    private static final String fileName = "txprop";
+    private static final String fileName = "hamitao";
 
     private SharedPreferences sp;
 

@@ -4,13 +4,13 @@
     android:layout_height="match_parent">
 
     <cn.bingoogolapple.refreshlayout.BGARefreshLayout
-        android:id="@+id/list_refresh"
+        android:id="@+id/refresh_layout"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/list_recyclerView"
+            android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     </cn.bingoogolapple.refreshlayout.BGARefreshLayout>

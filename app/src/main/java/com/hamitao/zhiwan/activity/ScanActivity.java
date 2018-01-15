@@ -98,7 +98,9 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                         .selectedPhotos(null)
                         .pauseOnScroll(false)
                         .build();
+
                 startActivityForResult(photoPickerIntent, REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY);
+
                 break;
         }
     }

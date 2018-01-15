@@ -1,7 +1,8 @@
 package com.hamitao.zhiwan.network;
 
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
+
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by linjianwen on 2018/1/5.
@@ -12,7 +13,7 @@ public class RxUtils {
 
     public static RxUtils rxUtils;
 
-    private CompositeSubscription compositeSubscription = new CompositeSubscription();
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
 
     private RxUtils(){}
@@ -25,20 +26,20 @@ public class RxUtils {
     }
 
     public void clearSubscription() {
-        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
-            compositeSubscription.clear();
+        if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
+            compositeDisposable.clear();
         }
     }
 
     public void unSubscription() {
-        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
-            compositeSubscription.unsubscribe();
+        if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
+            compositeDisposable.dispose();
         }
     }
 
-    public void addSubscription(Subscription subscription) {
-        if (compositeSubscription != null) {
-            compositeSubscription.add(subscription);
+    public void addSubscription(Disposable disposable) {
+        if (compositeDisposable != null) {
+            compositeDisposable.add(disposable);
         }
     }
 

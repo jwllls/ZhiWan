@@ -22,15 +22,7 @@ public class NetWorkCallBack {
 
     private NetWorkSubscriber netWorkSubscriber = new NetWorkSubscriber() {
 
-        @Override
-        public void onStart() {
-            if (callBack != null) callBack.onBegin();
-        }
 
-        @Override
-        public void onCompleted() {
-            if (callBack != null) callBack.onEnd();
-        }
 
         @Override
         public void onError(Throwable e) {

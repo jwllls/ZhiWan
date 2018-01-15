@@ -4,9 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+
     }
 }
 
@@ -16,12 +18,26 @@ allprojects {
         jcenter()
     }
 
-  /*  gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-        }
-    }*/
+    /*  打印报错信息
+          gradle.projectsEvaluated {
+          tasks.withType(JavaCompile) {
+              options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+          }
+      }*/
 }
-    task clean(type: Delete) {
-        delete rootProject.buildDir
-    }
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+ext {
+    // SDK And Tools Version
+    minSdkVersion = 19
+    targetSdkVersion = 27//信鸽推送限制了小于等于22
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.2'
+    supportVersion = "27.0.2"
+    versionCode = '1.0.0'
+    versionName = '1'
+
+}

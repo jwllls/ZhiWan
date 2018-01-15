@@ -8,6 +8,7 @@ import com.hamitao.zhiwan.model.RecordFileModel;
 import cn.bingoogolapple.baseadapter.BGARecyclerViewAdapter;
 import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
 
+
 /**
  * Created by linjianwen on 2018/1/12.
  */

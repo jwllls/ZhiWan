@@ -39,9 +39,9 @@ public class MyRecordActivity extends AppCompatActivity {
     TextView tvRecord;
     @BindView(R.id.tv_manager)
     TextView tvManager;
-    @BindView(R.id.list_recyclerView)
+    @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
-    @BindView(R.id.list_refresh)
+    @BindView(R.id.refresh_layout)
     BGARefreshLayout refreshLayout;
 
 

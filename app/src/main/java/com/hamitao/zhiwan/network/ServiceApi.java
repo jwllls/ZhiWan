@@ -1,13 +1,17 @@
 package com.hamitao.zhiwan.network;
 
+import com.hamitao.zhiwan.model.NewsModel;
+
 import java.util.Map;
 
+import io.reactivex.Observable;
+import retrofit2.Response;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
-import rx.Observable;
+
 
 /**
  * Created by linjianwen on 2018/1/5.
@@ -23,9 +27,15 @@ public interface ServiceApi {
     @GET(Api.UPDATE_CHECK)
     Observable<NetWordResult> udapteApk(@QueryMap Map<String, String> map);
 
+    @GET(Api.NEWS_LIST)
+    Observable<Response<NewsModel>> getNewsList();
+
 
     class Api{
-        public static final String BASE_URL = "";
+        public static final String BASE_URL = "http://v.juhe.cn/toutiao/";
+
+        //测试
+        static final String NEWS_LIST = "index?key=f91e041225cb343f3967f4395624f5ed";
 
         //自动登录
         static final String AUTOLOGIN = "/api/user/auto/login";
