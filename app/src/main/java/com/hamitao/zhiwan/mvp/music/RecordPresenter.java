@@ -10,11 +10,12 @@ import android.widget.TextView;
 
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
+import com.hamitao.zhiwan.activity.RecordActivity;
 import com.hamitao.zhiwan.base.BasePresenter;
-import com.hamitao.zhiwan.model.RecordFileModel;
+import com.hamitao.zhiwan.model.RecordModel;
 import com.hamitao.zhiwan.util.DateUtil;
+import com.hamitao.zhiwan.util.FileUtil;
 import com.hamitao.zhiwan.util.RecordUtil;
-import com.hamitao.zhiwan.util.ToastUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,13 +31,13 @@ public class RecordPresenter implements BasePresenter {
 
     private Context context;
 
-    private List<RecordFileModel> list = new ArrayList<>();
+    private List<RecordModel> list = new ArrayList<>();
 
     //录音所保存的文件
     private File mAudioFile;
 
     //录音文件保存位置
-    private String mFilePath ;
+    private String mFilePath;
 
     //是否正在录音
     private boolean isRecord = false;
@@ -74,6 +75,7 @@ public class RecordPresenter implements BasePresenter {
         recordView.reset();
         RecordUtil.getInstance().startRecord();
         isRecord = true;
+        recordView.showButton();
     }
 
 
@@ -81,7 +83,6 @@ public class RecordPresenter implements BasePresenter {
      * 结束录音操作
      */
     public void stopRecord() {
-        recordView.reset();
         RecordUtil.getInstance().stopRecord();
         isRecord = false;
     }
@@ -92,7 +93,6 @@ public class RecordPresenter implements BasePresenter {
     public void showReNameDialog() {
 
         mAudioFile = RecordUtil.getInstance().getRecordFile();
-
 
         String oldFileName = mAudioFile.getName();
 
@@ -120,32 +120,60 @@ public class RecordPresenter implements BasePresenter {
                         String newFilePath = mFilePath + et_rename.getText().toString() + ".aac";
                         File renameFile = new File(newFilePath);
                         mAudioFile.renameTo(renameFile); //重命名文件
-                        ToastUtil.showShort(context, "保存成功");
+                        recordView.onMessageShow("保存成功");
+                        recordView.hideButton();//隐藏重录、保存按钮
+                        recordView.reset();//复位
+                        setRecordList();
+                        ((RecordActivity)context).finish();
 
                     }
                 }).setNegativeButton("删除", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 mAudioFile.delete();
+                recordView.hideButton();//隐藏重录、保存按钮
+                recordView.reset();//复位
+
             }
         }).show();
 
-        recordView.reset();//复位
+
     }
+
+
+    public void showRerecordDialog() {
+
+        new AlertDialog.Builder(context).setTitle("提示").setMessage("是否重新录音？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        recordView.reRecord();
+                    }
+                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //取消，不做操作
+            }
+        }).show();
+
+
+    }
+
 
     /**
      * 重新录音
      */
     public void reRecord() {
-       /* if (isRecord && mediaRecorder != null) {
+        if (isRecord) {
             stopRecord();
-            if (mAudioFile.exists()) {
+            if (mAudioFile != null && mAudioFile.exists()) {
                 mAudioFile.delete();
             }
             startRecord();
         } else {
             startRecord();
-        }*/
+        }
     }
 
 
@@ -158,13 +186,19 @@ public class RecordPresenter implements BasePresenter {
 
         File fa[] = file.listFiles();   //将record文件夹中的文件换为数组
 
-        for (int i = 0; i < fa.length; i++) {
+        for (int i = fa.length-1; i >= 0 ; i--) {
 
-            RecordFileModel model = new RecordFileModel();
+            RecordModel model = new RecordModel();
 
             model.setRecordFile(fa[i]);
 
             model.setRecordDate(DateUtil.formatyyyyMMdd(fa[i].lastModified()));
+
+            try {
+                model.setFileSize(FileUtil.formatFileSize(FileUtil.getFileSize(fa[i])));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             list.add(model);
         }

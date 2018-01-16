@@ -14,6 +14,8 @@ import java.util.Map;
 
 /**
  * Created by linjianwen on 2018/1/5.
+ *
+ * 公共参数类
  */
 
 public class CommonParams {

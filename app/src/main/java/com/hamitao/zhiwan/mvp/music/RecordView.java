@@ -2,7 +2,7 @@ package com.hamitao.zhiwan.mvp.music;
 
 
 import com.hamitao.zhiwan.base.BaseView;
-import com.hamitao.zhiwan.model.RecordFileModel;
+import com.hamitao.zhiwan.model.RecordModel;
 
 import java.util.List;
 
@@ -35,9 +35,17 @@ public interface RecordView extends BaseView {
     /**
      * 获取录音列表
      */
-    void getRecordList(List<RecordFileModel> list);
+    void getRecordList(List<RecordModel> list);
 
+    /**
+     *  显示重录、保存 按钮
+     */
+    void showButton();
 
+    /**
+     *  隐藏重录、保存 按钮
+     */
+    void hideButton();
 
 
 

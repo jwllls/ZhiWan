@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zhiwan.hamitao.zhiwan.activity.MyRecordActivity">
+    tools:context="com.hamitao.zhiwan.activity.MyRecordActivity">
 
     <include
         android:id="@+id/title_bar"
@@ -21,7 +21,10 @@
             android:id="@+id/tv_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我要录音" />
+            android:background="@color/colorPrimary"
+            android:padding="10dp"
+            android:text="我要录音"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 
@@ -37,6 +40,7 @@
             android:background="@color/lightgray" />
 
         <TextView
+            android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -65,5 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rl" />
+
 
 </RelativeLayout>

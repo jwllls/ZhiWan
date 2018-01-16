@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.model.RecordFileModel;
+import com.hamitao.zhiwan.model.RecordModel;
 import com.hamitao.zhiwan.mvp.music.RecordPresenter;
 import com.hamitao.zhiwan.mvp.music.RecordView;
 import com.hamitao.zhiwan.util.ToastUtil;
@@ -30,16 +30,15 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     @BindView(R.id.title)
     TextView title;
     @BindView(R.id.btn_startRecord)
-    TextView btnStartRecord;
+    TextView btnStartRecord;        //开始录音
     @BindView(R.id.tv_reRecord)
-    TextView tvReRecord;
+    TextView tvReRecord;            //重新录音
     @BindView(R.id.tv_saveRecord)
-    TextView tvSaveRecord;
+    TextView tvSaveRecord;          //保存录音
     @BindView(R.id.tv_tips)
-    TextView tvTips;
+    TextView tvTips;                //提示使用耳机录音
     @BindView(R.id.tv_recordTime)
-    Chronometer tvRecordTime;
-
+    Chronometer tvRecordTime;       //录音时长
 
     private RecordPresenter presenter;
 
@@ -53,20 +52,18 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     }
 
     private void initData() {
-        presenter = new RecordPresenter(this,this);
+        presenter = new RecordPresenter(this, this);
     }
 
     private void initView() {
         title.setVisibility(View.VISIBLE);
         title.setText("录音室");
-
     }
 
     @OnClick({R.id.back, R.id.btn_startRecord, R.id.tv_reRecord, R.id.tv_saveRecord, R.id.tv_tips})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
-                presenter.setRecordList();
                 finish();
                 break;
             case R.id.btn_startRecord:
@@ -75,7 +72,7 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
                 break;
             case R.id.tv_reRecord:
                 //重新录音
-                reRecord();
+                presenter.showRerecordDialog();
                 break;
             case R.id.tv_saveRecord:
                 //保存录音
@@ -99,38 +96,29 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
 
     @Override
     public void onMessageShow(String msg) {
-
+        ToastUtil.showShort(this, msg);
     }
 
     @Override
     public void startRecort() {
-        //开始录音
-        presenter.startRecord();
-        //计时开始
-        tvRecordTime.start();
-        ToastUtil.showShort(this,"开始录音");
+        presenter.startRecord();//开始录音
+        tvRecordTime.start();//计时开始
     }
 
     @Override
     public void savaRecort() {
-        //停止录音
-        presenter.stopRecord();
-        //显示音频保存弹窗
-        presenter.showReNameDialog();
-        //计时停止
-        tvRecordTime.stop();
-        ToastUtil.showShort(this,"保存录音");
+        presenter.stopRecord(); //停止录音
+        presenter.showReNameDialog();//显示音频保存弹窗
+        tvRecordTime.stop(); //计时停止
     }
-
 
 
     @Override
     public void reRecord() {
-//        presenter.reRecord();
-//        reset();
-//        tvRecordTime.start();
-        ToastUtil.showShort(this,"重新录音");
-
+        presenter.reRecord();
+        reset();
+        tvRecordTime.start();
+        ToastUtil.showShort(this, "重新录音");
     }
 
 
@@ -140,16 +128,27 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
     }
 
     @Override
-    public void getRecordList(List<RecordFileModel> list) {
-
+    public void getRecordList(List<RecordModel> list) {
         //这里将数据回传到我的录音
         Intent it = new Intent();
         Bundle bundle = new Bundle();
         bundle.putSerializable("recordList", (Serializable) list);
-        it.putExtra("recordList",bundle);
-        setResult(Constant.RECORD_CODE,it);
-
-
+        it.putExtra("recordList", bundle);
+        setResult(Constant.RECORD_CODE, it);
 
     }
+
+    @Override
+    public void showButton() {
+        tvReRecord.setVisibility(View.VISIBLE);
+        tvSaveRecord.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideButton() {
+        tvReRecord.setVisibility(View.GONE);
+        tvSaveRecord.setVisibility(View.GONE);
+    }
+
+
 }

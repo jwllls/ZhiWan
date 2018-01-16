@@ -13,6 +13,20 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
     </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_none"
+        android:text="暂无录音"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_below="@id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
 </LinearLayout>

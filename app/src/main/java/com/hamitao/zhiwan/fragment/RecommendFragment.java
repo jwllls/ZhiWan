@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,10 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.ScanActivity;
 import com.hamitao.zhiwan.activity.SearchActivity;
+import com.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.hamitao.zhiwan.activity.SortActivity;
 import com.hamitao.zhiwan.base.BaseFragment;
 import com.hamitao.zhiwan.model.NewsModel;
-import com.hamitao.zhiwan.network.NetWordResult;
-import com.hamitao.zhiwan.network.NetWorkCallBack;
-import com.hamitao.zhiwan.network.NetworkRequest;
-import com.hamitao.zhiwan.util.GsonUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +32,6 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
  */
 
 public class RecommendFragment extends BaseFragment {
-
 
 
     private View view;
@@ -71,11 +66,13 @@ public class RecommendFragment extends BaseFragment {
     }
 
     private void initView() {
+        back.setBackground(null);
+        back.setText("智慧树");
         more.setVisibility(View.VISIBLE);
         more.setText("分类");
         title.setVisibility(View.VISIBLE);
         title.setText("智玩");
-        editTextable(etSearch,false);  //不可编辑
+        editTextable(etSearch, false);  //不可编辑
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
@@ -87,41 +84,11 @@ public class RecommendFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.back, R.id.more,R.id.et_search, R.id.tv_search, R.id.tv_btn,R.id.rl_search})
+    @OnClick({R.id.back, R.id.more, R.id.et_search, R.id.tv_search, R.id.tv_btn, R.id.rl_search})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
-//                startActivity(new Intent(getActivity(), SmartTreeActivity.class));
-
-                NetworkRequest.getNewsList(new NetWorkCallBack(new NetWorkCallBack.BaseCallBack() {
-                    @Override
-                    public void onSuccess(NetWordResult result) {
-
-
-//                        InviteSettingModel inviteSettingModel = GsonUtil.GsonToBean(result.getResult(), InviteSettingModel.class);
-
-                        NewsModel model = GsonUtil.GsonToBean(result.getResult(),NewsModel.class);
-
-                        Log.e("network",model.getResult().getData().toString());
-                    }
-
-                    @Override
-                    public void onFail(NetWordResult result, String msg) {
-                        Log.e("network",msg);
-                    }
-
-                    @Override
-                    public void onBegin() {
-
-                    }
-
-                    @Override
-                    public void onEnd() {
-
-                    }
-                }));
-
-
+                startActivity(new Intent(getActivity(), SmartTreeActivity.class));
                 break;
             case R.id.more:
                 startActivity(new Intent(getActivity(), SortActivity.class));
@@ -142,6 +109,7 @@ public class RecommendFragment extends BaseFragment {
 
     /**
      * EditText 是否可以编辑
+     *
      * @param editText
      * @param editable
      */
@@ -158,8 +126,7 @@ public class RecommendFragment extends BaseFragment {
     }
 
 
-    private class NewAdapter  extends BGARecyclerViewAdapter<NewsModel> {
-
+    private class NewAdapter extends BGARecyclerViewAdapter<NewsModel> {
 
         public NewAdapter(RecyclerView recyclerView) {
             super(recyclerView, R.layout.item_news);

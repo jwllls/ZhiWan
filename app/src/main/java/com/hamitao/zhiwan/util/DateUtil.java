@@ -340,7 +340,7 @@ public class DateUtil {
     }
 
     public static String formatyyyyMMdd(long mills) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         return sdf.format(new Date(mills));
     }
 
@@ -386,11 +386,12 @@ public class DateUtil {
 
 
     /**
-     *  年月日  格式： yyyy-MM-dd
+     * 年月日  格式： yyyy-MM-dd
+     *
      * @param time
      * @return
      */
-    public static String getyyyyMMdd(long time){
+    public static String getyyyyMMdd(long time) {
         sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(time);
     }

@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class CollectActivity extends AppCompatActivity {
+public class NFCActivity extends AppCompatActivity {
 
     @BindView(R.id.title)
     TextView title;
@@ -20,14 +20,14 @@ public class CollectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collect);
+        setContentView(R.layout.activity_nfc);
         ButterKnife.bind(this);
         initView();
     }
 
     private void initView() {
         title.setVisibility(View.VISIBLE);
-        title.setText("我的收藏");
+        title.setText("NFC管理");
     }
 
     @OnClick({R.id.back, R.id.more})

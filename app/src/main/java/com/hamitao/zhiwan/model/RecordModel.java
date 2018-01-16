@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by linjianwen on 2018/1/10.
  */
 
-public class RecordFileModel implements Serializable {
+public class RecordModel implements Serializable {
 
     /**
      * 录音文件
@@ -20,9 +20,14 @@ public class RecordFileModel implements Serializable {
     private String recordDate;
 
     /**
-     * 录音时厂
+     * 录音时长
      */
     private String Duration;
+
+    /**
+     * 文件大小
+     */
+    private String fileSize;
 
 
     public File getRecordFile() {
@@ -47,5 +52,13 @@ public class RecordFileModel implements Serializable {
 
     public void setDuration(String duration) {
         Duration = duration;
+    }
+
+    public String getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
     }
 }

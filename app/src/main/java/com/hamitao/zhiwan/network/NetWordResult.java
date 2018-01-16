@@ -2,6 +2,8 @@ package com.hamitao.zhiwan.network;
 
 /**
  * Created by linjianwen on 2018/1/5.
+ *
+ * 请求结果类
  */
 
 public class NetWordResult {
