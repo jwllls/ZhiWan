@@ -94,11 +94,9 @@ public class RecommendFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), SortActivity.class));
                 break;
             case R.id.et_search:
-                startActivity(new Intent(getActivity(), SearchActivity.class));
-                break;
             case R.id.rl_search:
             case R.id.tv_search:
-                //语音输入后直接跳转到搜索页面 SearchActivity
+                startActivity(new Intent(getActivity(), SearchActivity.class));
                 break;
             case R.id.tv_btn:
                 //扫一扫
@@ -106,6 +104,7 @@ public class RecommendFragment extends BaseFragment {
                 break;
         }
     }
+
 
     /**
      * EditText 是否可以编辑

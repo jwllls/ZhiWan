@@ -5,4 +5,6 @@
     <string name="cancel">取消</string>
     <string name="setting">设置</string>
     <string name="ok">完成</string>
+
+    <string name= "agreement">注册即代表同意<u>《智玩用户协议》</u></string>
 </resources>

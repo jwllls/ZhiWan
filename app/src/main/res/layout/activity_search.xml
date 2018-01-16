@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,13 +18,32 @@
         android:layout_height="49dp"
         android:layout_below="@id/title_bar" />
 
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/serarch_bar"
+        android:layout_margin="8dp"
+        app:alignContent="flex_start"
+        app:alignItems="center"
+        app:dividerDrawable="@drawable/label_bg_shape"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start"
+        app:showDivider="beginning|middle">
+
+    </com.google.android.flexbox.FlexboxLayout>
+
     <TextView
-        android:textSize="18sp"
+        android:id="@+id/tv_chage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/flexbox_layout"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="换一批" />
+        android:text="换一批"
+        android:textSize="18sp" />
 
 </RelativeLayout>

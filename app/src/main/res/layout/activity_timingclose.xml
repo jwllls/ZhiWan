@@ -10,7 +10,7 @@
         android:id="@+id/tv_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray"
+        android:background="@color/divider_light"
         android:gravity="center"
         android:padding="6dp"
         android:text="计时结束后，将自动暂停正在播放的音频" />

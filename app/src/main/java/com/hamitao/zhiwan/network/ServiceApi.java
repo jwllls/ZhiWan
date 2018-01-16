@@ -39,7 +39,7 @@ public interface ServiceApi {
         static final String NEWS_LIST = "index?key=f91e041225cb343f3967f4395624f5ed";
 
         //自动登录
-        static final String AUTOLOGIN = "/api/user/auto/login";
+        static final String AUTOLOGIN = "/api/user/auto/LoginPresenter";
 
         //退出登陆
         static final String LOGOUT_APP = "/api/user/logout";

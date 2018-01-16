@@ -1,4 +1,4 @@
-package com.hamitao.zhiwan.mvp.music;
+package com.hamitao.zhiwan.mvp.record;
 
 import android.content.Context;
 import android.content.DialogInterface;

@@ -1,4 +1,4 @@
-package com.hamitao.zhiwan.mvp.music;
+package com.hamitao.zhiwan.mvp.record;
 
 
 import com.hamitao.zhiwan.base.BaseView;

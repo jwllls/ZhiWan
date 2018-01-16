@@ -102,7 +102,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
-                    android:background="@color/gainsboro" />
+                    android:background="@color/divider_light" />
 
                 <RelativeLayout
                     android:id="@+id/rl_machine"
@@ -168,7 +168,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
-                    android:background="@color/gainsboro" />
+                    android:background="@color/divider_light" />
 
                 <RelativeLayout
                     android:id="@+id/rl_nfc"

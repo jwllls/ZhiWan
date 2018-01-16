@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.model.RecordModel;
-import com.hamitao.zhiwan.mvp.music.RecordPresenter;
-import com.hamitao.zhiwan.mvp.music.RecordView;
+import com.hamitao.zhiwan.mvp.record.RecordPresenter;
+import com.hamitao.zhiwan.mvp.record.RecordView;
 import com.hamitao.zhiwan.util.ToastUtil;
 
 import java.io.Serializable;

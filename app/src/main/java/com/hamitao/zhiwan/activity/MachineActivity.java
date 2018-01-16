@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.hamitao.zhiwan.R;
 
-
+/**
+ * 我的设备
+ */
 public class MachineActivity extends AppCompatActivity {
 
     @Override

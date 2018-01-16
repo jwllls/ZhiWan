@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.hamitao.zhiwan.R;
 
-
+/**
+ * 我的课表
+ */
 public class ScheduleActivity extends AppCompatActivity {
 
     @Override

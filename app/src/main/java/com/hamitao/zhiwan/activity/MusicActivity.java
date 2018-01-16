@@ -24,11 +24,13 @@ public class MusicActivity extends BaseActivity implements MusicView {
 
 
     @BindView(R.id.lrcView)
-    LrcView lrcView;
+    LrcView lrcView;   //歌词
     @BindView(R.id.progressbar)
-    ContentLoadingProgressBar progressbar;
+    ContentLoadingProgressBar progressbar;  //进度条
     @BindView(R.id.btn_lrc)
-    Button btnLrc;
+    Button btnLrc;  //显示歌词按钮
+
+
     private MusicPresenter presenter;
 
 

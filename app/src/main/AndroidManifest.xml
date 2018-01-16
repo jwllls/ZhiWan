@@ -65,7 +65,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.RecentPlayActivity"></activity>
+        <activity android:name=".activity.RecentPlayActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.RegisterActivity"></activity>
     </application>
 
 </manifest>

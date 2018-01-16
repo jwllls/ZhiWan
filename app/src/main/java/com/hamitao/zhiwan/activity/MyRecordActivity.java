@@ -196,9 +196,9 @@ public class MyRecordActivity extends AppCompatActivity implements BGAOnItemChil
 
         MediaPlayer mediaPlayer = new MediaPlayer();
         try {
-
             Uri uri = Uri.fromFile(list.get(position).getRecordFile());
             mediaPlayer.setDataSource(this,uri);
+            mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (IOException e) {
             e.printStackTrace();

@@ -89,4 +89,7 @@ dependencies {
     compile 'com.tencent.wup:wup:1.0.0.E-release'
     //mid包
     compile 'com.tencent.mid:mid:4.0.0-release'
+
+    //推荐搜索
+    compile 'com.google.android:flexbox:0.3.2'
 }
