@@ -6,6 +6,8 @@ import com.hamitao.zhiwan.util.StringUtil;
 
 /**
  * Created by linjianwen on 2018/1/5.
+ *
+ * 网络请求回调
  */
 
 public class NetWorkCallBack {
@@ -16,13 +18,10 @@ public class NetWorkCallBack {
         this.callBack = callBack;
     }
 
-    public NetWorkSubscriber getNetWorkSubscriber() {
-        return netWorkSubscriber;
+    public NetworkObserver getNetWorkSubscriber() {
+        return networkObserver;
     }
-
-    private NetWorkSubscriber netWorkSubscriber = new NetWorkSubscriber() {
-
-
+    private NetworkObserver networkObserver = new NetworkObserver() {
 
         @Override
         public void onError(Throwable e) {

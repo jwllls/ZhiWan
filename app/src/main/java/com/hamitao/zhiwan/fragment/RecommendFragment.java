@@ -15,11 +15,13 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.ScanActivity;
 import com.hamitao.zhiwan.activity.SearchActivity;
-import com.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.hamitao.zhiwan.activity.SortActivity;
 import com.hamitao.zhiwan.base.BaseFragment;
 import com.hamitao.zhiwan.model.NewsModel;
-import com.hamitao.zhiwan.network.NetWork;
+import com.hamitao.zhiwan.network.NetWordResult;
+import com.hamitao.zhiwan.network.NetWorkCallBack;
+import com.hamitao.zhiwan.network.NetworkRequest;
+import com.hamitao.zhiwan.util.GsonUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +30,6 @@ import butterknife.Unbinder;
 import cn.bingoogolapple.baseadapter.BGARecyclerViewAdapter;
 import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
 
 /**
  * Created by linjianwen on 2018/1/4.
@@ -82,36 +79,6 @@ public class RecommendFragment extends BaseFragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-
-
-        NetWork.getApi().getNewsList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<NewsModel>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Response<NewsModel> newsModelResponse) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("news","出错");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                    }
-                });
-
-
-
-
-
     }
 
     @Override
@@ -124,7 +91,37 @@ public class RecommendFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
-                startActivity(new Intent(getActivity(), SmartTreeActivity.class));
+//                startActivity(new Intent(getActivity(), SmartTreeActivity.class));
+
+                NetworkRequest.getNewsList(new NetWorkCallBack(new NetWorkCallBack.BaseCallBack() {
+                    @Override
+                    public void onSuccess(NetWordResult result) {
+
+
+//                        InviteSettingModel inviteSettingModel = GsonUtil.GsonToBean(result.getResult(), InviteSettingModel.class);
+
+                        NewsModel model = GsonUtil.GsonToBean(result.getResult(),NewsModel.class);
+
+                        Log.e("network",model.getResult().getData().toString());
+                    }
+
+                    @Override
+                    public void onFail(NetWordResult result, String msg) {
+                        Log.e("network",msg);
+                    }
+
+                    @Override
+                    public void onBegin() {
+
+                    }
+
+                    @Override
+                    public void onEnd() {
+
+                    }
+                }));
+
+
                 break;
             case R.id.more:
                 startActivity(new Intent(getActivity(), SortActivity.class));

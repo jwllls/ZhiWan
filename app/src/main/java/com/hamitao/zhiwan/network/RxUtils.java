@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable;
 
 public class RxUtils {
 
-
+    //单例
     public static RxUtils rxUtils;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();

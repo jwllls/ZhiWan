@@ -19,7 +19,6 @@ public class NetworkRequest {
     //observer    观察者
 
     private static <T> void addObservable(Observable<T> observable, Observer<T> observer) {
-        //RxUtils.getInstance().addSubscription(observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer));
 
         observable
                 .subscribeOn(Schedulers.io())
@@ -45,6 +44,14 @@ public class NetworkRequest {
      */
     public static void udapteApk(NetWorkCallBack netWorkCallBack) {
         addObservable(NetWork.getApi().udapteApk(commonParam()), netWorkCallBack.getNetWorkSubscriber());
+    }
+
+
+    public static void getNewsList(NetWorkCallBack netWorkCallBack){
+        {
+            addObservable(NetWork.getApi().getNewsList(),netWorkCallBack.getNetWorkSubscriber());
+        }
+
     }
 
 

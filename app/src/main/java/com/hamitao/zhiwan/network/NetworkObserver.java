@@ -6,9 +6,10 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * Created by linjianwen on 2018/1/5.
+ * 封装观察者
  */
 
-public class NetWorkSubscriber implements Observer<NetWordResult> {
+public class NetworkObserver implements Observer<NetWordResult> {
 
 
     @Override

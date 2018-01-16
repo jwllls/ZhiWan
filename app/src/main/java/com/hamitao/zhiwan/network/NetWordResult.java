@@ -8,7 +8,7 @@ public class NetWordResult {
     /**
      * 执行结果是否成功
      */
-    private byte status = 0;
+    private byte status ;
 
     /**
      * 错误信息, 返回一个错误
@@ -58,6 +58,6 @@ public class NetWordResult {
     }
 
     public boolean isOk() {
-        return status == 1;
+        return status == 0;
     }
 }
