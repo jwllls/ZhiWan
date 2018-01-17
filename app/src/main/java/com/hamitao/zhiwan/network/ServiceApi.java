@@ -26,9 +26,6 @@ public interface ServiceApi {
     @GET(Api.UPDATE_CHECK)
     Observable<NetWordResult> udapteApk(@QueryMap Map<String, String> map);
 
-//    @GET(Api.NEWS_LIST)
-//    Observable<Response<NewsModel>> getNewsList();
-
     @GET(Api.NEWS_LIST)
     Observable<NetWordResult> getNewsList();
 

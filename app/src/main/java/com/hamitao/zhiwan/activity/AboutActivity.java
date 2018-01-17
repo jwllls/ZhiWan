@@ -1,12 +1,13 @@
 package com.hamitao.zhiwan.activity;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 
 import butterknife.BindView;
@@ -20,6 +21,7 @@ import butterknife.OnClick;
 
 public class AboutActivity extends AppCompatActivity {
 
+    PackageInfo packageInfo;
 
     @BindView(R.id.title)
     TextView title;
@@ -36,8 +38,16 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        app_version.setText(Constant.versionCode);
 
+
+        try {
+            packageInfo = getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0);
+            app_version.setText("V" + packageInfo.versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        title.setVisibility(View.VISIBLE);
         title.setText("关于");
     }
 

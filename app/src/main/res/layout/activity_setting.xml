@@ -14,7 +14,7 @@
         <RelativeLayout
             android:id="@+id/rl_close"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/item_hight"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
@@ -42,7 +42,7 @@
         <RelativeLayout
             android:id="@+id/rl_push"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/item_hight"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
@@ -71,7 +71,7 @@
         <RelativeLayout
             android:id="@+id/rl_cleanCache"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/item_hight"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
@@ -105,7 +105,7 @@
         <RelativeLayout
             android:id="@+id/rl_about"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/item_hight"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
@@ -133,7 +133,7 @@
         <RelativeLayout
             android:id="@+id/rl_helper"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/item_hight"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">

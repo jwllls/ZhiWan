@@ -18,13 +18,25 @@
         android:layout_height="49dp"
         android:layout_below="@id/title_bar" />
 
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serarch_bar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="5dp"
+        android:text="热门搜索" />
+
 
     <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/flexbox_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/serarch_bar"
-        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="5dp"
         app:alignContent="flex_start"
         app:alignItems="center"
         app:dividerDrawable="@drawable/label_bg_shape"
@@ -35,6 +47,7 @@
 
     </com.google.android.flexbox.FlexboxLayout>
 
+
     <TextView
         android:id="@+id/tv_chage"
         android:layout_width="wrap_content"
@@ -42,6 +55,7 @@
         android:layout_below="@id/flexbox_layout"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="换一批"
         android:textSize="18sp" />

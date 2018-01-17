@@ -55,7 +55,6 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        tvTitle.setVisibility(View.VISIBLE);
         initWebView();
     }
 

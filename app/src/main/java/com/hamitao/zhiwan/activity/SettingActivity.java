@@ -12,14 +12,9 @@ import android.widget.TextView;
 
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.base.BaseActivity;
-import com.hamitao.zhiwan.model.UserModel;
 import com.hamitao.zhiwan.util.DataCleanUtil;
-import com.hamitao.zhiwan.util.LogUtil;
 import com.hamitao.zhiwan.util.ToastUtil;
-import com.hamitao.zhiwan.util.UserUtil;
-import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushManager;
-import com.tencent.android.tpush.service.XGPushServiceV3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +27,6 @@ import static com.hamitao.zhiwan.Constant.USER_APK_LOCAL;
 import static com.hamitao.zhiwan.Constant.USER_PIC_LOCAL;
 import static com.hamitao.zhiwan.Constant.USER_RECORD_LOCAL;
 import static com.hamitao.zhiwan.Constant.USER_VOICE_LOCAL;
-import static com.hamitao.zhiwan.util.UserUtil.saveUserMine;
 
 /**
  * Created by linjianwen on 2018/1/4.
@@ -62,8 +56,12 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void init() {
+
         title.setVisibility(View.VISIBLE);
         title.setText("设置");
+
+
+        //初始化缓存路径
         cleanUtil = DataCleanUtil.getInstance();
         List<String> paths = new ArrayList<>();
         paths.add(USER_PIC_LOCAL);    //图片
@@ -85,11 +83,9 @@ public class SettingActivity extends BaseActivity {
             case R.id.rl_push:
                 if (switchPush.isChecked()) {
                     switchPush.setChecked(false);
-//                    ToastUtil.showShort(this, "关");
                     XGPushManager.unregisterPush(this);
                 } else {
                     switchPush.setChecked(true);
-//                    ToastUtil.showShort(this, "开");
                     registerPush();
                 }
                 break;
@@ -123,42 +119,16 @@ public class SettingActivity extends BaseActivity {
      * @param context
      */
     public void cleanCache(final Context context) {
-        cleanUtil.cleanInternalCache(context);
-        cleanUtil.cleanExternalCache(context);
-        cleanUtil.cleanCustomCache(USER_PIC_LOCAL);
-        cleanUtil.cleanCustomCache(USER_APK_LOCAL);
-        cleanUtil.cleanCustomCache(USER_VOICE_LOCAL);
-        cleanUtil.cleanCustomCache(USER_RECORD_LOCAL);
+
+        cleanUtil.cleanInternalCache(context);  //清除内部缓存
+        cleanUtil.cleanExternalCache(context);  //清除外部存储
+        cleanUtil.cleanCustomCache(USER_PIC_LOCAL); //清除图片
+        cleanUtil.cleanCustomCache(USER_APK_LOCAL); //清除安装包
+        cleanUtil.cleanCustomCache(USER_VOICE_LOCAL);  //清除音频
+        cleanUtil.cleanCustomCache(USER_RECORD_LOCAL);  //清除录音
+
         ToastUtil.showShort(this, "清除成功");
     }
-
-
-    UserModel model =new UserModel();
-
-
-    //**************************************信鸽注册**************************************//
-    public void registerPush() {
-        //  信鸽注册
-        if (UserUtil.user() != null) {
-            model.setUserId(123456);
-            saveUserMine(model);
-            XGPushManager.registerPush(this, UserUtil.user().getUserId() + "",
-                    new XGIOperateCallback() {
-                        @Override
-                        public void onSuccess(Object data, int fla) {
-                            LogUtil.d(tag,UserUtil.user().getUserId() + "信鸽注册成功");
-                        }
-
-                        @Override
-                        public void onFail(Object data, int errCode, String msg) {
-                            LogUtil.d(tag,"信鸽注册失败---" + errCode + "---" + msg);
-                        }
-                    });
-            Intent service = new Intent(getApplicationContext(), XGPushServiceV3.class);
-            getApplicationContext().startService(service);
-        }
-    }
-    //**************************************信鸽注册**************************************//
 
 
 }

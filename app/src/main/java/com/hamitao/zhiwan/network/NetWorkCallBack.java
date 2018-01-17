@@ -4,6 +4,8 @@ package com.hamitao.zhiwan.network;
 import com.hamitao.zhiwan.enums.ErrorCode;
 import com.hamitao.zhiwan.util.StringUtil;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by linjianwen on 2018/1/5.
  *
@@ -24,6 +26,18 @@ public class NetWorkCallBack {
     private NetworkObserver networkObserver = new NetworkObserver() {
 
         @Override
+        public void onSubscribe(Disposable d) {
+            super.onSubscribe(d);
+            if (callBack != null) callBack.onBegin();
+        }
+
+        @Override
+        public void onComplete() {
+            super.onComplete();
+            if (callBack != null) callBack.onEnd();
+        }
+
+        @Override
         public void onError(Throwable e) {
             try {
                 if (callBack != null) {
@@ -41,7 +55,7 @@ public class NetWorkCallBack {
                 if (result.isOk()) {
                     //请求成功
                     if (callBack != null)
-                        callBack.onSuccess(result);
+                        callBack.onSuccess(result); //返回请求结果
 
                 } else {
                     //请求失败
