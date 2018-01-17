@@ -2,14 +2,11 @@ package com.hamitao.zhiwan.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.base.BaseActivity;
@@ -21,8 +18,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerActivity;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
-import cn.bingoogolapple.qrcode.zxing.QRCodeDecoder;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
+
 
 public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
 
@@ -117,21 +114,51 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
             这里为了偷懒，就没有处理匿名 AsyncTask 内部类导致 Activity 泄漏的问题
             请开发在使用时自行处理匿名内部类导致Activity内存泄漏的问题，处理方式可参考 https://github.com/GeniusVJR/LearningNotes/blob/master/Part1/Android/Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%80%BB%E7%BB%93.md
              */
-            new AsyncTask<Void, Void, String>() {
-                @Override
-                protected String doInBackground(Void... params) {
-                    return QRCodeDecoder.syncDecodeQRCode(picturePath);
-                }
+//            new AsyncTask<Void, Void, String>() {
+//                @Override
+//                protected String doInBackground(Void... params) {
+//                    return QRCodeDecoder.syncDecodeQRCode(picturePath);
+//                }
+//
+//                @Override
+//                protected void onPostExecute(String result) {
+//                    if (TextUtils.isEmpty(result)) {
+//                        Toast.makeText(ScanActivity.this, "未发现二维码", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Toast.makeText(ScanActivity.this, result, Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            }.execute();
 
-                @Override
-                protected void onPostExecute(String result) {
-                    if (TextUtils.isEmpty(result)) {
-                        Toast.makeText(ScanActivity.this, "未发现二维码", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(ScanActivity.this, result, Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }.execute();
+          /*  Observable.just(QRCodeDecoder.syncDecodeQRCode(picturePath))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<String>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+                            Toast.makeText(ScanActivity.this, "onSubscribe", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onNext(String result) {
+                            if (TextUtils.isEmpty(result)) {
+                                Toast.makeText(ScanActivity.this, "未发现二维码", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(ScanActivity.this, result, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Toast.makeText(ScanActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            Toast.makeText(ScanActivity.this, "onComplete", Toast.LENGTH_SHORT).show();
+                        }
+                    });*/
+
         }
     }
 
@@ -163,8 +190,6 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
     public void onScanQRCodeOpenCameraError() {
         Log.e(TAG, "打开相机出错");
     }
-
-
 
 
 }

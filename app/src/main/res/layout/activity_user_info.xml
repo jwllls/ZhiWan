@@ -7,9 +7,12 @@
     android:orientation="vertical"
     tools:context="com.hamitao.zhiwan.activity.UserInfoActivity">
 
+    <!--标题-->
     <include layout="@layout/title_bar" />
 
+    <!--头像-->
     <RelativeLayout
+        android:id="@+id/rl_face"
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
@@ -23,6 +26,7 @@
             android:textSize="16sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_face"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
@@ -42,6 +46,7 @@
 
     <View style="@style/h_divider_gray" />
 
+    <!--ID-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
@@ -70,6 +75,7 @@
             android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
+    <!--等级-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
@@ -96,7 +102,9 @@
 
     <View style="@style/h_divider_gray" />
 
+    <!--宝宝名字-->
     <RelativeLayout
+        android:id="@+id/rl_bbName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
 
@@ -125,6 +133,7 @@
 
     </RelativeLayout>
 
+    <!--宝宝性别-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
@@ -158,6 +167,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_boy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -165,6 +175,7 @@
                 android:text="小王子" />
 
             <RadioButton
+                android:id="@+id/rb_girl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -177,8 +188,9 @@
 
     </RelativeLayout>
 
-
+    <!--宝宝生日-->
     <RelativeLayout
+        android:id="@+id/rl_bbBitrh"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
 
@@ -205,7 +217,9 @@
 
     <View style="@style/h_divider_gray" />
 
+    <!--退出登录-->
     <RelativeLayout
+        android:id="@+id/rl_logout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
 

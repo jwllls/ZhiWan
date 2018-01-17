@@ -17,7 +17,6 @@ public class UserInfoModel {
      */
     private String nick;
 
-
     /**
      * 头像
      */
