@@ -141,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
 
-
     //    ---------------------------------------------点击事件----------------------------------------------------
     private int index;
     private int currentTabIndex;// 当前fragment的index
@@ -189,7 +188,6 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
 
-
     //    ---------------------------------------------权限请求----------------------------------------------------
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -218,4 +216,14 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         Log.e("permission", "请求失败");
     }
     //    ---------------------------------------------权限请求----------------------------------------------------
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == 101) {
+            wechatFragment.setGroupName(data.getStringExtra("groupName"));
+        }
+    }
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <include layout="@layout/title_bar" />
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:text=">" />
+                android:drawableRight="@drawable/icon_arraow_right" />
 
             <View
                 style="@style/h_divider"
@@ -82,14 +83,14 @@
                 android:drawableLeft="@mipmap/ic_launcher"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="清楚缓存" />
+                android:text="清除缓存" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:text=">" />
+                android:drawableRight="@drawable/icon_arraow_right" />
 
             <View
                 style="@style/h_divider"
@@ -123,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:text=">" />
+                android:drawableRight="@drawable/icon_arraow_right" />
 
             <View
                 style="@style/h_divider"
@@ -151,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:text=">" />
+                android:drawableRight="@drawable/icon_arraow_right" />
 
             <View
                 style="@style/h_divider"

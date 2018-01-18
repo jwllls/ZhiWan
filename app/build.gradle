@@ -98,4 +98,8 @@ dependencies {
 
     //TextView
     compile 'com.github.lygttpod:SuperTextView:2.1.5'
+
+    //仿 iOS 弹窗
+    compile 'com.bigkoo:alertview:1.0.3'
+
 }

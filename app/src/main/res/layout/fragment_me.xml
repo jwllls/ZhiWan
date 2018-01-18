@@ -185,7 +185,7 @@
                         android:layout_marginTop="5dp"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:gravity="center"
-                        android:text="NFC管理"
+                        android:text="制卡管理"
                         android:textSize="14sp" />
 
                     <TextView

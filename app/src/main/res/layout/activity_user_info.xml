@@ -190,7 +190,7 @@
 
     <!--宝宝生日-->
     <RelativeLayout
-        android:id="@+id/rl_bbBitrh"
+        android:id="@+id/rl_bbBirth"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_hight">
 

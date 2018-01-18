@@ -45,7 +45,7 @@
         <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.MachineActivity" />
         <activity android:name=".activity.ScheduleActivity" />
-        <activity android:name=".activity.NFCActivity" />
+        <activity android:name=".activity.MakeCardActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.CollectActivity" />
         <activity android:name=".activity.MyRecordActivity" />
@@ -67,7 +67,8 @@
 
         <activity android:name=".activity.RecentPlayActivity" />
         <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.SelectContactActivity"></activity>
     </application>
 
 </manifest>
