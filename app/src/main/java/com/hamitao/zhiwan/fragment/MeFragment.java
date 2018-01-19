@@ -15,7 +15,7 @@ import com.hamitao.zhiwan.activity.MachineActivity;
 import com.hamitao.zhiwan.activity.MyRecordActivity;
 import com.hamitao.zhiwan.activity.MakeCardActivity;
 import com.hamitao.zhiwan.activity.RecentPlayActivity;
-import com.hamitao.zhiwan.activity.ScheduleActivity;
+import com.hamitao.zhiwan.activity.MyScheduleActivity;
 import com.hamitao.zhiwan.activity.SettingActivity;
 import com.hamitao.zhiwan.activity.UserInfoActivity;
 import com.hamitao.zhiwan.base.BaseFragment;
@@ -82,7 +82,7 @@ public class MeFragment extends BaseFragment {
                 startActivity(new Intent(context, MachineActivity.class));
                 break;
             case R.id.rl_schedule:
-                startActivity(new Intent(context, ScheduleActivity.class));
+                startActivity(new Intent(context, MyScheduleActivity.class));
                 break;
             case R.id.rl_nfc:
                 startActivity(new Intent(context, MakeCardActivity.class));

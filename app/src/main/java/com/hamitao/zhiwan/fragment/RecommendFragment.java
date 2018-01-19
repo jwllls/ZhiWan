@@ -99,7 +99,7 @@ public class RecommendFragment extends BaseFragment implements RecommendView, BG
         refreshLayout.setRefreshViewHolder(getBGAMeiTuanRefreshViewHolder(getActivity())); //设置下拉样式
 
 
-        adapter = new RecommendAdapter(recyclerView, getActivity()); // 适配器
+        adapter = new RecommendAdapter(recyclerView); // 适配器
         adapter.setOnRVItemClickListener(this);     //设置监听器
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); //设置列表样式
         recyclerView.setAdapter(adapter); //添加适配器到列表

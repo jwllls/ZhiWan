@@ -1,6 +1,5 @@
 package com.hamitao.zhiwan.activity;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,13 +15,8 @@ import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
 
 public class RecommendAdapter extends BGARecyclerViewAdapter<NewsModel.ResultBean.DataBean> {
 
-    int type;
-
-    private Context context;
-
-    public RecommendAdapter(RecyclerView recyclerView, Context context) {
+    public RecommendAdapter(RecyclerView recyclerView) {
         super(recyclerView);
-        this.context = context;
     }
 
     @Override
@@ -30,9 +24,9 @@ public class RecommendAdapter extends BGARecyclerViewAdapter<NewsModel.ResultBea
 
 
         if (position == 0 || position == 3) {
-            helper.getTextView(R.id.tv_type).setText(position == 0 ? "今日推荐":"专家推荐");
+            helper.getTextView(R.id.tv_type).setText(position == 0 ? "今日推荐" : "专家推荐");
         } else {
-            Glide.with(context).load(model.getThumbnail_pic_s()).into(helper.getImageView(R.id.iv_img));
+            Glide.with(mContext).load(model.getThumbnail_pic_s()).into(helper.getImageView(R.id.iv_img));
             helper.getTextView(R.id.tv_title).setText(model.getTitle());
         }
 

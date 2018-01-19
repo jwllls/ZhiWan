@@ -44,7 +44,7 @@
         <activity android:name=".activity.SmartTreeActivity" />
         <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.MachineActivity" />
-        <activity android:name=".activity.ScheduleActivity" />
+        <activity android:name=".activity.MyScheduleActivity" />
         <activity android:name=".activity.MakeCardActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.CollectActivity" />
@@ -68,7 +68,9 @@
         <activity android:name=".activity.RecentPlayActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.SelectContactActivity"></activity>
+        <activity android:name=".activity.SelectContactActivity" />
+        <activity android:name=".activity.EditScheduleActivity" />
+        <activity android:name=".activity.CreateScheduleActivity"></activity>
     </application>
 
 </manifest>

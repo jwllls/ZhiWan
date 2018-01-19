@@ -2,26 +2,37 @@ package com.hamitao.zhiwan.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
+import com.hamitao.zhiwan.adapter.SquareAdapter;
 import com.hamitao.zhiwan.base.BaseFragment;
+import com.hamitao.zhiwan.model.NewsModel;
+import com.hamitao.zhiwan.mvp.square.SquarePresenter;
+import com.hamitao.zhiwan.mvp.square.SquareView;
+import com.hamitao.zhiwan.util.BGARefreshUtil;
+import com.hamitao.zhiwan.util.ToastUtil;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
-import cn.bingoogolapple.refreshlayout.BGARefreshViewHolder;
+
+import static com.hamitao.zhiwan.util.BGARefreshUtil.getBGAMeiTuanRefreshViewHolder;
 
 /**
  * Created by linjianwen on 2018/1/4.
  */
 
-public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGARefreshLayoutDelegate {
+public class SquareFragment extends BaseFragment implements SquareView, BGARefreshLayout.BGARefreshLayoutDelegate {
 
 
     View view;
@@ -31,40 +42,93 @@ public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGA
     RecyclerView recyclerView;
     @BindView(R.id.refresh_layout)
     BGARefreshLayout refreshLayout;
+    @BindView(R.id.tv_none)
+    TextView tv_none;
 
+    private SquareAdapter adapter;
+    private SquarePresenter presenter;
+
+
+    int page = 1;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_square, container, false);
         unbinder = ButterKnife.bind(this, view);
-        //initRefreshLayout();
+        initData();
+        initView();
         return view;
     }
 
-    private void initRefreshLayout() {
-        // 为BGARefreshLayout 设置代理
-        refreshLayout.setDelegate(this);
-        // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
-        BGARefreshViewHolder refreshViewHolder = new BGAMoocStyleRefreshViewHolder(getActivity(), true);
-        // 设置下拉刷新和上拉加载更多的风格
-        refreshLayout.setRefreshViewHolder(refreshViewHolder);
-        // 为了增加下拉刷新头部和加载更多的通用性，提供了以下可选配置选项  -------------START
-        // 设置正在加载更多时不显示加载更多控件
-        // mRefreshLayout.setIsShowLoadingMoreView(false);
-        // 设置正在加载更多时的文本
-        refreshViewHolder.setLoadingMoreText("加载中");
-        // 设置整个加载更多控件的背景颜色资源 id
-        refreshViewHolder.setLoadMoreBackgroundColorRes(R.color.colorPrimary);
-        // 设置整个加载更多控件的背景 drawable 资源 id
-        refreshViewHolder.setLoadMoreBackgroundDrawableRes(R.mipmap.bga_refresh_loading01);
-        // 设置下拉刷新控件的背景颜色资源 id
-        refreshViewHolder.setRefreshViewBackgroundColorRes(R.color.colorPrimary);
-        // 设置下拉刷新控件的背景 drawable 资源 id
-        refreshViewHolder.setRefreshViewBackgroundDrawableRes(R.mipmap.bga_refresh_loading02);
-        // 设置自定义头部视图（也可以不用设置）     参数1：自定义头部视图（例如广告位）， 参数2：上拉加载更多是否可用
-        //  mRefreshLayout.setCustomHeaderView(mBanner, false);
-        // 可选配置  -------------END
+
+    private void initData() {
+
+        presenter = new SquarePresenter(this, getActivity());
+
+
+        refreshLayout.setDelegate(this);//设置下拉刷新监听
+        refreshLayout.setRefreshViewHolder(getBGAMeiTuanRefreshViewHolder(getActivity())); //设置下拉样式
+
+        adapter = new SquareAdapter(recyclerView);
+
+        startRefreshing();
+
+    }
+
+    private void initView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+    }
+
+
+    /**
+     * 开始刷新
+     */
+    public void startRefreshing() {
+        if (refreshLayout != null) {
+            refreshLayout.setVisibility(View.VISIBLE);
+            page = 1;
+            getList(Constant.REQUEST_REFRESH);
+        }
+    }
+
+    /**
+     * 列表数据请求
+     *
+     * @param requestType 下拉刷新/加载更多
+     */
+    private void getList(int requestType) {
+        presenter.getListRequest(requestType);
+    }
+
+    /**
+     * 刷新/加载成功
+     */
+    public void completeRequest() {
+        BGARefreshUtil.completeRequest(refreshLayout);
+    }
+
+    /**
+     * 设置数据
+     *
+     * @param models
+     * @param requestType
+     */
+    private void setData(List<NewsModel.ResultBean.DataBean> models, int requestType) {
+        if (models == null) {
+            return;
+        }
+        if (requestType == Constant.REQUEST_REFRESH) {
+            if (models.size() <= 0) {
+                adapter.clear();
+            } else {
+                adapter.setData(models);
+            }
+            tv_none.setVisibility(models.size() <= 0 ? View.VISIBLE : View.GONE);
+        } else if (requestType == Constant.REQUEST_MORE) {
+            adapter.addMoreData(models);
+        }
     }
 
 
@@ -75,23 +139,47 @@ public class SquareFragment extends BaseFragment implements BGARefreshLayout.BGA
      */
     @Override
     public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
-
+        page = 1;
+        getList(Constant.REQUEST_REFRESH);
     }
 
     /**
-     * 上拉加载更多
+     * 加载更多
      *
      * @param refreshLayout
      * @return
      */
     @Override
     public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
-        return false;
+        page++;
+        getList(Constant.REQUEST_MORE);
+        return true;
     }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onBegin() {
+
+    }
+
+    @Override
+    public void onFinish() {
+        completeRequest();
+    }
+
+    @Override
+    public void onMessageShow(String msg) {
+        ToastUtil.showShort(getActivity(), msg);
+    }
+
+    @Override
+    public void getList(NewsModel.ResultBean resultBean, int requestType) {
+        setData(resultBean.getData(), requestType);
     }
 }

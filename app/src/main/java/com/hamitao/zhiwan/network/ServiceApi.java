@@ -26,14 +26,19 @@ public interface ServiceApi {
     @GET(Api.UPDATE_CHECK)
     Observable<NetWordResult> udapteApk(@QueryMap Map<String, String> map);
 
-    @GET(Api.NEWS_LIST)
-    Observable<NetWordResult> getNewsList();
+    @GET(Api.RECOMMEND_LIST)
+    Observable<NetWordResult> getRecommendList();
+
+    @GET(Api.SQUARE_LIST)
+    Observable<NetWordResult> getSquareList();
 
     class Api{
         public static final String BASE_URL = "http://v.juhe.cn/toutiao/";
 
         //测试
-        static final String NEWS_LIST = "index?key=f91e041225cb343f3967f4395624f5ed";
+        static final String RECOMMEND_LIST = "index?key=f91e041225cb343f3967f4395624f5ed";
+        //测试
+        static final String SQUARE_LIST = "index?type=tiyu&key=f91e041225cb343f3967f4395624f5ed";
 
         //自动登录
         static final String AUTOLOGIN = "/api/user/auto/LoginPresenter";
@@ -46,9 +51,6 @@ public interface ServiceApi {
 
         //用户更新
         static final String UPDATE_USER = "/api/user/update";
-
-        //推荐列表
-        static final String RECOMMEND_LIST = "/api/invite/recommend/list";
 
         //分享
         static final String SHARE_CONTENT = "/api/app/share";

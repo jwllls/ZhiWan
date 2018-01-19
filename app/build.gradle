@@ -102,4 +102,7 @@ dependencies {
     //仿 iOS 弹窗
     compile 'com.bigkoo:alertview:1.0.3'
 
+    //表格
+    compile 'com.github.huangyanbin:SmartTable:1.6'
+
 }

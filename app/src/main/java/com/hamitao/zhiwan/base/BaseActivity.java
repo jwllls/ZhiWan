@@ -25,6 +25,8 @@ public class BaseActivity extends CheckPermissionsActivity {
     }
 
 
+
+
     //**************************************信鸽注册**************************************//
     public void registerPush() {
         //  信鸽注册

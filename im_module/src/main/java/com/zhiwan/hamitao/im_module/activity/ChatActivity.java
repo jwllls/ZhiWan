@@ -19,6 +19,7 @@ public class ChatActivity extends AppCompatActivity {
     @BindView(R.id.tv_chat)
     TextView tvChat;
 
+    private MainActivity activity;
     private MyCallback myCallback;
 
     public interface MyCallback{
@@ -34,14 +35,19 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         ButterKnife.bind(this);
+        activity = new MainActivity();
+
     }
 
     @OnClick({R.id.btn_click, R.id.tv_chat})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_click:
-                if (myCallback!=null)
-                myCallback.onSuccess("hahahahahha");
+
+                if (myCallback!=null){
+                    myCallback.onSuccess("success");
+                }
+
                 finish();
                 break;
             case R.id.tv_chat:

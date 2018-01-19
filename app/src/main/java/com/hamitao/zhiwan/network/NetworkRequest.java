@@ -47,11 +47,12 @@ public class NetworkRequest {
     }
 
 
-    public static void getNewsList(NetWorkCallBack netWorkCallBack){
-        {
-            addObservable(NetWork.getApi().getNewsList(),netWorkCallBack.getNetWorkSubscriber());
-        }
+    public static void getRecommendList(NetWorkCallBack netWorkCallBack) {
+        addObservable(NetWork.getApi().getRecommendList(), netWorkCallBack.getNetWorkSubscriber());
+    }
 
+    public static void getSquareList(NetWorkCallBack netWorkCallBack) {
+        addObservable(NetWork.getApi().getSquareList(), netWorkCallBack.getNetWorkSubscriber());
     }
 
 

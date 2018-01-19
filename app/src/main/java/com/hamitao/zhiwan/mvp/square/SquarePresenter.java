@@ -1,4 +1,4 @@
-package com.hamitao.zhiwan.mvp.recommend;
+package com.hamitao.zhiwan.mvp.square;
 
 import android.content.Context;
 
@@ -10,16 +10,16 @@ import com.hamitao.zhiwan.network.NetworkRequest;
 import com.hamitao.zhiwan.util.GsonUtil;
 
 /**
- * Created by linjianwen on 2018/1/17.
+ * Created by linjianwen on 2018/1/19.
  */
 
-public class RecommendPresenter implements BasePresenter {
+public class SquarePresenter implements BasePresenter {
 
-    private RecommendView view;
+    private SquareView view;
 
     private Context context;
 
-    public RecommendPresenter(RecommendView view, Context context) {
+    public SquarePresenter(SquareView view, Context context) {
         this.view = view;
         this.context = context;
     }
@@ -34,10 +34,12 @@ public class RecommendPresenter implements BasePresenter {
         view = null;
     }
 
-
-    //获取列表数据
+    /**
+     * 获取广场数据
+     * @param requestType
+     */
     public void getListRequest(final int requestType) {
-        NetworkRequest.getRecommendList(new NetWorkCallBack(new NetWorkCallBack.BaseCallBack() {
+        NetworkRequest.getSquareList(new NetWorkCallBack(new NetWorkCallBack.BaseCallBack() {
             @Override
             public void onSuccess(NetWordResult result) {
                 NewsModel.ResultBean resultBean = GsonUtil.GsonToBean(result.getResult(), NewsModel.ResultBean.class);
@@ -46,7 +48,7 @@ public class RecommendPresenter implements BasePresenter {
 
             @Override
             public void onFail(NetWordResult result, String msg) {
-               view.onMessageShow(msg);
+                view.onMessageShow(msg);
             }
 
             @Override

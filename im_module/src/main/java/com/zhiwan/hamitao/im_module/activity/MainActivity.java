@@ -13,8 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.zhiwan.hamitao.im_module.activity.ChatActivity.*;
-
 public class MainActivity extends AppCompatActivity {
 
 
@@ -23,14 +21,15 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tv_main)
     TextView tvMain;
 
-
-
+    ChatActivity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
     }
 
 
@@ -38,22 +37,20 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_go:
+                activity = new ChatActivity();
 
-
-                ChatActivity chatActivity = new ChatActivity();
-                chatActivity.setMyCallback(new MyCallback() {
+                activity.setMyCallback(new ChatActivity.MyCallback() {
                     @Override
                     public void onSuccess(String str) {
                         tvMain.setText(str);
                     }
                 });
-                startActivity(new Intent(this,ChatActivity.class));
-
-
+                startActivity(new Intent(this, ChatActivity.class));
 
                 break;
             case R.id.tv_main:
                 break;
         }
     }
+
 }

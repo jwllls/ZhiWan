@@ -6,8 +6,10 @@ package com.hamitao.zhiwan.base;
 
 public interface BaseView {
 
+    //初始化
     void onBegin();
 
+    //操作完成
     void onFinish();
 
     //错误信息
