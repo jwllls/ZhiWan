@@ -79,19 +79,19 @@ public class CreateScheduleActivity extends AppCompatActivity {
                 int color;
                 switch (integer){
                     case 1:
-                        color =R.color.text_default_d;
+                        color =R.color.white;
                         break;
                     case 2:
-                        color =R.color.text_default_d_p;
+                        color =R.color.white;
                         break;
                     case 3:
-                        color =R.color.text_default_l;
+                        color =R.color.white;
                         break;
                     case 4:
-                        color =R.color.text_default_l_p;
+                        color =R.color.white;
                         break;
                     default:
-                        color =R.color.divider;
+                        color =R.color.white;
                         break;
                 }
                 paint.setStyle(Paint.Style.FILL);
