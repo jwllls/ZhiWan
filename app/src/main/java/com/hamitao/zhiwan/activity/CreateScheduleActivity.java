@@ -54,6 +54,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         table.getConfig().setColumnTitleStyle(fontStyle); //标题样式
         table.getConfig().setShowTableTitle(false);//隐藏标题
         table.getConfig().setFixedFirstColumn(true);
+        table.getConfig().setZoom(0);
 //        table.getConfig().setFixedCountRow(true);
         table.getConfig().setHorizontalPadding(0);
         table.getConfig().setVerticalPadding(0);
@@ -79,16 +80,16 @@ public class CreateScheduleActivity extends AppCompatActivity {
                 int color;
                 switch (integer){
                     case 1:
-                        color =R.color.white;
+                        color =R.color.text_default_l;
                         break;
                     case 2:
-                        color =R.color.white;
+                        color =R.color.text_default_d_p;
                         break;
                     case 3:
                         color =R.color.white;
                         break;
                     case 4:
-                        color =R.color.white;
+                        color =R.color.bga_pp_btn_confirm_disabled;
                         break;
                     default:
                         color =R.color.white;

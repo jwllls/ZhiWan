@@ -1,10 +1,10 @@
 package com.hamitao.zhiwan.view;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hamitao.zhiwan.R;
@@ -13,47 +13,46 @@ import com.hamitao.zhiwan.R;
  * Created by linjianwen on 2018/1/18.
  */
 
-public class itemView extends ViewGroup {
+public class ItemView extends RelativeLayout {
 
 
     private TextView rightTextView;
 
     private TextView leftTextView;
 
-
-    public itemView(Context context) {
-        super(context);
-    }
-
-    public itemView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public itemView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    private void initView(Context context) {
+        View.inflate(context, R.layout.view_item, ItemView.this);
+        rightTextView = (TextView) this.findViewById(R.id.tv_item);
+        leftTextView = (TextView) this.findViewById(R.id.view_item);
         init();
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+    public ItemView(Context context) {
+        super(context);
+        initView(context);
+    }
+
+    public ItemView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initView(context);
+    }
+
+    public ItemView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initView(context);
 
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
 
     /**
      * 初始化操作
      */
     private void init() {
-        leftTextView.setCompoundDrawables(null, null, getResources().getDrawable(R.drawable.icon_arraow_right), null);
+
+        ((TextView) leftTextView).setCompoundDrawables(null, null, getResources().getDrawable(R.drawable.icon_arraow_right), null);
+
     }
 
 
@@ -87,27 +86,30 @@ public class itemView extends ViewGroup {
     }
 
     public void setLeftText(String str) {
-        leftTextView.setText(str);
+        if (leftTextView instanceof TextView) {
+            ((TextView) leftTextView).setText(str);
+        }
+
     }
 
     public void setLeftBackGround(Drawable drawable) {
-        leftTextView.setCompoundDrawables(drawable, null, null, null);
+        ((TextView) leftTextView).setCompoundDrawables(drawable, null, null, null);
     }
 
     public void setLeftDrawableTop(Drawable drawable) {
-        leftTextView.setCompoundDrawables(null, drawable, null, null);
+        ((TextView) leftTextView).setCompoundDrawables(null, drawable, null, null);
     }
 
     public void setLeftDrawableButtom(Drawable drawable) {
-        leftTextView.setCompoundDrawables(null, null, null, drawable);
+        ((TextView) leftTextView).setCompoundDrawables(null, null, null, drawable);
     }
 
     public void setLeftDrawableLeft(Drawable drawable) {
-        leftTextView.setCompoundDrawables(drawable, null, null, null);
+        ((TextView) leftTextView).setCompoundDrawables(drawable, null, null, null);
     }
 
     public void setLeftDrawableRight(Drawable drawable) {
-        leftTextView.setCompoundDrawables(null, null, drawable, null);
+        ((TextView) leftTextView).setCompoundDrawables(null, null, drawable, null);
     }
 
     public void setRightClickListener(OnClickListener listener) {

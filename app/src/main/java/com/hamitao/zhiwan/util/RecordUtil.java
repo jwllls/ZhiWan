@@ -55,6 +55,10 @@ public class RecordUtil {
      * @param savePath
      */
     public void setSavePath(String savePath) {
+        File file = new File(savePath);
+        if (!file.exists()) {
+            file.mkdir();
+        }
         this.savePtah = savePath;
     }
 

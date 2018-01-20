@@ -1,6 +1,7 @@
 package com.hamitao.zhiwan.mvp.music;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
 import com.hamitao.zhiwan.base.BasePresenter;
@@ -13,17 +14,17 @@ import java.io.IOException;
 
 public class MusicPresenter implements BasePresenter {
 
-    MusicView musicView;
-    Context context;
-
+    private MusicView musicView;
+    private Context context;
     private MediaPlayer mediaPlayer;
 
     public MusicPresenter(MusicView musicView, Context context) {
         this.musicView = musicView;
         this.context = context;
-
         mediaPlayer = new MediaPlayer();
+        musicView.getMediaPlayer(mediaPlayer);
     }
+
 
     @Override
     public void start() {
@@ -40,7 +41,7 @@ public class MusicPresenter implements BasePresenter {
      * 播放上一首
      */
 
-    public void palyBefore(){
+    public void palyBefore() {
 
     }
 
@@ -49,18 +50,29 @@ public class MusicPresenter implements BasePresenter {
      * 播放或暂停
      */
     public void play() {
-        String musicUrl = "http://res.webftp.bbs.hnol.net/zhangyu/music/cd63/03.mp3";
-        start(musicUrl);
+        mediaPlayer.reset();
+//        String musicUrl = "http://res.webftp.bbs.hnol.net/zhangyu/music/cd63/03.mp3";
+//        mediaPlayer.start();
+        AssetFileDescriptor fileDescriptor = null;
+        try {
+            fileDescriptor = context.getAssets().openFd("chengdu.mp3");
+            mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+            mediaPlayer.prepareAsync();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     /**
      * 播放下一首
      */
 
-    public void playNext(){
+    public void playNext() {
 
     }
-
 
 
     //开始
@@ -76,25 +88,31 @@ public class MusicPresenter implements BasePresenter {
     }
 
     //暂停
-    public void pause (){
-        if (mediaPlayer!=null&&mediaPlayer.isPlaying()) {
+    public void pause() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
-           // MediaUtils.currentState=Constants.PLAY_PAUSE;
         }
     }
+
     //继续播放
     public void continuePlay() {
-        if (mediaPlayer!=null&&!mediaPlayer.isPlaying()) {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
-           // MediaUtils.currentState= Constants.PLAY_START;
         }
     }
+
     //停止播放
     public void stopPlay() {
-        if (mediaPlayer!=null) {
+        if (mediaPlayer != null) {
             mediaPlayer.stop();
-            //MediaUtils.currentState=Constants.PLAY_STOP;
         }
+    }
+
+    //销毁播放器
+    public void destortMediaPlaler() {
+        mediaPlayer.reset();
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 
 }

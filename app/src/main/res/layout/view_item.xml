@@ -5,6 +5,7 @@
     android:layout_height="@dimen/item_hight">
 
     <TextView
+        android:text="hahahah"
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

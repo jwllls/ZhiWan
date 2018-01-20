@@ -1,6 +1,8 @@
 package com.hamitao.zhiwan.mvp.music;
 
 
+import android.media.MediaPlayer;
+
 import com.hamitao.zhiwan.base.BaseView;
 
 /**
@@ -10,5 +12,6 @@ import com.hamitao.zhiwan.base.BaseView;
 public interface MusicView extends BaseView {
 
 
+    void getMediaPlayer(MediaPlayer mediaPlayer);
 
 }

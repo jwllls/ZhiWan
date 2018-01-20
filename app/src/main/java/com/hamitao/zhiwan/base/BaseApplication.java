@@ -15,11 +15,6 @@ import com.hamitao.zhiwan.util.RecordUtil;
 public class BaseApplication extends Application{
 
 
-
-
-    private static final String TAG = "jianwen";
-
-
     public static BaseApplication instance;
 
     public static BaseApplication getInstance() {
