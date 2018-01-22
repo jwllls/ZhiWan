@@ -139,6 +139,10 @@ public class MusicPresenter implements BasePresenter {
     //暂停播放
     public void playPause() {
 
+        if (mediaPlayer!=null){
+            mediaPlayer.pause();
+        }
+
     }
 
 
