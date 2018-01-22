@@ -32,13 +32,16 @@ public interface ServiceApi {
     @GET(Api.SQUARE_LIST)
     Observable<NetWordResult> getSquareList();
 
+
     class Api{
         public static final String BASE_URL = "http://v.juhe.cn/toutiao/";
 
-        //测试
+        //推荐（测试）
         static final String RECOMMEND_LIST = "index?key=f91e041225cb343f3967f4395624f5ed";
-        //测试
+        //广场（测试）
         static final String SQUARE_LIST = "index?type=tiyu&key=f91e041225cb343f3967f4395624f5ed";
+        //音乐（测试）
+        static final String GET_MUSIC = "";
 
         //自动登录
         static final String AUTOLOGIN = "/api/user/auto/LoginPresenter";

@@ -55,5 +55,7 @@ public class NetworkRequest {
         addObservable(NetWork.getApi().getSquareList(), netWorkCallBack.getNetWorkSubscriber());
     }
 
-
+    public static void getMusic(NetWorkCallBack netWorkCallBack){
+        addObservable(NetWork.getApi().getRecommendList(),netWorkCallBack.getNetWorkSubscriber());
+    }
 }

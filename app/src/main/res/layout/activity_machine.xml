@@ -49,11 +49,6 @@
 
             </RelativeLayout>
 
-            <com.hamitao.zhiwan.view.ItemView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_hight"
-                app:leftBackground="@drawable/user_face"></com.hamitao.zhiwan.view.ItemView>
-
 
         </LinearLayout>
 

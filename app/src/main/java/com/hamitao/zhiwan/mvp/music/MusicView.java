@@ -1,7 +1,7 @@
 package com.hamitao.zhiwan.mvp.music;
 
 
-import android.media.MediaPlayer;
+import android.widget.SeekBar;
 
 import com.hamitao.zhiwan.base.BaseView;
 
@@ -12,6 +12,5 @@ import com.hamitao.zhiwan.base.BaseView;
 public interface MusicView extends BaseView {
 
 
-    void getMediaPlayer(MediaPlayer mediaPlayer);
-
+    void update(SeekBar seekBar);
 }

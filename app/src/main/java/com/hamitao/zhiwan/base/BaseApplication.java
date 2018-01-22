@@ -6,6 +6,7 @@ import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.util.AppVersionUtil;
 import com.hamitao.zhiwan.util.PropertiesUtil;
 import com.hamitao.zhiwan.util.RecordUtil;
+import com.squareup.leakcanary.LeakCanary;
 
 
 /**
@@ -33,15 +34,21 @@ public class BaseApplication extends Application{
     }
 
     private void initApp() {
-
         instance = this;
+        //内存泄漏
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+
         //初始化录音存放位置：
         RecordUtil.getInstance().setSavePath(Constant.USER_RECORD_LOCAL);
         //应用版本号
         Constant.versionCode = AppVersionUtil.getVersionCode(this);
         //初始化Sharepreference
         PropertiesUtil.getInstance().init(this);
-
         //图灵机器人识别
     }
 

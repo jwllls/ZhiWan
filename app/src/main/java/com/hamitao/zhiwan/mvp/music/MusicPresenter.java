@@ -1,12 +1,15 @@
 package com.hamitao.zhiwan.mvp.music;
 
 import android.content.Context;
-import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.os.Handler;
+import android.widget.SeekBar;
 
 import com.hamitao.zhiwan.base.BasePresenter;
 
 import java.io.IOException;
+
+import me.wcy.lrcview.LrcView;
 
 /**
  * Created by linjianwen on 2018/1/5.
@@ -18,88 +21,126 @@ public class MusicPresenter implements BasePresenter {
     private Context context;
     private MediaPlayer mediaPlayer;
 
+    private Handler handler = new Handler();
+
+    private SeekBar seekBar;
+    private LrcView lrcView;
+
+
     public MusicPresenter(MusicView musicView, Context context) {
         this.musicView = musicView;
         this.context = context;
         mediaPlayer = new MediaPlayer();
-        musicView.getMediaPlayer(mediaPlayer);
+
+    }
+
+    public void setObject(SeekBar seekBar, LrcView lrcView) {
+        this.seekBar = seekBar;
+        this.lrcView = lrcView;
+        init();
     }
 
 
     @Override
     public void start() {
-        play();
+    }
+
+    private void init() {
+
+        lrcView.setOnPlayClickListener(new LrcView.OnPlayClickListener() {
+            @Override
+            public boolean onPlayClick(long time) {
+                mediaPlayer.seekTo((int) time);
+                if (!mediaPlayer.isPlaying()) {
+                    playStart();
+                    handler.post(runnable);
+                }
+                return true;
+            }
+        });
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                seekBar.setMax(mp.getDuration());
+                seekBar.setProgress(0);
+            }
+        });
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                lrcView.updateTime(0);
+                seekBar.setProgress(0);
+            }
+        });
+
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mediaPlayer.seekTo(seekBar.getProgress());
+                lrcView.updateTime(seekBar.getProgress());
+            }
+        });
+
     }
 
     @Override
     public void stop() {
-
     }
 
 
-    /**
-     * 播放上一首
-     */
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (mediaPlayer.isPlaying()) {
+                long time = mediaPlayer.getCurrentPosition();
+                lrcView.updateTime(time);
+                seekBar.setProgress((int) time);
+            }
+            handler.postDelayed(this, 300);
+        }
+    };
 
-    public void palyBefore() {
 
-    }
-
-
-    /**
-     * 播放或暂停
-     */
-    public void play() {
-        mediaPlayer.reset();
-//        String musicUrl = "http://res.webftp.bbs.hnol.net/zhangyu/music/cd63/03.mp3";
-//        mediaPlayer.start();
-        AssetFileDescriptor fileDescriptor = null;
+    //设置播放路径
+    public void setMusicData(String music) {
         try {
-            fileDescriptor = context.getAssets().openFd("chengdu.mp3");
-            mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
-            mediaPlayer.prepareAsync();
-            mediaPlayer.start();
+            mediaPlayer.setDataSource(music);
+            mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-    }
-
-    /**
-     * 播放下一首
-     */
-
-    public void playNext() {
-
     }
 
 
     //开始
-    public void start(String path) {
-        try {
-            mediaPlayer.reset();
-            mediaPlayer.setDataSource(path);
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void playStart() {
+        mediaPlayer.start();
     }
 
-    //暂停
-    public void pause() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
-        }
+    //播放上一首
+    public void playBefore() {
+
     }
 
-    //继续播放
-    public void continuePlay() {
-        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-        }
+    //播放下一首
+    public void playNext() {
+
     }
+
+    //暂停播放
+    public void playPause() {
+
+    }
+
 
     //停止播放
     public void stopPlay() {
@@ -109,7 +150,8 @@ public class MusicPresenter implements BasePresenter {
     }
 
     //销毁播放器
-    public void destortMediaPlaler() {
+    public void destoryPlaler() {
+        handler.removeCallbacks(runnable);
         mediaPlayer.reset();
         mediaPlayer.release();
         mediaPlayer = null;

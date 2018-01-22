@@ -32,6 +32,16 @@ android {
                 XG_ACCESS_ID : "2100275299",
                 XG_ACCESS_KEY: "AJI226WC26AW",
         ]
+        //内存泄漏配置
+        configurations.all { config ->
+            if (config.name.contains('UnitTest')) {
+                config.resolutionStrategy.eachDependency { details ->
+                    if (details.requested.group == 'com.squareup.leakcanary' && details.requested.name == 'leakcanary-android') {
+                        details.useTarget(group: details.requested.group, name: 'leakcanary-android-no-op', version: details.requested.version)
+                    }
+                }
+            }
+        }
     }
     buildTypes {
         release {
@@ -96,4 +106,7 @@ dependencies {
     compile 'com.bigkoo:alertview:1.0.3'
     //表格
     compile 'com.github.huangyanbin:SmartTable:1.6'
+    //内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }
