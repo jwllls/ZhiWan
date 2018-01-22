@@ -1,6 +1,8 @@
 package com.hamitao.zhiwan.activity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,7 @@ import me.wcy.lrcview.LrcView;
 
 /**
  * Created by linjianwen on 2018/1/4.
+ * 播放器页面
  */
 
 public class MusicActivity extends BaseActivity implements MusicView {
@@ -37,8 +40,10 @@ public class MusicActivity extends BaseActivity implements MusicView {
     @BindView(R.id.more)
     TextView more;
 
-
+    private MediaPlayer mediaPlayer;
     private MusicPresenter presenter;
+
+    private Handler handler = new Handler();
 
 
     String musicUrl = "http://res.webftp.bbs.hnol.net/zhangyu/music/cd63/03.mp3";
@@ -49,9 +54,27 @@ public class MusicActivity extends BaseActivity implements MusicView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
         ButterKnife.bind(this);
-        presenter = new MusicPresenter(this, this);
+
+        initData();
         initView();
     }
+
+    private void initData() {
+        presenter = new MusicPresenter(this, this);
+        mediaPlayer = new MediaPlayer();
+    }
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (mediaPlayer.isPlaying()) {
+                long time = mediaPlayer.getCurrentPosition();
+                lrcView.updateTime(time);
+                seekBar.setProgress((int) time);
+            }
+            handler.postDelayed(this, 300);
+        }
+    };
 
 
     //获取歌词
@@ -71,6 +94,17 @@ public class MusicActivity extends BaseActivity implements MusicView {
     }
 
 
+    //设置播放路径
+    public void setMusicData(String music) {
+        try {
+            mediaPlayer.setDataSource(music);
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private void initView() {
         more.setVisibility(View.VISIBLE);
 
@@ -78,10 +112,50 @@ public class MusicActivity extends BaseActivity implements MusicView {
 
         lrcView.loadLrc(getLrcText("chengdu.lrc"));
 
-        presenter.setMusicData(musicUrl);
+        setMusicData(musicUrl);
 
-        presenter.setObject(seekBar, lrcView);
+        lrcView.setOnPlayClickListener(new LrcView.OnPlayClickListener() {
+            @Override
+            public boolean onPlayClick(long time) {
+                mediaPlayer.seekTo((int) time);
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
+                    handler.post(runnable);
+                }
+                return true;
+            }
+        });
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                seekBar.setMax(mp.getDuration());
+                seekBar.setProgress(0);
+            }
+        });
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                lrcView.updateTime(0);
+                seekBar.setProgress(0);
+            }
+        });
 
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mediaPlayer.seekTo(seekBar.getProgress());
+                lrcView.updateTime(seekBar.getProgress());
+            }
+        });
 
     }
 
@@ -109,13 +183,13 @@ public class MusicActivity extends BaseActivity implements MusicView {
                 presenter.playBefore();
                 break;
             case R.id.btn_play:
-             /*   if (!mediaPlayer.isPlaying()) {
-                    presenter.play();
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
                     handler.post(runnable);
                 } else {
                     mediaPlayer.pause();
                     handler.removeCallbacks(runnable);
-                }*/
+                }
                 presenter.playStart();
                 break;
             case R.id.btn_next:
@@ -134,7 +208,10 @@ public class MusicActivity extends BaseActivity implements MusicView {
 
     @Override
     protected void onDestroy() {
-        presenter.destoryPlaler();
+        handler.removeCallbacks(runnable);
+        mediaPlayer.reset();
+        mediaPlayer.release();
+        mediaPlayer = null;
         super.onDestroy();
     }
 
