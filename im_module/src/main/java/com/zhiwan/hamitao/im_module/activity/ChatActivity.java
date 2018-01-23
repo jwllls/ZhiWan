@@ -1,57 +1,69 @@
 package com.zhiwan.hamitao.im_module.activity;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.zhiwan.hamitao.im_module.R;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.ext.message.TIMMessageDraft;
+import com.zhiwan.hamitao.im_module.mvp.presenter.ChatView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import java.util.List;
 
-public class ChatActivity extends AppCompatActivity {
+/**
+ * Created by linjianwen on 2018/1/23.
+ */
 
-    @BindView(R.id.btn_click)
-    Button btnClick;
-    @BindView(R.id.tv_chat)
-    TextView tvChat;
+public  class ChatActivity extends AppCompatActivity implements ChatView {
 
-    private MainActivity activity;
-    private MyCallback myCallback;
 
-    public interface MyCallback{
-        void onSuccess(String str);
+
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
-    public void setMyCallback(MyCallback myCallback){
-        this.myCallback = myCallback;
+
+    @Override
+    public void showMessage(TIMMessage message) {
+
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
-        ButterKnife.bind(this);
-        activity = new MainActivity();
+    public void showMessage(List<TIMMessage> messages, boolean isLoadMore) {
 
     }
 
-    @OnClick({R.id.btn_click, R.id.tv_chat})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btn_click:
+    @Override
+    public void clearAllMessage() {
 
-                if (myCallback!=null){
-                    myCallback.onSuccess("success");
-                }
+    }
 
-                finish();
-                break;
-            case R.id.tv_chat:
-                break;
-        }
+    @Override
+    public void onSendMessageSuccess(TIMMessage message) {
+
+    }
+
+    @Override
+    public void onSendMessageFail(int code, String desc, TIMMessage message) {
+
+    }
+
+    @Override
+    public void showDraft(TIMMessageDraft draft) {
+
+    }
+
+    @Override
+    public void onBegin() {
+
+    }
+
+    @Override
+    public void onFinish() {
+
     }
 }

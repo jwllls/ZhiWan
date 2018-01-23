@@ -384,6 +384,16 @@ public class DateUtil {
         return date;
     }
 
+    /**
+     * 年月日
+     * @param date
+     * @return
+     */
+    public static String formatDate(Date date){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return simpleDateFormat.format(date);
+    }
+
 
     /**
      * 年月日  格式： yyyy-MM-dd

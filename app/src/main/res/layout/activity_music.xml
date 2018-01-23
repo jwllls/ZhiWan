@@ -19,55 +19,18 @@
         android:id="@+id/seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ll_bottom"
-
+        android:layout_above="@id/rl_menu"
         android:max="100"
         android:progress="0" />
 
-
-    //按钮
-    <LinearLayout
-        android:id="@+id/ll_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-      >
-
-        <Button
-            android:id="@+id/btn_before"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="上一首" />
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="播放/暂停" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="下一首" />
-
-        <Button
-            android:id="@+id/btn_lrc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="歌词" />
-    </LinearLayout>
-
     //菜单
+
     <RelativeLayout
-        android:visibility="gone"
         android:id="@+id/rl_menu"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_above="@id/ll_playType">
+        android:layout_height="180dp"
+        android:layout_above="@id/ll_playType"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/tv_put"
@@ -75,44 +38,54 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:background="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/tv_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@mipmap/ic_launcher" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="投送" />
 
         <TextView
             android:id="@+id/tv_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_put"
-            android:layout_toRightOf="@id/tv_play"
-            android:background="@mipmap/ic_launcher" />
+            android:layout_below="@+id/tv_put"
+            android:layout_toEndOf="@+id/tv_playMode"
+            android:gravity="center"
+            android:text="收藏" />
 
         <TextView
-            android:id="@+id/tv_time"
+            android:id="@+id/tv_playMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/ic_launcher" />
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="随机" />
 
         <TextView
             android:id="@+id/tv_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_put"
-            android:layout_toLeftOf="@id/tv_time"
-            android:background="@mipmap/ic_launcher" />
+            android:layout_toLeftOf="@id/tv_timer"
+            android:gravity="center"
+            android:text="分享" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="定时" />
 
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_below="@id/tv_collection"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_put"
+            android:layout_marginTop="30dp"
             android:layout_toLeftOf="@id/tv_share"
             android:layout_toRightOf="@id/tv_collection">
 
@@ -122,22 +95,27 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
-                android:background="@mipmap/ic_launcher" />
+                android:gravity="center"
+                android:text="播放" />
 
             <TextView
+                android:id="@+id/tv_before"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@mipmap/ic_launcher" />
+                android:gravity="center"
+                android:text="上一首" />
 
             <TextView
+                android:id="@+id/tv_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:background="@mipmap/ic_launcher" />
+                android:text="下一首" />
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_musicState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -149,7 +127,9 @@
 
     </RelativeLayout>
 
+
     //类别
+
     <LinearLayout
         android:id="@+id/ll_playType"
         android:layout_width="match_parent"
@@ -157,7 +137,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="0dp"

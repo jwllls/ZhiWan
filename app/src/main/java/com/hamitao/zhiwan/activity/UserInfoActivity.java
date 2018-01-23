@@ -19,10 +19,15 @@ import android.widget.TextView;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
+import com.bigkoo.pickerview.TimePickerView;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.model.UserModel;
 import com.hamitao.zhiwan.mvp.userinfo.UserInfoView;
+import com.hamitao.zhiwan.util.DateUtil;
 import com.hamitao.zhiwan.util.LogUtil;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,6 +62,14 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
     RelativeLayout rlLogout;
     @BindView(R.id.iv_face)
     CircleImageView iv_face;
+    @BindView(R.id.tv_birth)
+    TextView tv_birth;
+
+
+    Calendar selectedDate = Calendar.getInstance();
+    Calendar startDate = Calendar.getInstance();
+    Calendar endDate = Calendar.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +77,12 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
         setContentView(R.layout.activity_user_info);
         ButterKnife.bind(this);
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        initView();
+    }
+
+    private void initView() {
+        startDate.set(2013, 0, 23);
+        endDate.set(2019, 11, 28);
     }
 
     @Override
@@ -152,6 +171,19 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
                 mAlertViewExt.show();
                 break;
             case R.id.rl_bbBirth:
+
+                //时间选择器
+                final TimePickerView pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {//选中事件回调
+                        tv_birth.setText(DateUtil.formatDate(date));
+                        selectedDate.setTime(date);
+                    }
+                }).setRangDate(startDate, endDate).setType(new boolean[]{true, true, true, false, false, false})
+                        .setLabel("年", "月", "日", "时", "分", "秒").build();
+                pvTime.setDate(Calendar.getInstance());//注：根据需求来决定是否使用该方法（一般是精确到秒的情况），此项可以在弹出选择器的时候重新设置当前时间，避免在初始化之后由于时间已经设定，导致选中时间与当前时间不匹配的问题。
+                pvTime.setDate(selectedDate);
+                pvTime.show();
                 break;
             case R.id.rl_logout:
                 new AlertView("提示", "确定要退出吗?", "取消", new String[]{"确定"}, null, this, AlertView.Style.Alert, new OnItemClickListener() {

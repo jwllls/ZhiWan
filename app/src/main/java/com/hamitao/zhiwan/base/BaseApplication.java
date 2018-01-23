@@ -49,7 +49,12 @@ public class BaseApplication extends Application{
         Constant.versionCode = AppVersionUtil.getVersionCode(this);
         //初始化Sharepreference
         PropertiesUtil.getInstance().init(this);
-        //图灵机器人识别
+        //腾讯IM
+
+
+
+
     }
+
 
 }
