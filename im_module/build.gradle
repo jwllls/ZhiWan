@@ -37,20 +37,20 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     implementation 'com.android.support:design:27.0.2'
     implementation 'com.android.support:appcompat-v7:27.0.2'
     //依赖注入
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation files('libs/bugly_2.4.0_imsdk_release.jar')
-    implementation files('libs/imsdk.jar')
-    implementation files('libs/imsdk_group_ext.jar')
-    implementation files('libs/imsdk_msg_ext.jar')
-    implementation files('libs/imsdk_sns_ext.jar')
-    implementation files('libs/mobilepb.jar')
-    implementation files('libs/qalsdk.jar')
-    implementation files('libs/soload.jar')
-    implementation files('libs/tls_sdk.jar')
-    implementation files('libs/wup-1.0.0-SNAPSHOT.jar')
+    //IMSDK 不能使用implementation，否则其他Module无法引用
+    compile files('libs/bugly_2.4.0_imsdk_release.jar')
+    compile files('libs/imsdk.jar')
+    compile files('libs/imsdk_group_ext.jar')
+    compile files('libs/imsdk_msg_ext.jar')
+    compile files('libs/imsdk_sns_ext.jar')
+    compile files('libs/mobilepb.jar')
+    compile files('libs/qalsdk.jar')
+    compile files('libs/soload.jar')
+    compile files('libs/tls_sdk.jar')
+    compile files('libs/wup-1.0.0-SNAPSHOT.jar')
 }

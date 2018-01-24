@@ -29,6 +29,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
+
     private static final int REQUEST_CODE_QRCODE_PERMISSIONS = 1;
 
     @BindViews({R.id.iv_recommend, R.id.iv_wechat, R.id.iv_square, R.id.iv_me})
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     TextView tv_unread_num;
     @BindView(R.id.tv_music)
     TextView tv_music;
+
+
 
     private FragmentManager fragmentManager;
     private RecommendFragment recommendFragment;
