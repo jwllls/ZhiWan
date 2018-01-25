@@ -1,6 +1,6 @@
 package com.hamitao.zhiwan.mvp.recommend;
 
-import com.hamitao.zhiwan.base.BaseView;
+import com.zhiwan.hamitao.base_module.base.BaseView;
 import com.hamitao.zhiwan.model.NewsModel;
 
 /**

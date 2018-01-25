@@ -1,7 +1,7 @@
 package com.hamitao.zhiwan.mvp.record;
 
 
-import com.hamitao.zhiwan.base.BaseView;
+import com.zhiwan.hamitao.base_module.base.BaseView;
 import com.hamitao.zhiwan.model.RecordModel;
 
 import java.util.List;

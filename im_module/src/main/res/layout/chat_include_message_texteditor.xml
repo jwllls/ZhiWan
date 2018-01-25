@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp">
+
+        <TextView
+            android:id="@+id/btn_switch_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/chat_btn_switch_voice_n" />
+
+        <TextView
+            android:id="@+id/btn_picture_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/btn_switch_voice"
+            android:background="@drawable/chat_btn_picture" />
+
+        <com.youyu.chat.views.NullMenuEditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_alignTop="@+id/btn_send_text"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="8.5dp"
+            android:layout_marginRight="8.5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toLeftOf="@+id/btn_send_text"
+            android:layout_toRightOf="@+id/btn_picture_1"
+            android:background="@drawable/chat_bg_chat_input_selector"
+            android:gravity="center_vertical"
+            android:maxHeight="105dip"
+            android:maxLength="1000"
+            android:minHeight="33dip"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="@color/text_default_d"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btn_send_text"
+            android:layout_width="55dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/chat_shape_default_black_alpha"
+            android:gravity="center"
+            android:text="发送"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</LinearLayout>

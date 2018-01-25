@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/chat_shape_bg_white_order"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:minWidth="223dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="41dp"
+        android:orientation="horizontal"
+        android:paddingLeft="13dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="我要支付该订单："
+            android:textColor="@color/text_default_l"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="0元"
+            android:textColor="@color/text_default_d"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/h_dotted_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+
+    <LinearLayout
+        android:minWidth="223dp"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:paddingTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="13dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="订单编号:  "
+                android:textColor="@color/text_default_l"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_order_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="1111111111111112"
+                android:textColor="@color/text_default_d"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="13dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="邀约对象:"
+                android:textColor="@color/text_default_l"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_nick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="小叮当 "
+                android:textColor="@color/text_default_d"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

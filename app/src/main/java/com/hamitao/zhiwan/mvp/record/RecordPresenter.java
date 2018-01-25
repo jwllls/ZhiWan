@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.RecordActivity;
-import com.hamitao.zhiwan.base.BasePresenter;
+import com.zhiwan.hamitao.base_module.base.BasePresenter;
 import com.hamitao.zhiwan.model.RecordModel;
-import com.hamitao.zhiwan.util.DateUtil;
-import com.hamitao.zhiwan.util.FileUtil;
-import com.hamitao.zhiwan.util.RecordUtil;
+import com.zhiwan.hamitao.base_module.util.DateUtil;
+import com.zhiwan.hamitao.base_module.util.FileUtil;
+import com.zhiwan.hamitao.base_module.util.RecordUtil;
 
 import java.io.File;
 import java.util.ArrayList;

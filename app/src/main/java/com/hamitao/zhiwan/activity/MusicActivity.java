@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
 
 import java.io.IOException;
 import java.io.InputStream;

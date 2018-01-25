@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.R;
+
 import com.hamitao.zhiwan.fragment.MeFragment;
 import com.hamitao.zhiwan.fragment.RecommendFragment;
 import com.hamitao.zhiwan.fragment.SquareFragment;

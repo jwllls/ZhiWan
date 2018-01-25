@@ -2,12 +2,12 @@ package com.hamitao.zhiwan.mvp.recommend;
 
 import android.content.Context;
 
-import com.hamitao.zhiwan.base.BasePresenter;
+import com.zhiwan.hamitao.base_module.base.BasePresenter;
 import com.hamitao.zhiwan.model.NewsModel;
 import com.hamitao.zhiwan.network.NetWordResult;
 import com.hamitao.zhiwan.network.NetWorkCallBack;
 import com.hamitao.zhiwan.network.NetworkRequest;
-import com.hamitao.zhiwan.util.GsonUtil;
+import com.zhiwan.hamitao.base_module.util.GsonUtil;
 
 /**
  * Created by linjianwen on 2018/1/17.

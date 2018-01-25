@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
 
 /**
  * Created by linjianwen on 2018/1/4.

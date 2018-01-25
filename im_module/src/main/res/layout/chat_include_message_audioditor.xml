@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="48dip"
+    android:background="@color/transparent"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/btn_switch_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/chat_btn_switch_keyboard_n" />
+
+    <TextView
+        android:id="@+id/btn_picture_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/btn_switch_keyboard"
+        android:background="@drawable/chat_btn_picture" />
+
+    <TextView
+        android:id="@+id/btn_send_text_enable"
+        android:layout_width="55dp"
+        android:layout_height="31dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/chat_shape_default_black_alpha"
+        android:gravity="center"
+        android:text="发送"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <com.youyu.chat.views.voice_record.RecordButton
+        android:id="@+id/btn_record_voice"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/btn_send_text_enable"
+        android:layout_toRightOf="@+id/btn_picture_2"
+        android:background="@drawable/chat_bg_chat_input_selector"
+        android:gravity="center"
+        android:text="按住说话"
+        android:textColor="#bababa"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</RelativeLayout>

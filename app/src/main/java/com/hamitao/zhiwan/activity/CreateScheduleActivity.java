@@ -19,7 +19,7 @@ import com.bin.david.form.data.style.FontStyle;
 import com.bin.david.form.data.style.LineStyle;
 import com.bin.david.form.utils.DensityUtils;
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

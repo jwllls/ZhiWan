@@ -13,7 +13,7 @@ import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.model.RecordModel;
 import com.hamitao.zhiwan.mvp.record.RecordPresenter;
 import com.hamitao.zhiwan.mvp.record.RecordView;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import java.io.Serializable;
 import java.util.List;

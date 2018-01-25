@@ -21,10 +21,10 @@ import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.bigkoo.pickerview.TimePickerView;
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.model.UserModel;
+import com.zhiwan.hamitao.base_module.model.UserModel;
 import com.hamitao.zhiwan.mvp.userinfo.UserInfoView;
-import com.hamitao.zhiwan.util.DateUtil;
-import com.hamitao.zhiwan.util.LogUtil;
+import com.zhiwan.hamitao.base_module.util.DateUtil;
+import com.zhiwan.hamitao.base_module.util.LogUtil;
 
 import java.util.Calendar;
 import java.util.Date;

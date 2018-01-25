@@ -10,8 +10,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -21,14 +19,8 @@ android {
         }
     }
 
-        useLibrary 'org.apache.http.legacy'
 
 
-    sourceSets{
-        main{
-            jniLibs.srcDirs('libs')
-        }
-    }
 
 }
 
@@ -42,15 +34,6 @@ dependencies {
     //依赖注入
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    //IMSDK 不能使用implementation，否则其他Module无法引用
-    compile files('libs/bugly_2.4.0_imsdk_release.jar')
-    compile files('libs/imsdk.jar')
-    compile files('libs/imsdk_group_ext.jar')
-    compile files('libs/imsdk_msg_ext.jar')
-    compile files('libs/imsdk_sns_ext.jar')
-    compile files('libs/mobilepb.jar')
-    compile files('libs/qalsdk.jar')
-    compile files('libs/soload.jar')
-    compile files('libs/tls_sdk.jar')
-    compile files('libs/wup-1.0.0-SNAPSHOT.jar')
+
+    implementation project(':base_module')
 }

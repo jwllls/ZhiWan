@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/chat_shape_bg_white_order"
+    android:minHeight="80dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="41dp"
+        android:paddingLeft="10dp"
+        android:text="反正你就是欠东西没完善,快去弄好,别哔哔!!"
+        android:textColor="@color/text_default_l"
+        android:textSize="13sp" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="vertical">
+
+        <View
+            style="@style/h_dotted_line"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/btn_go"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="跳转"
+            android:textColor="@color/text_default_d"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

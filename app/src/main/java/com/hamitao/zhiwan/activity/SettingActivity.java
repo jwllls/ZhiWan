@@ -11,9 +11,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.hamitao.zhiwan.R;
-import com.hamitao.zhiwan.base.BaseActivity;
-import com.hamitao.zhiwan.util.DataCleanUtil;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.util.DataCleanUtil;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 import com.tencent.android.tpush.XGPushManager;
 
 import java.util.ArrayList;

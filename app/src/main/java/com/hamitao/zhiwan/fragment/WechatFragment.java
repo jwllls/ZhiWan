@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.SelectContactActivity;
 import com.hamitao.zhiwan.adapter.ChatGroupAdapter;
-import com.hamitao.zhiwan.base.BaseFragment;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.base.BaseFragment;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;

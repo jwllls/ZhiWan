@@ -18,8 +18,8 @@ import com.hamitao.zhiwan.activity.RecentPlayActivity;
 import com.hamitao.zhiwan.activity.MyScheduleActivity;
 import com.hamitao.zhiwan.activity.SettingActivity;
 import com.hamitao.zhiwan.activity.UserInfoActivity;
-import com.hamitao.zhiwan.base.BaseFragment;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.base.BaseFragment;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

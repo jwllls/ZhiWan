@@ -1,7 +1,7 @@
 package com.hamitao.zhiwan.mvp.userinfo;
 
-import com.hamitao.zhiwan.base.BaseView;
-import com.hamitao.zhiwan.model.UserModel;
+import com.zhiwan.hamitao.base_module.base.BaseView;
+import com.zhiwan.hamitao.base_module.model.UserModel;
 
 /**
  * Created by linjianwen on 2018/1/17.

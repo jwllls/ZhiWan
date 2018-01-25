@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/chat_shape_bg_white_order"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_refund_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="41dp"
+        android:paddingBottom="12dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="12dp"
+        android:text="订单退款状态："
+        android:textColor="@color/text_default_l"
+        android:textSize="13sp" />
+
+    <View
+        style="@style/h_dotted_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+
+    <TextView
+        android:id="@+id/tv_order_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="12dp"
+        android:text="订单编号：2017123456789102"
+        android:textColor="@color/text_default_l"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_refund_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="人民币200元已退至XX支付，请及时查收，如4个工作日内未到账，请联系客服。"
+        android:textColor="@color/text_default_d"
+        android:textSize="13sp" />
+
+
+</LinearLayout>

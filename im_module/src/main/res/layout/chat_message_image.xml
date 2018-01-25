@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:padding="1dp">
+
+
+    <com.langu.frame.views.ChatImageView
+        android:id="@+id/message_image_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:chat_image_mask="@drawable/chat_bubble_0_r_n_n" />
+
+    <com.langu.frame.views.ChatImageView
+        android:id="@+id/message_image_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:chat_image_mask="@drawable/chat_bubble_0_s_n_n" />
+
+</RelativeLayout>

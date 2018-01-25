@@ -1,7 +1,7 @@
 package com.hamitao.zhiwan.network;
 
 
-import com.hamitao.zhiwan.util.LogUtil;
+import com.zhiwan.hamitao.base_module.util.LogUtil;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.io.IOException;

@@ -2,7 +2,7 @@ package com.hamitao.zhiwan.mvp.edituser;
 
 import android.content.Context;
 
-import com.hamitao.zhiwan.base.BasePresenter;
+import com.zhiwan.hamitao.base_module.base.BasePresenter;
 
 /**
  * Created by linjianwen on 2018/1/17.

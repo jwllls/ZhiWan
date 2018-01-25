@@ -1,6 +1,6 @@
 package com.hamitao.zhiwan.mvp.login;
 
-import com.hamitao.zhiwan.base.BaseView;
+import com.zhiwan.hamitao.base_module.base.BaseView;
 
 /**
  * Created by linjianwen on 2018/1/16.

@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.adapter.SquareAdapter;
-import com.hamitao.zhiwan.base.BaseFragment;
+import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.hamitao.zhiwan.model.NewsModel;
 import com.hamitao.zhiwan.mvp.square.SquarePresenter;
 import com.hamitao.zhiwan.mvp.square.SquareView;
-import com.hamitao.zhiwan.util.BGARefreshUtil;
-import com.hamitao.zhiwan.util.ToastUtil;
+import com.zhiwan.hamitao.base_module.util.BGARefreshUtil;
+import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 
-import static com.hamitao.zhiwan.util.BGARefreshUtil.getBGAMeiTuanRefreshViewHolder;
+import static com.zhiwan.hamitao.base_module.util.BGARefreshUtil.getBGAMeiTuanRefreshViewHolder;
 
 /**
  * Created by linjianwen on 2018/1/4.

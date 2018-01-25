@@ -2,12 +2,12 @@ package com.hamitao.zhiwan.network;
 
 
 import com.hamitao.zhiwan.Constant;
-import com.hamitao.zhiwan.base.BaseApplication;
+import com.zhiwan.hamitao.base_module.base.BaseApplication;
 import com.hamitao.zhiwan.enums.OsEnum;
-import com.hamitao.zhiwan.model.UserModel;
-import com.hamitao.zhiwan.util.StringUtil;
-import com.hamitao.zhiwan.util.SystemUtil;
-import com.hamitao.zhiwan.util.UserUtil;
+import com.zhiwan.hamitao.base_module.model.UserModel;
+import com.zhiwan.hamitao.base_module.util.StringUtil;
+import com.zhiwan.hamitao.base_module.util.SystemUtil;
+import com.zhiwan.hamitao.base_module.util.UserUtil;
 
 import java.util.HashMap;
 import java.util.Map;

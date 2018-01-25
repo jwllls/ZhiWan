@@ -14,6 +14,14 @@ buildscript {
 }
 
 allprojects {
+
+    //打印报错信息
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+
     repositories {
         google()
         jcenter()
@@ -21,12 +29,6 @@ allprojects {
     }
 
 
-    /*  打印报错信息
-          gradle.projectsEvaluated {
-          tasks.withType(JavaCompile) {
-              options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-          }
-      }*/
 }
 task clean(type: Delete) {
     delete rootProject.buildDir
@@ -35,8 +37,8 @@ task clean(type: Delete) {
 
 ext {
     // SDK And Tools Version
-    minSdkVersion = 19
-    targetSdkVersion = 27//信鸽推送限制了小于等于22
+    minSdkVersion = 15
+    targetSdkVersion = 22//信鸽推送限制了小于等于22
     compileSdkVersion = 27
     buildToolsVersion = '27.0.2'
     supportVersion = "27.0.2"

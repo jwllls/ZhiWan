@@ -2,7 +2,7 @@ package com.hamitao.zhiwan.network;
 
 
 import com.hamitao.zhiwan.enums.ErrorCode;
-import com.hamitao.zhiwan.util.StringUtil;
+import com.zhiwan.hamitao.base_module.util.StringUtil;
 
 import io.reactivex.disposables.Disposable;
 
