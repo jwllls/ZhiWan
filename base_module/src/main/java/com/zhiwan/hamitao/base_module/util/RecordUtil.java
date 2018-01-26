@@ -4,7 +4,6 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;
 
-import com.zhiwan.hamitao.im_module.chat.utils.DateUtil;
 
 import java.io.File;
 

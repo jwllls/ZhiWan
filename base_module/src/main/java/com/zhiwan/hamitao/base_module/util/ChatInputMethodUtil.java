@@ -6,7 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-import com.langu.frame.base.BaseApplication;
+import com.zhiwan.hamitao.base_module.base.BaseApplication;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 

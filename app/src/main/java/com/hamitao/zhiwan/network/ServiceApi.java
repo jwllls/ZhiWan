@@ -1,5 +1,7 @@
 package com.hamitao.zhiwan.network;
 
+import com.zhiwan.hamitao.base_module.network.NetWordResult;
+
 import java.util.Map;
 
 import io.reactivex.Observable;

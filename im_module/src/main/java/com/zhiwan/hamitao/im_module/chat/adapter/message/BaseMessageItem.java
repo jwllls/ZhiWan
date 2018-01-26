@@ -16,11 +16,11 @@ import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.enums.ChatEnum;
 import com.zhiwan.hamitao.base_module.model.UserModel;
 import com.zhiwan.hamitao.base_module.model.chat.ChatSo;
+import com.zhiwan.hamitao.base_module.util.GsonUtil;
+import com.zhiwan.hamitao.base_module.util.MusicPlayer;
 import com.zhiwan.hamitao.base_module.util.UserUtil;
 import com.zhiwan.hamitao.im_module.ChatConstant;
 import com.zhiwan.hamitao.im_module.R;
-import com.zhiwan.hamitao.base_module.util.GsonUtil;
-import com.zhiwan.hamitao.base_module.util.MusicPlayer;
 
 
 /**
@@ -161,8 +161,10 @@ public abstract class BaseMessageItem {
             } else {
                 if (friend == null)
                     return;
-                GlideUtil.getInstance().loadCircleImage(activity, image_user_head, friend.getFace()
-                        , R.drawable.icon_avarta_circle);
+//                GlideUtil.getInstance().loadCircleImage(activity, image_user_head, friend.getFace()
+//                        , R.drawable.icon_avarta_circle);
+
+                Glide.with(activity).load(friend.getFace()).into(image_user_head);
                 image_user_head.setTag(R.id.image_tag, friend);
                 image_user_head.setOnClickListener(new View.OnClickListener() {
 
@@ -177,8 +179,10 @@ public abstract class BaseMessageItem {
             }
 
         } else {
-            GlideUtil.getInstance().loadCircleImage(activity, image_user_head, UserUtil.user().getFace()
-                    , R.drawable.icon_avarta_circle);
+//            GlideUtil.getInstance().loadCircleImage(activity, image_user_head, UserUtil.user().getFace()
+//                    , R.drawable.icon_avarta_circle);
+
+            Glide.with(activity).load(UserUtil.user().getFace()).into(image_user_head);
             image_user_head.setOnClickListener(new View.OnClickListener() {
 
                 @Override

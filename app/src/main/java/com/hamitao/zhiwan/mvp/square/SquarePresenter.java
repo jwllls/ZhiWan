@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.zhiwan.hamitao.base_module.base.BasePresenter;
 import com.hamitao.zhiwan.model.NewsModel;
-import com.hamitao.zhiwan.network.NetWordResult;
-import com.hamitao.zhiwan.network.NetWorkCallBack;
+import com.zhiwan.hamitao.base_module.network.NetWordResult;
+import com.zhiwan.hamitao.base_module.network.NetWorkCallBack;
 import com.hamitao.zhiwan.network.NetworkRequest;
 import com.zhiwan.hamitao.base_module.util.GsonUtil;
 

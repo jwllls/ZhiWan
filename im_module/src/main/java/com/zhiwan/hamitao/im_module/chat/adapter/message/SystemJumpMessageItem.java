@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.langu.frame.base.BaseActivity;
-import com.langu.frame.model.UserModel;
-import com.langu.frame.model.chat.ChatSo;
-import com.tencent.TIMMessage;
-import com.youyu.chat.R;
+import com.tencent.imsdk.TIMMessage;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.model.UserModel;
+import com.zhiwan.hamitao.base_module.model.chat.ChatSo;
+import com.zhiwan.hamitao.im_module.R;
 
 
 /**

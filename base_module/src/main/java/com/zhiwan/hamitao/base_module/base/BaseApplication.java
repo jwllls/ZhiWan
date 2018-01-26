@@ -2,6 +2,7 @@ package com.zhiwan.hamitao.base_module.base;
 
 import android.app.Application;
 
+
 import com.squareup.leakcanary.LeakCanary;
 import com.zhiwan.hamitao.base_module.Constant;
 import com.zhiwan.hamitao.base_module.util.AppVersionUtil;
@@ -54,6 +55,7 @@ public class BaseApplication extends Application {
 
         //初始化Sharepreference
         PropertiesUtil.getInstance().init(this);
+
 
 
     }

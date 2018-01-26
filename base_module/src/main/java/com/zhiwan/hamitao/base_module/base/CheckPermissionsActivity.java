@@ -1,18 +1,14 @@
 package com.zhiwan.hamitao.base_module.base;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-
-import com.hamitao.zhiwan.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,7 +128,7 @@ public class CheckPermissionsActivity extends AppCompatActivity implements
      * @since 2.5.0
      */
     private void showMissingPermissionDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+      /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.notifyTitle);
         builder.setMessage(R.string.notifyMsg);
 
@@ -155,7 +151,7 @@ public class CheckPermissionsActivity extends AppCompatActivity implements
                 });
         builder.setCancelable(false);
 
-        builder.show();
+        builder.show();*/
     }
 
     /**

@@ -7,6 +7,8 @@ package com.zhiwan.hamitao.im_module;
 public class ChatConstant {
     public static final String ID_System = "10000";
     public static final String ID_Server = "10001";
+
+    public static final int SDK_APPID = 1400059977;
     /**
      * 邀约消息
      */

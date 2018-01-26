@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.fragment.MeFragment;
 import com.hamitao.zhiwan.fragment.RecommendFragment;
 import com.hamitao.zhiwan.fragment.SquareFragment;
@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     TextView tv_unread_num;
     @BindView(R.id.tv_music)
     TextView tv_music;
-
 
 
     private FragmentManager fragmentManager;

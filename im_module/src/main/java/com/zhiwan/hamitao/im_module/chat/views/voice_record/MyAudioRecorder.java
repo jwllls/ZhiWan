@@ -3,7 +3,7 @@ package com.zhiwan.hamitao.im_module.chat.views.voice_record;
 import android.media.MediaRecorder;
 import android.util.Log;
 
-import com.langu.frame.Constant;
+import com.zhiwan.hamitao.base_module.Constant;
 
 import java.io.File;
 import java.io.IOException;

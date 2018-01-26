@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bg_activity">#F9F7F8</color>
 
 
     <color name="background">#F9F7F8</color>
@@ -128,7 +129,6 @@
     <color name="black_p">#4d4d4d</color>
     <color name="black_3">#4d4d4d</color>
 
-    <color name="vip_nick">#f9a631</color>
 
 
 

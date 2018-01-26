@@ -9,10 +9,10 @@ import com.tencent.imsdk.TIMMessage;
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.enums.ChatEnum;
 import com.zhiwan.hamitao.base_module.model.UserModel;
+import com.zhiwan.hamitao.base_module.model.chat.ChatCoustomDo;
 import com.zhiwan.hamitao.base_module.model.chat.ChatSo;
-import com.zhiwan.hamitao.im_module.R;
-import com.zhiwan.hamitao.im_module.chat.activity.ChatActivity;
 import com.zhiwan.hamitao.base_module.util.GsonUtil;
+import com.zhiwan.hamitao.im_module.R;
 
 
 class TipMessageItem extends BaseMessageItem implements OnClickListener {
@@ -41,9 +41,9 @@ class TipMessageItem extends BaseMessageItem implements OnClickListener {
             ChatCoustomDo coustomDo = GsonUtil.GsonToBean(chat.getContent(), ChatCoustomDo.class);
             if (coustomDo != null) {
                 tips = coustomDo.getText();
-                if (activity instanceof ChatActivity) {
-                    ((ChatActivity) activity).resetServerId(coustomDo.getUserId());
-                }
+//                if (activity instanceof ChatActivity) {
+//                    ((ChatActivity) activity).resetServerId(coustomDo.getUserId());
+//                }
             }
             gravity = Gravity.CENTER;
         } else if (chat.getContentType() == ChatEnum.TIPS.getType()) {

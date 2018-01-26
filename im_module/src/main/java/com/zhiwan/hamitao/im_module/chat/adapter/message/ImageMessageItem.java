@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.tencent.imsdk.TIMMessage;
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.model.UserModel;
@@ -68,7 +69,8 @@ class ImageMessageItem extends BaseMessageItem implements OnClickListener {
                 mIvImage.setLayoutParams(params);
                 mIvImage.setTag(R.id.image_tag, imgDo.getImgUrl());
                 mIvImage.setOnClickListener(this);
-                GlideUtil.getInstance().loadImage(activity, mIvImage, imgDo.getImgUrl(), false);
+//                GlideUtil.getInstance().loadImage(activity, mIvImage, imgDo.getImgUrl(), false);
+                Glide.with(activity).load(imgDo.getImgUrl()).into(mIvImage);
             }
         }
     }

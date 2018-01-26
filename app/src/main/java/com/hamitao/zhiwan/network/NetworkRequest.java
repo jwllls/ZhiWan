@@ -1,12 +1,15 @@
 package com.hamitao.zhiwan.network;
 
 
+import com.zhiwan.hamitao.base_module.network.NetWorkCallBack;
+import com.zhiwan.hamitao.base_module.network.RxUtils;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.hamitao.zhiwan.network.CommonParams.commonParam;
+import static com.zhiwan.hamitao.base_module.network.CommonParams.commonParam;
 
 
 /**

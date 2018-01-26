@@ -1,8 +1,8 @@
 package com.zhiwan.hamitao.base_module.IM.listener;
 
-import com.tencent.TIMConversation;
-import com.tencent.TIMManager;
-import com.tencent.TIMRefreshListener;
+
+import com.tencent.imsdk.TIMConversation;
+import com.tencent.imsdk.TIMRefreshListener;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class IMRefreshListener implements TIMRefreshListener {
 
     private IMRefreshListener() {
         //注册消息监听器
-        TIMManager.getInstance().setRefreshListener(this);
+//        TIMManager.getInstance().setRefreshListener(this);
     }
 
     public static IMRefreshListener getInstance() {

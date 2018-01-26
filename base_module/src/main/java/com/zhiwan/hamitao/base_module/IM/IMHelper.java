@@ -5,7 +5,37 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
-
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMConnListener;
+import com.tencent.imsdk.TIMConversation;
+import com.tencent.imsdk.TIMCustomElem;
+import com.tencent.imsdk.TIMFaceElem;
+import com.tencent.imsdk.TIMGroupEventListener;
+import com.tencent.imsdk.TIMGroupMemberInfo;
+import com.tencent.imsdk.TIMGroupReceiveMessageOpt;
+import com.tencent.imsdk.TIMGroupTipsElem;
+import com.tencent.imsdk.TIMImageElem;
+import com.tencent.imsdk.TIMLogLevel;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMMessageListener;
+import com.tencent.imsdk.TIMOfflinePushListener;
+import com.tencent.imsdk.TIMOfflinePushNotification;
+import com.tencent.imsdk.TIMRefreshListener;
+import com.tencent.imsdk.TIMSNSChangeInfo;
+import com.tencent.imsdk.TIMSdkConfig;
+import com.tencent.imsdk.TIMUser;
+import com.tencent.imsdk.TIMUserConfig;
+import com.tencent.imsdk.TIMUserProfile;
+import com.tencent.imsdk.TIMUserStatusListener;
+import com.tencent.imsdk.TIMValueCallBack;
+import com.tencent.imsdk.ext.group.TIMGroupAssistantListener;
+import com.tencent.imsdk.ext.group.TIMGroupCacheInfo;
+import com.tencent.imsdk.ext.group.TIMUserConfigGroupExt;
+import com.tencent.imsdk.ext.message.TIMUserConfigMsgExt;
+import com.tencent.imsdk.ext.sns.TIMFriendshipProxyListener;
+import com.tencent.imsdk.ext.sns.TIMUserConfigSnsExt;
+import com.tencent.qalsdk.sdk.MsfSdkUtils;
 import com.zhiwan.hamitao.base_module.IM.listener.IMMessageListener;
 import com.zhiwan.hamitao.base_module.IM.listener.IMUserStatusListener;
 import com.zhiwan.hamitao.base_module.R;
@@ -13,8 +43,6 @@ import com.zhiwan.hamitao.base_module.base.BaseApplication;
 import com.zhiwan.hamitao.base_module.util.LogUtil;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by Zenfer on 2016/10/11.
@@ -39,7 +67,7 @@ public class IMHelper {
                 public void handleNotification(TIMOfflinePushNotification notification) {
                     if (notification.getGroupReceiveMsgOpt() == TIMGroupReceiveMessageOpt.ReceiveAndNotify) {
                         //消息被设置为需要提醒
-                        notification.doNotify(BaseApplication.getInstance(), R.mipmap.ic_launcher);
+                        notification.doNotify(BaseApplication.getInstance(), R.drawable.app_logo);
                     }
                 }
             });

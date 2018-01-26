@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.tencent.TIMBaseApplication;
 
-public class Foreground implements TIMBaseApplication.ActivityLifecycleCallbacks {
+public class Foreground implements Application.ActivityLifecycleCallbacks {
 
     //单例
     private static Foreground instance = new Foreground();
@@ -40,29 +39,17 @@ public class Foreground implements TIMBaseApplication.ActivityLifecycleCallbacks
     private Foreground() {
     }
 
-    @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
-        // TODO Auto-generated method stub
-
-    }
 
     @Override
     public void onActivityPaused(Activity activity) {
         paused = true;
         if (check != null)
             handler.removeCallbacks(check);
-        handler.postDelayed(check = new Runnable() {
+        handler.postDelayed(check = new Runnable(){
             @Override
             public void run() {
                 if (foreground && paused) {
                     foreground = false;
-                    if (listener != null) listener.background();
                     Log.i(TAG, "went background");
                 } else {
                     Log.i(TAG, "still foreground");
@@ -78,14 +65,22 @@ public class Foreground implements TIMBaseApplication.ActivityLifecycleCallbacks
         foreground = true;
         if (check != null)
             handler.removeCallbacks(check);
-        if (listener != null)
-            listener.foreground();
 
     }
 
     @Override
     public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
         // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 
     }
 
@@ -104,6 +99,8 @@ public class Foreground implements TIMBaseApplication.ActivityLifecycleCallbacks
     public boolean isForeground() {
         return foreground;
     }
+
+
 
     public interface StateCallBack {
         void foreground();

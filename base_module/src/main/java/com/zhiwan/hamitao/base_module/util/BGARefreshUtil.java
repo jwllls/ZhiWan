@@ -2,7 +2,7 @@ package com.zhiwan.hamitao.base_module.util;
 
 import android.content.Context;
 
-import com.hamitao.zhiwan.R;
+import com.zhiwan.hamitao.base_module.R;
 
 import cn.bingoogolapple.refreshlayout.BGAMeiTuanRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;

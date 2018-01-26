@@ -2,17 +2,18 @@ package com.zhiwan.hamitao.base_module.IM.listener;
 
 import android.content.Intent;
 
-import com.langu.frame.Constant;
-import com.langu.frame.IM.Foreground;
-import com.langu.frame.IM.PushUtil;
-import com.langu.frame.base.BaseApplication;
-import com.langu.frame.utils.LogUtil;
-import com.langu.frame.utils.StringUtil;
-import com.tencent.TIMElem;
-import com.tencent.TIMGroupSystemElem;
-import com.tencent.TIMManager;
-import com.tencent.TIMMessage;
-import com.tencent.TIMProfileSystemElem;
+import com.tencent.imsdk.TIMElem;
+import com.tencent.imsdk.TIMGroupSystemElem;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMMessageListener;
+import com.tencent.imsdk.TIMProfileSystemElem;
+import com.zhiwan.hamitao.base_module.Constant;
+import com.zhiwan.hamitao.base_module.IM.Foreground;
+import com.zhiwan.hamitao.base_module.IM.PushUtil;
+import com.zhiwan.hamitao.base_module.base.BaseApplication;
+import com.zhiwan.hamitao.base_module.util.LogUtil;
+import com.zhiwan.hamitao.base_module.util.StringUtil;
 
 import java.util.List;
 import java.util.Observable;
@@ -21,7 +22,9 @@ import java.util.Observable;
  * Created by Zenfer on 2016/10/19.
  * 腾讯IM消息监听
  */
-public class IMMessageListener extends Observable implements com.tencent.TIMMessageListener {
+public class IMMessageListener extends Observable implements TIMMessageListener {
+
+    private String tag = IMMessageListener.class.getSimpleName();
 
     private volatile static IMMessageListener instance;
 
@@ -77,7 +80,7 @@ public class IMMessageListener extends Observable implements com.tencent.TIMMess
                     notifyObservers(msg);
                     break;
                 case System:
-                    LogUtil.d("系统消息");
+                    LogUtil.d(tag,"系统消息");
                     for (int i = 0; i <= msg.getElementCount(); i++) {
                         TIMElem elem = msg.getElement(i);
                         switch (elem.getType()) {

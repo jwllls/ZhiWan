@@ -1,15 +1,8 @@
 package com.zhiwan.hamitao.base_module.base;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
-
-import com.tencent.android.tpush.XGIOperateCallback;
-import com.tencent.android.tpush.XGPushManager;
-import com.tencent.android.tpush.service.XGPushServiceV3;
-import com.zhiwan.hamitao.base_module.util.LogUtil;
-import com.zhiwan.hamitao.base_module.util.UserUtil;
 
 /**
  * Created by linjianwen on 2018/1/4.
@@ -41,7 +34,7 @@ public class BaseActivity extends CheckPermissionsActivity {
 
 
 
-    //**************************************信鸽注册**************************************//
+   /* /*//**************************************信鸽注册**************************************//*/
     public void registerPush() {
         //  信鸽注册
         if (UserUtil.user() != null) {
@@ -61,6 +54,6 @@ public class BaseActivity extends CheckPermissionsActivity {
             getApplicationContext().startService(service);
         }
     }
-    //**************************************信鸽注册**************************************//
+    /*//**************************************信鸽注册**************************************//*/*/
 
 }

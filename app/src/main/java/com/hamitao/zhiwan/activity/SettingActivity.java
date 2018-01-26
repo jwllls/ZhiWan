@@ -14,7 +14,6 @@ import com.hamitao.zhiwan.R;
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.util.DataCleanUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
-import com.tencent.android.tpush.XGPushManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,14 +82,13 @@ public class SettingActivity extends BaseActivity {
             case R.id.rl_push:
                 if (switchPush.isChecked()) {
                     switchPush.setChecked(false);
-                    XGPushManager.unregisterPush(this);
+//                    XGPushManager.unregisterPush(this);
                 } else {
                     switchPush.setChecked(true);
-                    registerPush();
+//                    registerPush();
                 }
                 break;
             case R.id.rl_cleanCache:
-
                 try {
                     new AlertDialog.Builder(this).setTitle("提示")
                             .setMessage("当前缓存：" + cleanUtil.getTotalCacheSize(this) + "\n清除缓存将清理应用中的所有数据！")

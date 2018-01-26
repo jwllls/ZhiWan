@@ -1,8 +1,7 @@
 package com.zhiwan.hamitao.base_module.util;
 
 import com.zhiwan.hamitao.base_module.model.UserModel;
-import com.zhiwan.hamitao.im_module.chat.utils.GsonUtil;
-import com.zhiwan.hamitao.im_module.chat.utils.StringUtil;
+
 
 /**
  * Created by linjianwen on 2018/1/5.

@@ -11,7 +11,6 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
-import com.zhiwan.hamitao.im_module.chat.utils.StringUtil;
 
 import java.util.List;
 

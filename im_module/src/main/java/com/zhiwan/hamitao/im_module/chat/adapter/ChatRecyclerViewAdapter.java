@@ -1,17 +1,17 @@
 package com.zhiwan.hamitao.im_module.chat.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tencent.imsdk.TIMMessage;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.model.UserModel;
-import com.zhiwan.hamitao.im_module.R;
-import com.zhiwan.hamitao.im_module.chat.adapter.message.BaseMessageItem;
 import com.zhiwan.hamitao.base_module.util.DateUtil;
 import com.zhiwan.hamitao.base_module.util.MusicPlayer;
+import com.zhiwan.hamitao.im_module.R;
+import com.zhiwan.hamitao.im_module.chat.adapter.message.BaseMessageItem;
 
 import cn.bingoogolapple.baseadapter.BGARecyclerViewAdapter;
 import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
@@ -24,7 +24,7 @@ public class ChatRecyclerViewAdapter extends BGARecyclerViewAdapter<TIMMessage> 
 
     private static final long MIN_RECENT_TIME = 60 * 1000;
 
-    private Context activity;
+    private BaseActivity activity;
     private UserModel friend;
 
     private MusicPlayer mp = null;
@@ -33,7 +33,7 @@ public class ChatRecyclerViewAdapter extends BGARecyclerViewAdapter<TIMMessage> 
         this.friend = friend;
     }
 
-    public ChatRecyclerViewAdapter(RecyclerView recyclerView, Context activity){
+    public ChatRecyclerViewAdapter(RecyclerView recyclerView, BaseActivity activity){
         super(recyclerView, R.layout.chat_item_chat);
         this.activity = activity;
         mp = new MusicPlayer(activity, null);

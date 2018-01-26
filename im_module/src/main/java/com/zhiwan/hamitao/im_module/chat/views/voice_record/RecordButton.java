@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.youyu.chat.R;
+import com.zhiwan.hamitao.im_module.R;
 
 
 public class RecordButton extends AppCompatButton {
