@@ -65,6 +65,8 @@ public class WebViewActivity extends AppCompatActivity {
 
         mWebview.setDownloadListener(new MyWebViewDownloadListener());
 
+//      智慧树测试用例
+//      result = "http://192.168.1.200/knowledgegraph/knowledgegraph.html";
         mWebview.loadUrl(result);
 
         /**

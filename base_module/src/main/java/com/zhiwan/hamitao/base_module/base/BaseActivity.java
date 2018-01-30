@@ -2,13 +2,14 @@ package com.zhiwan.hamitao.base_module.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 
 /**
  * Created by linjianwen on 2018/1/4.
  */
 
-public class BaseActivity extends CheckPermissionsActivity {
+public class BaseActivity  extends AppCompatActivity {
 
 
     public static final String TAG = BaseActivity.class.getSimpleName();

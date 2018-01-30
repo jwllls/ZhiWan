@@ -84,7 +84,7 @@ public class MyRecordActivity extends AppCompatActivity implements BGAOnItemChil
         adapter = new RecordAdapter(recyclerView);
         adapter.setOnItemChildClickListener(this);
         adapter.setOnRVItemClickListener(this);
-        tv_count.setText(fa == null ?"我的录音(" + (0) + ")":"我的录音(" + (fa.length) + ")");
+        tv_count.setText(fa == null ? "我的录音(" + (0) + ")" : "我的录音(" + (fa.length) + ")");
         getRecordList();
     }
 
@@ -94,7 +94,7 @@ public class MyRecordActivity extends AppCompatActivity implements BGAOnItemChil
     private void getRecordList() {
         if (list.size() == 0) {
 
-            if (fa!=null && fa.length > 0) {
+            if (fa != null && fa.length > 0) {
                 for (int i = fa.length - 1; i >= 0; i--) {
                     RecordModel model = new RecordModel();
 
@@ -169,7 +169,7 @@ public class MyRecordActivity extends AppCompatActivity implements BGAOnItemChil
                     .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ToastUtil.showShort(MyRecordActivity.this, "更多："+position);
+                            ToastUtil.showShort(MyRecordActivity.this, "更多：" + position);
                         }
                     })
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -197,7 +197,7 @@ public class MyRecordActivity extends AppCompatActivity implements BGAOnItemChil
         MediaPlayer mediaPlayer = new MediaPlayer();
         try {
             Uri uri = Uri.fromFile(list.get(position).getRecordFile());
-            mediaPlayer.setDataSource(this,uri);
+            mediaPlayer.setDataSource(this, uri);
             mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (IOException e) {

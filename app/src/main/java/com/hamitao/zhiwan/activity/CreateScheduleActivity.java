@@ -1,11 +1,11 @@
 package com.hamitao.zhiwan.activity;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +18,7 @@ import com.bin.david.form.data.format.draw.IDrawFormat;
 import com.bin.david.form.data.style.FontStyle;
 import com.bin.david.form.data.style.LineStyle;
 import com.hamitao.zhiwan.R;
+import com.zhiwan.hamitao.base_module.base.BaseActivity;
 import com.zhiwan.hamitao.base_module.util.ScreenUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
@@ -25,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CreateScheduleActivity extends AppCompatActivity {
+public class CreateScheduleActivity extends BaseActivity {
 
 
     @BindView(R.id.title)
@@ -50,6 +51,26 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         initData();
         initView();
+
+    }
+
+    private void initData() {
+
+
+    }
+
+    private void initView() {
+        title.setVisibility(View.VISIBLE);
+        title.setText("课程表");
+        initTable();
+
+    }
+
+
+    /**
+     * 初始化课表
+     */
+    private void initTable() {
         FontStyle fontStyle = new FontStyle(this, 10, ContextCompat.getColor(this, R.color.text_default_l));//字体样式
         table.getConfig().setColumnTitleStyle(fontStyle); //标题样式
         table.getConfig().setShowTableTitle(false);//隐藏标题
@@ -115,13 +136,6 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
 
         table.setTableData(tableData);
-    }
-
-    private void initData() {
-
-    }
-
-    private void initView() {
 
     }
 
@@ -135,6 +149,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
             case R.id.more:
                 break;
             case R.id.btn_create:
+                startActivity(new Intent(this,NewScheduleInfoActivity.class));
                 break;
         }
     }

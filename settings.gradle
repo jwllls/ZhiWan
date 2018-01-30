@@ -1,1 +1,3 @@
-include ':app', ':im_module', ':base_module'
+include ':app', ':im_module', ':base_module', ':turing'
+
+project(':turing').projectDir = new File('third_sdk/turing')

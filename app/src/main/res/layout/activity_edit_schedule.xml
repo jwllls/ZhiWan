@@ -24,7 +24,87 @@
         android:layout_height="40dp"
         android:layout_above="@id/btn_confirm"
         android:gravity="center"
-        android:numColumns="7"></GridView>
+        android:numColumns="7"
+        android:visibility="gone"></GridView>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_confirm"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周一" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:background="@drawable/week_selector"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周二" />
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周三" />
+
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周四" />
+
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周五" />
+
+        <RadioButton
+            android:id="@+id/rb6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周六" />
+
+        <RadioButton
+            android:id="@+id/rb7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/week_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="周日" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/btn_confirm"
@@ -32,6 +112,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="确定" />
-
 
 </RelativeLayout>

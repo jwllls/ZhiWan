@@ -33,10 +33,10 @@ android {
 
         multiDexEnabled true//解决编译时出现"finished with non-zero exit value 2"的报错,通常是因为jar包重复导致的
 
-            manifestPlaceholders = [
-                    XG_ACCESS_ID : "2100275299",
-                    XG_ACCESS_KEY: "AJI226WC26AW",
-            ]
+        manifestPlaceholders = [
+                XG_ACCESS_ID : "2100275299",
+                XG_ACCESS_KEY: "AJI226WC26AW",
+        ]
 
         //内存泄漏配置
         configurations.all { config ->
@@ -81,6 +81,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //依赖注入（每个module需要单独写）
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 

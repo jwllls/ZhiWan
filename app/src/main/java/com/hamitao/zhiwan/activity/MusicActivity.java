@@ -79,7 +79,11 @@ public class MusicActivity extends BaseActivity {
     }
 
 
-    //获取歌词
+    /**
+     * 获取歌词
+     * @param fileName
+     * @return
+     */
     private String getLrcText(String fileName) {
         String lrcText = null;
         try {
