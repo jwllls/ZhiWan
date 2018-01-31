@@ -25,6 +25,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs 'libs', projectDir.getPath() + "/third_sdk/turing/libs"
+        }
         maven { url "https://jitpack.io" }
     }
 
@@ -44,5 +47,8 @@ ext {
     supportVersion = "27.0.2"
     versionCode = '1.0.0'
     versionName = '1'
+
+    TURING_MODULE_DIR_PATH = projectDir.getPath() + "/third_sdk/turing/libs" //图灵sdk
+
 
 }

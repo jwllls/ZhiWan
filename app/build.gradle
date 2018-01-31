@@ -35,8 +35,7 @@ android {
 
         manifestPlaceholders = [
                 XG_ACCESS_ID : "2100275299",
-                XG_ACCESS_KEY: "AJI226WC26AW",
-        ]
+                XG_ACCESS_KEY: "AJI226WC26AW",]
 
         //内存泄漏配置
         configurations.all { config ->
@@ -47,6 +46,20 @@ android {
                     }
                 }
             }
+        }
+    }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['./jni']
+        }
+    }
+
+    //依赖aar包的时候通过在 project的Build.gradle 中声明全局变量
+    repositories {
+        flatDir {
+            dirs 'libs', rootProject.ext.TURING_MODULE_DIR_PATH
         }
     }
 

@@ -23,12 +23,28 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
+//
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['./jni']
+//        }
+//    }
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs('libs')
+    repositories {
+        //...
+        flatDir {
+            dirs 'libs'
         }
     }
+
+    aaptOptions {
+        noCompress "dat"
+    }
+
+
 }
 
 dependencies {
@@ -39,12 +55,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    compile files('libs/commons-beanutils-1.9.2.jar')
-    compile files('libs/commons-codec-1.10.jar')
-    compile files('libs/commons-collections-3.2.1.jar')
-    compile files('libs/commons-lang-2.4.jar')
-    compile files('libs/commons-logging-1.2.jar')
-    compile files('libs/ezmorph-1.0.6.jar')
-    compile files('libs/json-lib-2.2.3-jdk15.jar')
-    compile files('libs/bdasr_V3_20171108_9800a2a.jar')
+
+    compile (name: 'iot-release', ext: 'aar')
+    compile (name: 'asr-release', ext: 'aar')
+    compile (name: 'authority-release', ext: 'aar')
+    compile (name: 'music-release', ext: 'aar')
+    compile (name: 'semantic-release', ext: 'aar')
+    compile (name: 'tts-release', ext: 'aar')
+    compile (name: 'turingmusic_mg', ext: 'aar')
+    compile (name: 'sdkhttp', ext: 'aar')
+
 }

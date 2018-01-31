@@ -14,6 +14,19 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+
+    <!--音乐-->
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 文件读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application
         android:name="com.zhiwan.hamitao.base_module.base.BaseApplication"
         android:allowBackup="true"
@@ -58,7 +71,16 @@
         <activity android:name=".activity.SelectContactActivity" />
         <activity android:name=".activity.EditScheduleActivity" />
         <activity android:name=".activity.CreateScheduleActivity" />
-        <activity android:name=".activity.NewScheduleInfoActivity"></activity>
+        <activity android:name=".activity.NewScheduleInfoActivity" />
+
+
+        <meta-data
+            android:name="TURING_APPKEY"
+            android:value="8822cd8417ea49e29f78d1f79888093b" />
+        <meta-data
+            android:name="TURING_SECRET"
+            android:value="av3lI07mJ2FdR7AJ" />
+
     </application>
 
 </manifest>

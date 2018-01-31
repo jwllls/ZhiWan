@@ -11,7 +11,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.hamitao.zhiwan.R;
+import com.turing.music.InitListener;
+import com.turing.music.MusicManager;
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.util.LogUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -76,6 +79,7 @@ public class MusicActivity extends BaseActivity {
 
     private void initData() {
         mediaPlayer = new MediaPlayer();
+        initMusic();
     }
 
 
@@ -242,7 +246,7 @@ public class MusicActivity extends BaseActivity {
             case R.id.tv_timer:
                 break;
             case R.id.tv_start:
-                if (!mediaPlayer.isPlaying()) {
+              /*  if (!mediaPlayer.isPlaying()) {
                     if (isPause) {
                         //暂停
                         resume();
@@ -261,7 +265,19 @@ public class MusicActivity extends BaseActivity {
                     //暂停
                     playPause();
                     handler.removeCallbacks(runnable);
-                }
+                }*/
+
+//                MusicManager.getInstance().search("周杰伦",1,20, new OnSearchListener() {
+//                    @Override
+//                    public void onSuccess(List<MusicEntity> list) {
+//                        MusicManager.getInstance().play(list.get(0));
+//                    }
+//
+//                    @Override
+//                    public void onFailed(int i, String s) {
+//
+//                    }
+//                });
                 break;
             case R.id.tv_before:
                 break;
@@ -270,5 +286,20 @@ public class MusicActivity extends BaseActivity {
             case R.id.iv_musicState:
                 break;
         }
+    }
+
+    private void initMusic() {
+
+         MusicManager.getInstance().init(this, new InitListener() {
+            @Override
+            public void onSuccess() {
+                LogUtil.d(TAG, "图灵MUSIC初始化成功");
+            }
+
+            @Override
+            public void onFailed(int i, String s) {
+                LogUtil.d(TAG, s + "错误码:" + i);
+            }
+        });
     }
 }

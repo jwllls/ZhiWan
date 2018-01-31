@@ -19,6 +19,12 @@ android {
         }
     }
 
+    repositories {
+        flatDir {
+            dirs 'libs', rootProject.ext.TURING_MODULE_DIR_PATH
+        }
+    }
+
 
 
 

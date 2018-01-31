@@ -17,6 +17,19 @@ public class Constant {
     //sdk appid 由腾讯分配
     public static final int SDK_APPID = 1400059977;
 
+
+    //图灵SDK
+    public static final String TURING_KEY = "8822cd8417ea49e29f78d1f79888093b";
+    public static final String TURING_SECRET = "av3lI07mJ2FdR7AJ";
+
+    //龙域
+    //String key = "03a192c8e18c4c3fafea62d0368d9fc7";
+    //String secret = "3SO5x54GiO2IFdnE";
+
+    String key = "8822cd8417ea49e29f78d1f79888093b";
+    String secret = "av3lI07mJ2FdR7AJ";
+    String userId = "166854435";
+
     /**
      * 小于5M的视频无需压缩
      */

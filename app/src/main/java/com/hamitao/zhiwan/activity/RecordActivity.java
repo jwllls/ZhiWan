@@ -51,6 +51,8 @@ public class RecordActivity extends AppCompatActivity implements RecordView {
         initView();
     }
 
+
+
     private void initData() {
         presenter = new RecordPresenter(this, this);
     }
