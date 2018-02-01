@@ -26,9 +26,9 @@ public class Constant {
     //String key = "03a192c8e18c4c3fafea62d0368d9fc7";
     //String secret = "3SO5x54GiO2IFdnE";
 
-    String key = "8822cd8417ea49e29f78d1f79888093b";
-    String secret = "av3lI07mJ2FdR7AJ";
-    String userId = "166854435";
+    //声网Appkey
+    public static final String OPENVOICE_APPID = "699d5cc22dab468bae888cca23c18459";
+
 
     /**
      * 小于5M的视频无需压缩

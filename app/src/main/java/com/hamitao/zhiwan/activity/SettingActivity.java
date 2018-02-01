@@ -22,10 +22,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.hamitao.zhiwan.Constant.USER_APK_LOCAL;
-import static com.hamitao.zhiwan.Constant.USER_PIC_LOCAL;
-import static com.hamitao.zhiwan.Constant.USER_RECORD_LOCAL;
-import static com.hamitao.zhiwan.Constant.USER_VOICE_LOCAL;
+import static com.zhiwan.hamitao.base_module.Constant.USER_APK_LOCAL;
+import static com.zhiwan.hamitao.base_module.Constant.USER_PIC_LOCAL;
+import static com.zhiwan.hamitao.base_module.Constant.USER_RECORD_LOCAL;
+import static com.zhiwan.hamitao.base_module.Constant.USER_VOICE_LOCAL;
+
 
 /**
  * Created by linjianwen on 2018/1/4.

@@ -79,7 +79,7 @@ public class MusicActivity extends BaseActivity {
 
     private void initData() {
         mediaPlayer = new MediaPlayer();
-        initMusic();
+//        initMusic();
     }
 
 
@@ -246,7 +246,7 @@ public class MusicActivity extends BaseActivity {
             case R.id.tv_timer:
                 break;
             case R.id.tv_start:
-              /*  if (!mediaPlayer.isPlaying()) {
+                if (!mediaPlayer.isPlaying()) {
                     if (isPause) {
                         //暂停
                         resume();
@@ -265,7 +265,7 @@ public class MusicActivity extends BaseActivity {
                     //暂停
                     playPause();
                     handler.removeCallbacks(runnable);
-                }*/
+                }
 
 //                MusicManager.getInstance().search("周杰伦",1,20, new OnSearchListener() {
 //                    @Override

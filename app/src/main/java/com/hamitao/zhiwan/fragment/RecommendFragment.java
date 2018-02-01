@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.RecommendAdapter;
 import com.hamitao.zhiwan.activity.ScanActivity;
@@ -19,10 +18,11 @@ import com.hamitao.zhiwan.activity.SearchActivity;
 import com.hamitao.zhiwan.activity.SmartTreeActivity;
 import com.hamitao.zhiwan.activity.SortActivity;
 import com.hamitao.zhiwan.activity.WebViewActivity;
-import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.hamitao.zhiwan.model.NewsModel;
 import com.hamitao.zhiwan.mvp.recommend.RecommendPresenter;
 import com.hamitao.zhiwan.mvp.recommend.RecommendView;
+import com.zhiwan.hamitao.base_module.Constant;
+import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.zhiwan.hamitao.base_module.util.BGARefreshUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 

@@ -25,17 +25,17 @@ android {
         //版本名
         versionName project.hasProperty("cusVersionName") ? cusVersionName : DEF_VERSION_ANME
 
-
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: project.hasProperty("cusAppId") ? cusAppId : DEF_APPLICATION_ID,
+                JPUSH_APPKEY : "2efecf8d072a6955923f7962", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
         ndk {
             //使用这个需要在gradle.properties添加android.useDeprecatedNdk = true
             abiFilters 'armeabi', 'armeabi-v7a'//过滤掉除armeabi文件夹以外的arm
         }
 
         multiDexEnabled true//解决编译时出现"finished with non-zero exit value 2"的报错,通常是因为jar包重复导致的
-
-        manifestPlaceholders = [
-                XG_ACCESS_ID : "2100275299",
-                XG_ACCESS_KEY: "AJI226WC26AW",]
 
         //内存泄漏配置
         configurations.all { config ->
@@ -62,6 +62,8 @@ android {
             dirs 'libs', rootProject.ext.TURING_MODULE_DIR_PATH
         }
     }
+
+
 
 
 
@@ -101,8 +103,7 @@ dependencies {
     //IM_module
     compile project(':im_module')
 
-    //base_module
-    compile project(':base_module')
-
-
+    //激光推送
+    compile 'cn.jiguang.sdk:jpush:3.1.1'  // 此处以JPush 3.1.1 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.9'  // 此处以JCore 1.1.9 版本为例。
 }

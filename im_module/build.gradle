@@ -19,13 +19,12 @@ android {
         }
     }
 
+    //如果依赖aar包，bmodule都要写rootProject.ext.TURING_MODULE_DIR_PATH
     repositories {
         flatDir {
             dirs 'libs', rootProject.ext.TURING_MODULE_DIR_PATH
         }
     }
-
-
 
 
 }

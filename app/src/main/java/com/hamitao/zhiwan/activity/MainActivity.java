@@ -76,9 +76,6 @@ public class MainActivity extends BaseActivity {
         fragmentManager = getSupportFragmentManager();
         //默认选中第一个tab
         showFragment(1);
-
-
-
     }
 
 

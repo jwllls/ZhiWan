@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.adapter.SquareAdapter;
-import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.hamitao.zhiwan.model.NewsModel;
 import com.hamitao.zhiwan.mvp.square.SquarePresenter;
 import com.hamitao.zhiwan.mvp.square.SquareView;
+import com.zhiwan.hamitao.base_module.Constant;
+import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.zhiwan.hamitao.base_module.util.BGARefreshUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 

@@ -12,7 +12,7 @@ import com.zhiwan.hamitao.base_module.model.UserModel;
 import com.zhiwan.hamitao.base_module.model.chat.ChatBodyDo;
 import com.zhiwan.hamitao.base_module.model.chat.ChatImgDo;
 import com.zhiwan.hamitao.base_module.model.chat.ChatSo;
-import com.zhiwan.hamitao.base_module.view.ChatImageView;
+import com.zhiwan.hamitao.base_module.customview.ChatImageView;
 import com.zhiwan.hamitao.im_module.R;
 import com.zhiwan.hamitao.base_module.util.GsonUtil;
 

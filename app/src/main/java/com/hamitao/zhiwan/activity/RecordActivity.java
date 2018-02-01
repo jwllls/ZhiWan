@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.model.RecordModel;
 import com.hamitao.zhiwan.mvp.record.RecordPresenter;
 import com.hamitao.zhiwan.mvp.record.RecordView;
+import com.zhiwan.hamitao.base_module.Constant;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import java.io.Serializable;

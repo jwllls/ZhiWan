@@ -13,10 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.hamitao.zhiwan.Constant;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.adapter.RecordAdapter;
 import com.hamitao.zhiwan.model.RecordModel;
+import com.zhiwan.hamitao.base_module.Constant;
 import com.zhiwan.hamitao.base_module.util.DateUtil;
 import com.zhiwan.hamitao.base_module.util.FileUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
