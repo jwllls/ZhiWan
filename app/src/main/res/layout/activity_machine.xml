@@ -37,13 +37,15 @@
                     android:text="设备状态"
                     android:textSize="14sp" />
 
-                <Switch
+                <TextView
+                    android:id="@+id/tv_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:gravity="center_vertical" />
+                    android:gravity="center_vertical"
+                    android:text="开机" />
 
                 <View
                     style="@style/h_divider"
@@ -53,6 +55,7 @@
             //电量
 
             <RelativeLayout
+                android:id="@+id/rl_machine_electric"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight">
 
@@ -65,6 +68,7 @@
                     android:text="电量" />
 
                 <TextView
+                    android:id="@+id/tv_electric"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -79,6 +83,7 @@
             //信号
 
             <RelativeLayout
+                android:id="@+id/rl_machine_signal"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight">
 
@@ -91,6 +96,7 @@
                     android:text="信号" />
 
                 <TextView
+                    android:id="@+id/tv_signal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -105,6 +111,7 @@
             //wifi
 
             <RelativeLayout
+                android:id="@+id/rl_machine_wifi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight">
 
@@ -126,6 +133,7 @@
                     android:text="jidain" />
 
                 <TextView
+                    android:id="@+id/tv_wifi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -139,6 +147,7 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/tv_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:gravity="center_vertical"
@@ -148,6 +157,7 @@
             <View style="@style/h_divider" />
 
             <TextView
+                android:id="@+id/tv_delivert_list"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:gravity="center_vertical"
@@ -157,6 +167,7 @@
             <View style="@style/h_divider" />
 
             <TextView
+                android:id="@+id/tv_contact"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:gravity="center_vertical"
@@ -166,6 +177,7 @@
             <View style="@style/h_divider" />
 
             <TextView
+                android:id="@+id/tv_phone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:gravity="center_vertical"
@@ -175,6 +187,7 @@
             <View style="@style/h_divider" />
 
             <TextView
+                android:id="@+id/tv_touch"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:gravity="center_vertical"
@@ -215,6 +228,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:clickable="false"
                     android:gravity="center_vertical" />
 
                 <View
@@ -226,7 +240,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/rl_play"
+                android:id="@+id/rl_machine_play"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_hight"
                 android:orientation="horizontal">
@@ -241,7 +255,7 @@
                     android:text="播放"
                     android:textSize="14sp" />
 
-                <Switch
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -252,7 +266,6 @@
                 <View
                     style="@style/h_divider"
                     android:layout_alignParentBottom="true" />
-
 
             </RelativeLayout>
 

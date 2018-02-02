@@ -2,6 +2,9 @@ package com.zhiwan.hamitao.base_module.base;
 
 import android.app.Application;
 
+import com.chenenyu.router.BuildConfig;
+import com.chenenyu.router.Configuration;
+import com.chenenyu.router.Router;
 import com.squareup.leakcanary.LeakCanary;
 import com.turing.authority.authentication.AuthenticationListener;
 import com.turing.authority.authentication.SdkInitializer;
@@ -10,6 +13,8 @@ import com.zhiwan.hamitao.base_module.util.AppVersionUtil;
 import com.zhiwan.hamitao.base_module.util.LogUtil;
 import com.zhiwan.hamitao.base_module.util.PropertiesUtil;
 import com.zhiwan.hamitao.base_module.util.RecordUtil;
+
+import cn.jpush.android.api.JPushInterface;
 
 
 /**
@@ -72,10 +77,18 @@ public class BaseApplication extends Application {
             }
         });
 
+        //初始化极光推送
+        JPushInterface.setDebugMode(true);//设置开启日志，发布时关闭日志
+        JPushInterface.init(instance);//初始化极光推送
 
 
-
-
+        //初始化路由框架
+        Router.initialize(new Configuration.Builder()
+                // 调试模式，开启后会打印log
+                .setDebuggable(BuildConfig.DEBUG)
+                // 模块名，每个使用Router的module都要在这里注册
+                .registerModules("im_module", "base_module", "app")
+                .build());
 
 
     }

@@ -10,8 +10,11 @@ import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.chenenyu.router.Router;
+import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
 import com.zhiwan.hamitao.base_module.base.BaseActivity;
+import com.zhiwan.hamitao.base_module.base.BaseApplication;
 import com.zhiwan.hamitao.base_module.util.DataCleanUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
@@ -21,6 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 
 import static com.zhiwan.hamitao.base_module.Constant.USER_APK_LOCAL;
 import static com.zhiwan.hamitao.base_module.Constant.USER_PIC_LOCAL;
@@ -30,11 +34,13 @@ import static com.zhiwan.hamitao.base_module.Constant.USER_VOICE_LOCAL;
 
 /**
  * Created by linjianwen on 2018/1/4.
+ * <p>
+ * 设置
  */
-
+@Route("setting")
 public class SettingActivity extends BaseActivity {
 
-    public static final String tag = SettingActivity.class.getSimpleName();
+    public static final String TAG = SettingActivity.class.getSimpleName();
 
 
     @BindView(R.id.title)
@@ -59,6 +65,7 @@ public class SettingActivity extends BaseActivity {
 
         title.setVisibility(View.VISIBLE);
         title.setText("设置");
+        switchPush.setClickable(false);
 
 
         //初始化缓存路径
@@ -78,15 +85,21 @@ public class SettingActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.rl_close:
-                startActivity(new Intent(this, TimingCloseActivity.class));
+                Router.build("timing_close").go(this);
                 break;
             case R.id.rl_push:
                 if (switchPush.isChecked()) {
                     switchPush.setChecked(false);
-//                    XGPushManager.unregisterPush(this);
+                    //关闭推送
+                    ToastUtil.showShort(this, "关闭推送");
+                    JPushInterface.stopPush(BaseApplication.getInstance());
                 } else {
                     switchPush.setChecked(true);
-//                    registerPush();
+                    //重新开启推送
+                    if (JPushInterface.isPushStopped(BaseApplication.getInstance())) {
+                        ToastUtil.showShort(this, "打开推送");
+                        JPushInterface.resumePush(BaseApplication.getInstance());
+                    }
                 }
                 break;
             case R.id.rl_cleanCache:

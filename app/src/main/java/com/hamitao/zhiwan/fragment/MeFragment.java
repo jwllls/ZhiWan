@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chenenyu.router.Router;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.CollectActivity;
 import com.hamitao.zhiwan.activity.MachineActivity;
-import com.hamitao.zhiwan.activity.MyRecordActivity;
 import com.hamitao.zhiwan.activity.MakeCardActivity;
-import com.hamitao.zhiwan.activity.RecentPlayActivity;
+import com.hamitao.zhiwan.activity.MyRecordActivity;
 import com.hamitao.zhiwan.activity.MyScheduleActivity;
-import com.hamitao.zhiwan.activity.SettingActivity;
+import com.hamitao.zhiwan.activity.RecentPlayActivity;
 import com.hamitao.zhiwan.activity.UserInfoActivity;
 import com.zhiwan.hamitao.base_module.base.BaseFragment;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
@@ -88,7 +88,8 @@ public class MeFragment extends BaseFragment {
                 startActivity(new Intent(context, MakeCardActivity.class));
                 break;
             case R.id.rl_setting:
-                startActivity(new Intent(context, SettingActivity.class));
+//                startActivity(new Intent(context, SettingActivity.class));
+                Router.build("setting").go(this);
                 break;
             case R.id.tv_collection:
                 //我的收藏
