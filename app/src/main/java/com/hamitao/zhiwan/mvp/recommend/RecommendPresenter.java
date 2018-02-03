@@ -59,5 +59,7 @@ public class RecommendPresenter implements BasePresenter {
                 view.onFinish();
             }
         }));
+
+
     }
 }

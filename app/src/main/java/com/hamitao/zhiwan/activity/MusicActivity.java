@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
 import com.turing.music.InitListener;
 import com.turing.music.MusicManager;
@@ -28,7 +29,7 @@ import me.wcy.lrcview.LrcView;
  * Created by linjianwen on 2018/1/4.
  * 播放器页面
  */
-
+@Route("music")
 public class MusicActivity extends BaseActivity {
 
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.fragment.MeFragment;
 import com.hamitao.zhiwan.fragment.RecommendFragment;
@@ -23,7 +24,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-//public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
+@Route("main")
 public class MainActivity extends BaseActivity {
 
     private static final int REQUEST_CODE_QRCODE_PERMISSIONS = 1;

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.hamitao.zhiwan">
 
     <!-- 网络权限 -->
@@ -15,8 +14,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-
-    <!--图灵音乐-->
+    <!-- 图灵音乐 -->
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -27,7 +25,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
 
     <application
         android:name="com.zhiwan.hamitao.base_module.base.BaseApplication"
@@ -45,8 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="stateHidden" />
@@ -74,19 +69,22 @@
         <activity android:name=".activity.CreateScheduleActivity" />
         <activity android:name=".activity.NewScheduleInfoActivity" />
 
-
         <meta-data
             android:name="TURING_APPKEY"
             android:value="8822cd8417ea49e29f78d1f79888093b" />
         <meta-data
             android:name="TURING_SECRET"
             android:value="av3lI07mJ2FdR7AJ" />
-
-        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
         <!-- Required. AppKey copied from Portal -->
-        <meta-data android:name="JPUSH_APPKEY" android:value="2efecf8d072a6955923f7962"/>
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="2efecf8d072a6955923f7962" />
 
-
+        <activity android:name=".activity.AlarmActivity" />
+        <activity android:name=".activity.AddAlarmActivity"></activity>
     </application>
 
 </manifest>
