@@ -6,33 +6,112 @@
     android:orientation="vertical"
     tools:context="com.hamitao.zhiwan.activity.LoginActivity">
 
-    <include layout="@layout/title_bar"/>
+    <TextView
+        android:textSize="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:text="@string/app_name" />
 
-    <EditText
-        android:hint="请输入手机号"
-        android:id="@+id/et_username"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-    <EditText
-        android:hint="请输入密码"
-        android:id="@+id/et_password"
-        android:inputType="textPassword"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/logo"
+            android:background="@color/text_default_d" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/app_logo" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/logo"
+            android:background="@color/text_default_d" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="app口号" />
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:text="登录"
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入手机号" />
 
-    <Button
-        android:text="注册"
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_username"
+            android:hint="请输入密码"
+            android:inputType="textPassword" />
 
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_findPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/et_password"
+            android:text="找回密码" />
+
+        <TextView
+            android:textColor="@color/red"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/et_password"
+            android:text="现在注册" />
+
+        <Button
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_findPassword"
+            android:text="登陆" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_login"
+            android:layout_centerInParent="true"
+            android:text="我已同意并阅读《用户协议》" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>

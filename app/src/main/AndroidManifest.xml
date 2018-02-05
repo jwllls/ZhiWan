@@ -84,7 +84,10 @@
             android:value="2efecf8d072a6955923f7962" />
 
         <activity android:name=".activity.AlarmActivity" />
-        <activity android:name=".activity.AddAlarmActivity"></activity>
+        <activity android:name=".activity.AddAlarmActivity" />
+        <activity android:name=".activity.FindPasswordActivity" />
+        <activity android:name=".activity.NewPasswordActivity" />
+        <activity android:name=".activity.SelectWeekActivity"></activity>
     </application>
 
 </manifest>

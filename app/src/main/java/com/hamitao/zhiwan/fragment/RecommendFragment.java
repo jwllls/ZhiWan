@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.chenenyu.router.Router;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.activity.RecommendAdapter;
 import com.hamitao.zhiwan.activity.ScanActivity;
@@ -62,6 +63,8 @@ public class RecommendFragment extends BaseFragment implements RecommendView, BG
     BGARefreshLayout refreshLayout;
     @BindView(R.id.tv_none)
     TextView tv_none;
+    @BindView(R.id.tv_loginTips)
+    TextView tv_loginTips;
 
 
     private RecommendAdapter adapter;
@@ -113,7 +116,7 @@ public class RecommendFragment extends BaseFragment implements RecommendView, BG
         unbinder.unbind();
     }
 
-    @OnClick({R.id.back, R.id.more, R.id.et_search, R.id.tv_search, R.id.tv_btn, R.id.rl_search})
+    @OnClick({R.id.back, R.id.more, R.id.et_search, R.id.tv_search, R.id.tv_btn, R.id.rl_search,R.id.tv_loginTips})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
@@ -130,6 +133,9 @@ public class RecommendFragment extends BaseFragment implements RecommendView, BG
             case R.id.tv_btn:
                 //扫一扫
                 startActivity(new Intent(getActivity(), ScanActivity.class));
+                break;
+            case R.id.tv_loginTips:
+                Router.build("login").go(this);
                 break;
         }
     }
