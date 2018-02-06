@@ -2,7 +2,6 @@ package com.hamitao.zhiwan.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.util.SimpleArrayMap;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -34,15 +33,14 @@ public class AddAlarmActivity extends BaseActivity {
     TimePicker timepicker;
     @BindView(R.id.tv_bell)
     TextView tvBell;
+    @BindView(R.id.tv_cycle)
+    TextView tvCycle;
 
 
     private int hour;
     private int minute;
 
     private String cycle;
-
-
-    private SimpleArrayMap<Integer, Boolean> map = new SimpleArrayMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +74,7 @@ public class AddAlarmActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.back, R.id.more,R.id.rl_alarm_cycle, R.id.rl_alarm_lable, R.id.rl_alarm_bell, R.id.rl_record_bell})
+    @OnClick({R.id.back, R.id.more, R.id.rl_alarm_cycle, R.id.rl_alarm_lable, R.id.rl_alarm_bell, R.id.rl_record_bell})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
@@ -103,9 +101,7 @@ public class AddAlarmActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SELECT_WEEK && resultCode == SELECT_WEEK) {
             cycle = data.getStringExtra("selectWeek");
-//            cycle = String.valueOf(data.getStringArrayExtra("selectWeek"));
-            ToastUtil.showShort(this,cycle);
-
+            tvCycle.setText(cycle);
         }
     }
 

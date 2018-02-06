@@ -1,15 +1,15 @@
 package com.hamitao.zhiwan.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -21,8 +21,8 @@ import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.bigkoo.pickerview.TimePickerView;
 import com.hamitao.zhiwan.R;
-import com.zhiwan.hamitao.base_module.model.UserModel;
 import com.hamitao.zhiwan.mvp.userinfo.UserInfoView;
+import com.zhiwan.hamitao.base_module.model.UserModel;
 import com.zhiwan.hamitao.base_module.util.DateUtil;
 import com.zhiwan.hamitao.base_module.util.LogUtil;
 
@@ -64,6 +64,8 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
     CircleImageView iv_face;
     @BindView(R.id.tv_birth)
     TextView tv_birth;
+    @BindView(R.id.tv_bbName)
+    TextView tv_bbName;
 
 
     Calendar selectedDate = Calendar.getInstance();
@@ -150,7 +152,7 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
                         .show();
                 break;
             case R.id.rl_bbName:
-                mAlertViewExt = new AlertView("提示", "请输入宝宝的名字", "取消", null, new String[]{"完成"}, this, AlertView.Style.Alert, new OnItemClickListener() {
+               /* mAlertViewExt = new AlertView("提示", "请输入宝宝的名字", "取消", null, new String[]{"完成"}, this, AlertView.Style.Alert, new OnItemClickListener() {
                     @Override
                     public void onItemClick(Object o, int position) {
 
@@ -168,7 +170,21 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
                     }
                 });
                 mAlertViewExt.addExtView(extView);
-                mAlertViewExt.show();
+                mAlertViewExt.show();*/
+                final EditText et = new EditText(this);
+                if (!tv_bbName.equals("")) {
+                    et.setText(tv_bbName.getText());
+                    et.setSelection(tv_bbName.length());
+                }
+                new AlertDialog.Builder(this).setTitle("提示").setMessage("请输入宝宝的名字").setView(et).setNegativeButton("取消", null)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                tv_bbName.setText(et.getText().toString());
+                            }
+                        }).show();
+
+
                 break;
             case R.id.rl_bbBirth:
 

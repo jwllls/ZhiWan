@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <include layout="@layout/title_bar" />
@@ -12,33 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/rl_close"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/item_hight"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/ic_launcher"
-                android:gravity="center"
-                android:padding="05dp"
-                android:text="定时关机" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:drawableRight="@drawable/icon_arraow_right" />
-
-            <View
-                style="@style/h_divider"
-                android:layout_alignParentBottom="true" />
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_push"

@@ -2,23 +2,7 @@
 <resources>
 
 
-    <declare-styleable name="ItemView">
 
-        <attr name="rightText" format="string" />
-        <attr name="rightDrawableLeft" format="reference|color" />
-        <attr name="rightDrawableTop" format="reference|color" />
-        <attr name="rightDrawableRight" format="reference|color" />
-        <attr name="rightDrawableBottom" format="reference|color" />
-        <attr name="rightBackground" format="reference|color" />
-
-        <attr name="leftText" format="string" />
-        <attr name="leftBackground" format="reference|color" />
-        <attr name="leftDrawableLeft" format="reference|color" />
-        <attr name="leftDrawableTop" format="reference|color" />
-        <attr name="leftDrawableRight" format="reference|color" />
-        <attr name="leftDrawableBottom" format="reference|color" />
-
-    </declare-styleable>
 
 
 </resources>

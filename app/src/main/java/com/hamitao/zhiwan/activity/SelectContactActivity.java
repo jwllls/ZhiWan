@@ -7,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.ArrayMap;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,9 +40,6 @@ public class SelectContactActivity extends AppCompatActivity {
     private SelectContactAdapter adapter;
 
     private List<ContactModel> list = new ArrayList<>();
-
-    private ArrayMap<Boolean, ContactModel> modelArrayMap = new ArrayMap<>();
-
 
     private FinishCallback callback;
 

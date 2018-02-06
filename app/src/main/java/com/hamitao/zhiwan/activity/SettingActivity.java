@@ -3,7 +3,6 @@ package com.hamitao.zhiwan.activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -34,7 +33,7 @@ import static com.zhiwan.hamitao.base_module.Constant.USER_VOICE_LOCAL;
 
 /**
  * Created by linjianwen on 2018/1/4.
- * <p>
+ *
  * 设置
  */
 @Route("setting")
@@ -67,7 +66,6 @@ public class SettingActivity extends BaseActivity {
         title.setText("设置");
         switchPush.setClickable(false);
 
-
         //初始化缓存路径
         cleanUtil = DataCleanUtil.getInstance();
         List<String> paths = new ArrayList<>();
@@ -78,20 +76,18 @@ public class SettingActivity extends BaseActivity {
         cleanUtil.init(paths);
     }
 
-    @OnClick({R.id.back, R.id.rl_close, R.id.rl_push, R.id.rl_cleanCache, R.id.rl_about, R.id.rl_helper})
+    @OnClick({R.id.back, R.id.rl_push, R.id.rl_cleanCache, R.id.rl_about, R.id.rl_helper})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
                 finish();
                 break;
-            case R.id.rl_close:
-                Router.build("timing_close").go(this);
-                break;
+//                Router.build("timing_close").go(this);
             case R.id.rl_push:
                 if (switchPush.isChecked()) {
                     switchPush.setChecked(false);
                     //关闭推送
-                    ToastUtil.showShort(this, "关闭推送");
+                    ToastUtil.showShort(getApplicationContext(), "关闭推送");
                     JPushInterface.stopPush(BaseApplication.getInstance());
                 } else {
                     switchPush.setChecked(true);
@@ -117,10 +113,10 @@ public class SettingActivity extends BaseActivity {
                 }
                 break;
             case R.id.rl_about:
-                startActivity(new Intent(this, AboutActivity.class));
+                Router.build("about").go(this);
                 break;
             case R.id.rl_helper:
-                ToastUtil.showShort(this, "客服");
+                ToastUtil.showShort(getApplicationContext(), "客服");
                 break;
         }
     }
@@ -139,7 +135,7 @@ public class SettingActivity extends BaseActivity {
         cleanUtil.cleanCustomCache(USER_VOICE_LOCAL);  //清除音频
         cleanUtil.cleanCustomCache(USER_RECORD_LOCAL);  //清除录音
 
-        ToastUtil.showShort(this, "清除成功");
+        ToastUtil.showShort(getApplicationContext(), "清除成功");
     }
 
 

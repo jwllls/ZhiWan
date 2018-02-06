@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
 
 import butterknife.BindView;
@@ -18,7 +19,7 @@ import butterknife.OnClick;
 /**
  * Created by linjianwen on 2018/1/5.
  */
-
+@Route("about")
 public class AboutActivity extends AppCompatActivity {
 
     PackageInfo packageInfo;
@@ -27,6 +28,7 @@ public class AboutActivity extends AppCompatActivity {
     TextView title;
     @BindView(R.id.app_version)
     TextView app_version;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class AboutActivity extends AppCompatActivity {
 
         title.setVisibility(View.VISIBLE);
         title.setText("关于");
+
     }
 
     @OnClick({R.id.back, R.id.more})
