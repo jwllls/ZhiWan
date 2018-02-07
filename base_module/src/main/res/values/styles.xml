@@ -10,6 +10,18 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+    <!--评论条弹窗样式-->
+    <style name="Comment_Dialog" parent="@style/AppTheme" type="text/css">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowSoftInputMode">stateAlwaysVisible</item><!--显示软件盘-->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+
     <!-- Base application theme. -->
     <style name="ApplicationTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->

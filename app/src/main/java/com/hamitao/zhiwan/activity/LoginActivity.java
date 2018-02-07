@@ -8,7 +8,6 @@ import android.widget.EditText;
 import com.chenenyu.router.Router;
 import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
-import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +15,6 @@ import butterknife.OnClick;
 
 @Route("login")
 public class LoginActivity extends AppCompatActivity {
-
 
     @BindView(R.id.et_username)
     EditText etUsername;
@@ -44,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 Router.build("register").go(this);
                 break;
             case R.id.btn_login:
-                ToastUtil.showShort(this, "用户登录");
+                Router.build("main").go(this);
                 break;
         }
     }

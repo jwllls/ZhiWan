@@ -87,7 +87,9 @@
         <activity android:name=".activity.AddAlarmActivity" />
         <activity android:name=".activity.FindPasswordActivity" />
         <activity android:name=".activity.NewPasswordActivity" />
-        <activity android:name=".activity.SelectWeekActivity"></activity>
+        <activity android:name=".activity.SelectWeekActivity" />
+        <activity android:name=".activity.DeliverListActivity" />
+        <activity android:name=".activity.NewGroupActivity"></activity>
     </application>
 
 </manifest>

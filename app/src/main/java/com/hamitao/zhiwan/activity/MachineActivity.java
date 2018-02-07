@@ -30,8 +30,10 @@ public class MachineActivity extends AppCompatActivity {
     RelativeLayout rlMachineWifi;
     @BindView(R.id.tv_alarm)
     TextView tvAlarm;
-    @BindView(R.id.tv_delivert_list)
+    @BindView(R.id.tv_deliver_list)
     TextView tvDelivertList;
+    @BindView(R.id.tv_machine_record)
+    TextView tvMachineRecord;
     @BindView(R.id.tv_contact)
     TextView tvContact;
     @BindView(R.id.tv_phone)
@@ -53,12 +55,12 @@ public class MachineActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        title.setVisibility(View.VISIBLE);
         title.setText("设备管理");
 
     }
 
-    @OnClick({R.id.back, R.id.more,R.id.rl_machine_state, R.id.rl_machine_electric, R.id.rl_machine_signal, R.id.rl_machine_wifi, R.id.tv_alarm, R.id.tv_delivert_list, R.id.tv_contact, R.id.tv_phone, R.id.tv_touch, R.id.rl_machine_isOpen, R.id.rl_machine_play})
+    @OnClick({R.id.back, R.id.more, R.id.rl_machine_state, R.id.rl_machine_electric, R.id.rl_machine_signal, R.id.rl_machine_wifi,
+            R.id.tv_alarm, R.id.tv_deliver_list, R.id.tv_contact, R.id.tv_phone, R.id.tv_touch, R.id.rl_machine_isOpen, R.id.rl_machine_play})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
@@ -73,17 +75,30 @@ public class MachineActivity extends AppCompatActivity {
             case R.id.rl_machine_signal:
                 break;
             case R.id.rl_machine_wifi:
+                //设备连接的wifi
                 break;
             case R.id.tv_alarm:
+                //设备闹钟
                 Router.build("alarm").go(this);
                 break;
-            case R.id.tv_delivert_list:
+            case R.id.tv_deliver_list:
+                //投送清单
+                Router.build("deliver_list").go(this);
+                break;
+            case R.id.tv_machine_record:
+                Router.build("machine_record").go(this);
                 break;
             case R.id.tv_contact:
+                //联系人
+                Router.build("contact").go(this);
                 break;
             case R.id.tv_phone:
+                //设备电话本
+                Router.build("phone").go(this);
                 break;
             case R.id.tv_touch:
+                //碰过的设备
+                Router.build("touch").go(this);
                 break;
             case R.id.rl_machine_isOpen:
                 break;

@@ -77,27 +77,24 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_below="@id/rl_content"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_good"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/icon_mic"
-                android:gravity="center"
-                android:text="120" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/icon_mic"
+                android:layout_marginRight="20dp"
+                android:drawableRight="@drawable/icon_good"
                 android:gravity="center" />
 
 
             <TextView
+                android:id="@+id/tv_comments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/icon_mic"
+                android:drawableRight="@drawable/icon_comments"
                 android:gravity="center" />
 
         </LinearLayout>

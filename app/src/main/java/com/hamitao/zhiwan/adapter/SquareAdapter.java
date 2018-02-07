@@ -27,5 +27,17 @@ public class SquareAdapter extends BGARecyclerViewAdapter<NewsModel.ResultBean.D
         helper.getTextView(R.id.square_title).setText(model.getTitle());
         helper.getTextView(R.id.square_time).setText(model.getDate());
 
+
+
+    }
+
+
+    @Override
+    protected void setItemChildListener(BGAViewHolderHelper helper, int viewType) {
+       super.setItemChildListener(helper, viewType);
+
+        helper.setItemChildClickListener(R.id.tv_comments);
+
+        helper.setItemChildClickListener(R.id.tv_good);
     }
 }

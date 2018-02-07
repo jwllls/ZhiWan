@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hamitao.zhiwan.activity.SortActivity">
+    android:orientation="vertical"
+    tools:context="com.hamitao.zhiwan.activity.DeliverListActivity">
 
-    <include layout="@layout/title_bar"/>
+
+    <include layout="@layout/title_bar" />
+
+    <include layout="@layout/common_recyclerview" />
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.adapter.SquareAdapter;
@@ -16,7 +17,9 @@ import com.hamitao.zhiwan.mvp.square.SquarePresenter;
 import com.hamitao.zhiwan.mvp.square.SquareView;
 import com.zhiwan.hamitao.base_module.Constant;
 import com.zhiwan.hamitao.base_module.base.BaseFragment;
+import com.zhiwan.hamitao.base_module.dialog.CommentDialog;
 import com.zhiwan.hamitao.base_module.util.BGARefreshUtil;
+import com.zhiwan.hamitao.base_module.util.ChatInputMethodUtil;
 import com.zhiwan.hamitao.base_module.util.ToastUtil;
 
 import java.util.List;
@@ -24,6 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.bingoogolapple.baseadapter.BGAOnItemChildClickListener;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 
 import static com.zhiwan.hamitao.base_module.util.BGARefreshUtil.getBGAMeiTuanRefreshViewHolder;
@@ -32,7 +36,7 @@ import static com.zhiwan.hamitao.base_module.util.BGARefreshUtil.getBGAMeiTuanRe
  * Created by linjianwen on 2018/1/4.
  */
 
-public class SquareFragment extends BaseFragment implements SquareView, BGARefreshLayout.BGARefreshLayoutDelegate {
+public class SquareFragment extends BaseFragment implements SquareView, BGARefreshLayout.BGARefreshLayoutDelegate, BGAOnItemChildClickListener {
 
 
     View view;
@@ -45,8 +49,11 @@ public class SquareFragment extends BaseFragment implements SquareView, BGARefre
     @BindView(R.id.tv_none)
     TextView tv_none;
 
+
     private SquareAdapter adapter;
     private SquarePresenter presenter;
+
+    private ChatInputMethodUtil chatInputMethodUtil;
 
 
     int page = 1;
@@ -64,13 +71,16 @@ public class SquareFragment extends BaseFragment implements SquareView, BGARefre
 
     private void initData() {
 
-        presenter = new SquarePresenter(this, getActivity());
+        chatInputMethodUtil = new ChatInputMethodUtil(getActivity());
 
+        presenter = new SquarePresenter(this, getActivity());
 
         refreshLayout.setDelegate(this);//设置下拉刷新监听
         refreshLayout.setRefreshViewHolder(getBGAMeiTuanRefreshViewHolder(getActivity())); //设置下拉样式
 
         adapter = new SquareAdapter(recyclerView);
+
+        adapter.setOnItemChildClickListener(this);
 
         startRefreshing();
 
@@ -181,5 +191,27 @@ public class SquareFragment extends BaseFragment implements SquareView, BGARefre
     @Override
     public void getList(NewsModel.ResultBean resultBean, int requestType) {
         setData(resultBean.getData(), requestType);
+    }
+
+    @Override
+    public void onItemChildClick(ViewGroup parent, View childView, int position) {
+
+        switch (childView.getId()) {
+            case R.id.tv_comments:
+                showCommentDialog();
+                break;
+            case R.id.tv_good:
+                ToastUtil.showShort(getActivity(), "点赞");
+                break;
+        }
+    }
+
+    private void showCommentDialog() {
+        new CommentDialog("优质评论将会被优先展示", new CommentDialog.SendListener() {
+            @Override
+            public void sendComment(String inputText) {
+                Toast.makeText(getActivity(), inputText, Toast.LENGTH_SHORT).show();
+            }
+        }).show(getActivity().getFragmentManager(), "comment");
     }
 }
