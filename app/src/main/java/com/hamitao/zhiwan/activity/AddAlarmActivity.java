@@ -88,6 +88,7 @@ public class AddAlarmActivity extends BaseActivity {
                 Router.build("select_week").requestCode(SELECT_WEEK).go(this);
                 break;
             case R.id.rl_alarm_lable:
+                
                 break;
             case R.id.rl_alarm_bell:
                 break;

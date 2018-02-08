@@ -76,7 +76,6 @@ dependencies {
     compile 'me.wcy:lrcview:2.0.1'
 
     //权限
-
     //    compile 'pub.devrel:easypermissions:1.0.0'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
 

@@ -82,7 +82,6 @@ public class SettingActivity extends BaseActivity {
             case R.id.back:
                 finish();
                 break;
-//                Router.build("timing_close").go(this);
             case R.id.rl_push:
                 if (switchPush.isChecked()) {
                     switchPush.setChecked(false);

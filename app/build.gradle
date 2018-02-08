@@ -124,5 +124,4 @@ dependencies {
     compile 'com.chenenyu.router:router:1.3.3'
     annotationProcessor 'com.chenenyu.router:compiler:1.3.3'
 
-
 }

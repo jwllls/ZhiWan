@@ -20,14 +20,24 @@ public class KeyBoardUtils {
 
 
     //隐藏虚拟键盘
-    public static void HideKeyboard(View v)
+   /* public static void HideKeyboard(View v)
     {
         InputMethodManager imm = ( InputMethodManager ) v.getContext( ).getSystemService( Context.INPUT_METHOD_SERVICE );
         if ( imm.isActive( ) ) {
             imm.hideSoftInputFromWindow( v.getApplicationWindowToken( ) , 0 );
 
         }
+    }*/
+
+    public static void  HideKeyboard(Context context){
+        try{
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS, 0);
+        }
+        catch(Exception ex){
+        }
     }
+
 
     //显示虚拟键盘
     public static void ShowKeyboard(View v)

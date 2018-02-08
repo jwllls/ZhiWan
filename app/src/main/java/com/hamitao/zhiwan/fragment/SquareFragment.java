@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.adapter.SquareAdapter;
@@ -207,11 +206,19 @@ public class SquareFragment extends BaseFragment implements SquareView, BGARefre
     }
 
     private void showCommentDialog() {
-        new CommentDialog("优质评论将会被优先展示", new CommentDialog.SendListener() {
+     /*   new CommentDialog("优质评论将会被优先展示", new CommentDialog.SendListener() {
             @Override
             public void sendComment(String inputText) {
-                Toast.makeText(getActivity(), inputText, Toast.LENGTH_SHORT).show();
+
             }
-        }).show(getActivity().getFragmentManager(), "comment");
+        }).show(getActivity().getSupportFragmentManager(), "comment");*/
+
+
+       new CommentDialog(getActivity(), new CommentDialog.SendListener() {
+           @Override
+           public void sendComment(String inputText) {
+               ToastUtil.showShort(getActivity(), "inputText");
+           }
+       }).builder().show();
     }
 }

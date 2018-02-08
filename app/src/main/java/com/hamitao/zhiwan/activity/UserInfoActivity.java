@@ -20,6 +20,7 @@ import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.bigkoo.pickerview.TimePickerView;
+import com.chenenyu.router.annotation.Route;
 import com.hamitao.zhiwan.R;
 import com.hamitao.zhiwan.mvp.userinfo.UserInfoView;
 import com.zhiwan.hamitao.base_module.model.UserModel;
@@ -35,7 +36,7 @@ import butterknife.OnClick;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-
+@Route("user_info")
 public class UserInfoActivity extends AppCompatActivity implements UserInfoView {
 
 
@@ -214,6 +215,10 @@ public class UserInfoActivity extends AppCompatActivity implements UserInfoView 
 
                             }
                         }).show();
+
+
+
+
                 break;
         }
     }

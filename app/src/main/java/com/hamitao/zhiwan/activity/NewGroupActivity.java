@@ -61,6 +61,7 @@ public class NewGroupActivity extends AppCompatActivity {
 
     private void initView() {
         title.setText("新建群组信息");
+        gvGroup.setAdapter(adapter);
 
     }
 

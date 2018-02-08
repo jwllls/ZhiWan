@@ -57,9 +57,14 @@ public class FindPasswordActivity extends AppCompatActivity {
                 break;
             case R.id.tv_getCode:
 
+
                 code = createCode();
 
                 ToastUtil.showLong(this, "智玩验证码：" + code);
+
+
+
+
 
                 break;
             case R.id.btn_next:

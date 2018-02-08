@@ -8,6 +8,7 @@
 
     <!--项高度-->
     <dimen name="item_hight">50dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>

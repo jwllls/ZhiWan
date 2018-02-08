@@ -86,6 +86,7 @@ public class MachineActivity extends AppCompatActivity {
                 Router.build("deliver_list").go(this);
                 break;
             case R.id.tv_machine_record:
+                //设备录音
                 Router.build("machine_record").go(this);
                 break;
             case R.id.tv_contact:
@@ -94,7 +95,7 @@ public class MachineActivity extends AppCompatActivity {
                 break;
             case R.id.tv_phone:
                 //设备电话本
-                Router.build("phone").go(this);
+                Router.build("MachineContact").go(this);
                 break;
             case R.id.tv_touch:
                 //碰过的设备

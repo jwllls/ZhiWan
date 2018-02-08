@@ -78,7 +78,6 @@
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
-        <!-- Required. AppKey copied from Portal -->
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="2efecf8d072a6955923f7962" />
@@ -89,7 +88,9 @@
         <activity android:name=".activity.NewPasswordActivity" />
         <activity android:name=".activity.SelectWeekActivity" />
         <activity android:name=".activity.DeliverListActivity" />
-        <activity android:name=".activity.NewGroupActivity"></activity>
+        <activity android:name=".activity.NewGroupActivity" />
+        <activity android:name=".activity.MachineRecordActivity" />
+        <activity android:name=".activity.ContactActivity"></activity>
     </application>
 
 </manifest>
